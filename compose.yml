@@ -1,0 +1,59 @@
+services:
+  postgres:
+    image: postgres
+    container_name: ${PROJECT_NAME}_postgres
+    ports:
+      - 5432:5432
+    volumes:
+      - ./data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=${DATABASE_NAME}
+      - POSTGRES_USER=${DATABASE_USERNAME}
+      - POSTGRES_PASSWORD=${DATABASE_PASSWORD}
+    networks:
+      - internal
+
+  backend:
+    container_name: ${PROJECT_NAME}_backend
+    build: 
+      context: backend
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      DATABASE_CLIENT: ${DATABASE_CLIENT}
+      DATABASE_HOST: postgres
+      DATABASE_PORT: ${DATABASE_PORT}
+      DATABASE_NAME: ${DATABASE_NAME}
+      DATABASE_USERNAME: ${DATABASE_USERNAME}
+      DATABASE_PASSWORD: ${DATABASE_PASSWORD}
+      JWT_SECRET: ${JWT_SECRET}
+      ADMIN_JWT_SECRET: ${ADMIN_JWT_SECRET}
+      APP_KEYS: ${APP_KEYS}
+      NODE_ENV: ${NODE_ENV}
+    ports:
+      - "1337:1337"
+    networks:
+      - internal
+    depends_on:
+      - postgres
+
+  frontend:
+    container_name: ${PROJECT_NAME}_frontend
+    build:
+      context: frontend
+    ports:
+      - 3000:3000
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+      - /app/.next
+    networks:
+      - internal
+
+volumes:
+  data:
+
+networks:
+  internal:
+    name: ${PROJECT_NAME}_internal
+    driver: bridge
