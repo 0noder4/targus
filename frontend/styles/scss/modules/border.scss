@@ -1,0 +1,6 @@
+@use "../" as v;
+
+@mixin itp-border--accent {
+  border: 1px solid v.$itp-color--accent;
+  border-radius: 5px;
+}

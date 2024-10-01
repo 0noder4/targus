@@ -1,0 +1,12 @@
+@use "./fonts.scss";
+@use "./colors.scss";
+
+// Colors
+$itp-color--light: colors.$itp-color--white;
+$itp-color--dark: colors.$itp-color--charcoal;
+$itp-color--accent: colors.$itp-color--tiger;
+
+// Typography
+$itp-font-family--title: "Montserrat-SemiBold";
+$itp-font-family--display: "Major_Mono_Display-Regular";
+$itp-font-family--text: "Roboto_Mono-Regular";
