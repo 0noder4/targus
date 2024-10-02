@@ -1,0 +1,52 @@
+@use "/styles/scss" as v;
+
+.itp-l-landing {
+  height: 80vh;
+  position: relative;
+  margin: 0 2rem;
+
+  .itp-l-upper_text_container {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .itp-l-lower_text_container {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .itp-c-landing_text {
+    display: flex;
+    width: fit-content;
+    padding: 0.1em 0;
+
+    font-family: v.$itp-font-family--title;
+    font-size: v.$itp-font-size--display;
+    line-height: v.$itp-font-size--display;
+    letter-spacing: 0.5rem;
+    text-transform: uppercase;
+
+    &__icon {
+      height: 0.85em;
+      width: 0.85em;
+      margin-left: 1rem;
+    }
+  }
+
+  #upper-top,
+  #upper-bottom {
+    padding: 0 0.2em 0.1em 0;
+  }
+
+  #lower-top,
+  #lower-bottom {
+    padding: 0.1em 0 0 0.2em;
+    color: v.$itp-color--accent;
+  }
+}

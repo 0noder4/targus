@@ -4,9 +4,7 @@ import React from "react";
 
 import "./Header.scss";
 
-type Props = {};
-
-const Header = (props: Props) => {
+const Header = () => {
   return (
     <header className="itp-c-header">
       <figure>

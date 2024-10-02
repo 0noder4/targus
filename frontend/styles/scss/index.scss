@@ -1,1 +1,6 @@
+@use "./base/config" as v;
 @forward "./base/config";
+
+* {
+  color: v.$itp-color--dark;
+}
