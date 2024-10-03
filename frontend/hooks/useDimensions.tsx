@@ -1,20 +1,39 @@
-import { RefObject, useMemo, useSyncExternalStore } from "react";
+import { RefObject, useState, useEffect, useCallback } from "react";
 
-function subscribe(callback: (e: Event) => void) {
-  window.addEventListener("resize", callback);
-  return () => {
-    window.removeEventListener("resize", callback);
-  };
+interface Dimensions {
+  width: number;
+  height: number;
 }
 
-function useDimensions(ref: RefObject<HTMLElement>) {
-  const dimensions = useSyncExternalStore(subscribe, () =>
-    JSON.stringify({
-      width: ref.current?.offsetWidth ?? 0,
-      height: ref.current?.offsetHeight ?? 0,
-    }),
-  );
-  return useMemo(() => JSON.parse(dimensions), [dimensions]);
-}
+export function useDimensions(ref: RefObject<HTMLElement>): Dimensions {
+  const [dimensions, setDimensions] = useState<Dimensions>({
+    width: 0,
+    height: 0,
+  });
 
-export { useDimensions };
+  const updateDimensions = useCallback(() => {
+    if (ref.current) {
+      setDimensions({
+        width: ref.current.offsetWidth,
+        height: ref.current.offsetHeight,
+      });
+    }
+  }, [ref]);
+
+  useEffect(() => {
+    updateDimensions();
+
+    const resizeObserver = new ResizeObserver(updateDimensions);
+    if (ref.current) {
+      resizeObserver.observe(ref.current);
+    }
+
+    return () => {
+      if (ref.current) {
+        resizeObserver.unobserve(ref.current);
+      }
+    };
+  }, [ref, updateDimensions]);
+
+  return dimensions;
+}

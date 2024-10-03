@@ -1,7 +1,7 @@
 "use client";
 
 import { useDimensions } from "@/hooks/useDimensions";
-import React, { RefObject } from "react";
+import React, { RefObject, useEffect, useState } from "react";
 import "./Mask.scss";
 
 interface Props {
@@ -13,11 +13,22 @@ interface Props {
 }
 
 const Mask: React.FC<Props> = ({ ParentRef, UTRef, UBRef, LTRef, LBRef }) => {
-  const { width, height } = useDimensions(ParentRef);
-  const { width: UTwidth, height: UTheight } = useDimensions(UTRef);
-  const { width: UBwidth, height: UBheight } = useDimensions(UBRef);
-  const { width: LTwidth, height: LTheight } = useDimensions(LTRef);
-  const { width: LBwidth, height: LBheight } = useDimensions(LBRef);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const parent = useDimensions(ParentRef);
+  const ut = useDimensions(UTRef);
+  const ub = useDimensions(UBRef);
+  const lt = useDimensions(LTRef);
+  const lb = useDimensions(LBRef);
+
+  useEffect(() => {
+    if (parent.width > 0 && parent.height > 0) {
+      setIsLoaded(true);
+    }
+  }, [parent]);
+
+  if (!isLoaded) {
+    return null; // or return a loading spinner
+  }
 
   type Dimensions = {
     a: number;
@@ -43,33 +54,20 @@ const Mask: React.FC<Props> = ({ ParentRef, UTRef, UBRef, LTRef, LBRef }) => {
 
   const dimensions: Dimensions = {
     a: 20, // arc
-    w: width,
-    h: height,
-    ut: {
-      w: UTwidth,
-      h: UTheight,
-    },
-    ub: {
-      w: UBwidth,
-      h: UBheight,
-    },
-    lt: {
-      w: LTwidth,
-      h: LTheight,
-    },
-    lb: {
-      w: LBwidth,
-      h: LBheight,
-    },
+    w: parent.width,
+    h: parent.height,
+    ut: { w: ut.width, h: ut.height },
+    ub: { w: ub.width, h: ub.height },
+    lt: { w: lt.width, h: lt.height },
+    lb: { w: lb.width, h: lb.height },
   };
 
   return (
     <figure className="oedu-l-landing-mask">
       <svg width={`${dimensions.w}px`} height={`${dimensions.h}px`}>
-        <defs>
-          <mask id="mask-1">
-            <path
-              d={`
+        <mask id="mask-1">
+          <path
+            d={`
             M0,${dimensions.ut.h + dimensions.ub.h + dimensions.a}
             v${dimensions.h - dimensions.ut.h - dimensions.ub.h - 2 * dimensions.a}
             a${dimensions.a},${dimensions.a} 0 0 0 ${dimensions.a},${dimensions.a} 
@@ -96,10 +94,9 @@ const Mask: React.FC<Props> = ({ ParentRef, UTRef, UBRef, LTRef, LBRef }) => {
             h-${dimensions.ub.w - 2 * dimensions.a}
             a${dimensions.a},${dimensions.a} 0 0 0 -${dimensions.a},${dimensions.a}
           `}
-              fill="white"
-            />
-          </mask>
-        </defs>
+            fill="white"
+          />
+        </mask>
         <image
           href="/images/image_front-cover.jpg"
           className="itp-c-front-page-cover"
