@@ -23,14 +23,16 @@ export function useDimensions(ref: RefObject<HTMLElement>): Dimensions {
   useEffect(() => {
     updateDimensions();
 
+    const tempRef = ref.current;
+
     const resizeObserver = new ResizeObserver(updateDimensions);
-    if (ref.current) {
+    if (tempRef) {
       resizeObserver.observe(ref.current);
     }
 
     return () => {
-      if (ref.current) {
-        resizeObserver.unobserve(ref.current);
+      if (tempRef) {
+        resizeObserver.unobserve(tempRef);
       }
     };
   }, [ref, updateDimensions]);
