@@ -1,17 +1,29 @@
 "use client";
 
 import React, { useRef } from "react";
+import { useCountdown } from "@/hooks/useCountdown";
 
-import "./Landing.scss";
-import Mask from "./components/Mask";
+import HeroImage from "./components/HeroImage/HeroImage";
 import Icon from "@/components/global/Icon/Icon";
+import "./Hero.scss";
+
+import dynamic from "next/dynamic";
+
+const Countdown = dynamic(() => import("./components/Countdown/Countdown"), {
+  ssr: false,
+});
 
 const Landing = () => {
-  const ParentRef = useRef<HTMLInputElement>(null);
-  const UTRef = useRef<HTMLInputElement>(null); // upper top reference etc.
+  // Refs definitions used for hero image scaling
+  const ParentRef = useRef<HTMLInputElement>(null); // Ref of HERO section
+  const UTRef = useRef<HTMLInputElement>(null);
   const UBRef = useRef<HTMLInputElement>(null);
   const LTRef = useRef<HTMLInputElement>(null);
   const LBRef = useRef<HTMLInputElement>(null);
+
+  // Countdown logic
+  const eventDate: Date = new Date(2025, 3, 11, 8, 0, 0);
+  const timeLeft = useCountdown(eventDate);
 
   return (
     <section className="itp-l-landing" ref={ParentRef}>
@@ -36,12 +48,18 @@ const Landing = () => {
           targi pracy
         </div>
       </span>
-      <Mask
+      <HeroImage
         ParentRef={ParentRef}
         UTRef={UTRef}
         UBRef={UBRef}
         LTRef={LTRef}
         LBRef={LBRef}
+      />
+      <Countdown
+        timeLeft={timeLeft}
+        ParentRef={ParentRef}
+        UTRef={UTRef}
+        UBRef={UBRef}
       />
     </section>
   );

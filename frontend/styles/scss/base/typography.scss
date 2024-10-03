@@ -1,4 +1,4 @@
-// Font definitions
+// Fonts definitions
 
 @font-face {
   font-family: "Montserrat-SemiBold";
@@ -19,3 +19,15 @@
   font-family: "Roboto_Mono-Regular";
   src: url(/fonts/Roboto_Mono/Roboto_Mono-Regular.ttf);
 }
+
+// Allocation
+
+$itp-font-family--title: "Montserrat-Medium";
+$itp-font-family--display: "Major_Mono_Display-Regular";
+$itp-font-family--text: "Roboto_Mono-Regular";
+
+$itp-font-size--display: 96px;
+$itp-font-size--s: 12px;
+$itp-font-size--m: 16px;
+$itp-font-size--l: 20px;
+$itp-font-size--xl: 28px;

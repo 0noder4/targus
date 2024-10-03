@@ -2,7 +2,7 @@
 
 import { useDimensions } from "@/hooks/useDimensions";
 import React, { RefObject, useEffect, useState } from "react";
-import "./Mask.scss";
+import "./HeroImage.scss";
 
 interface Props {
   ParentRef: RefObject<HTMLElement>;
@@ -12,7 +12,13 @@ interface Props {
   LBRef: RefObject<HTMLElement>;
 }
 
-const Mask: React.FC<Props> = ({ ParentRef, UTRef, UBRef, LTRef, LBRef }) => {
+const HeroImage: React.FC<Props> = ({
+  ParentRef,
+  UTRef,
+  UBRef,
+  LTRef,
+  LBRef,
+}) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const parent = useDimensions(ParentRef);
   const ut = useDimensions(UTRef);
@@ -106,4 +112,4 @@ const Mask: React.FC<Props> = ({ ParentRef, UTRef, UBRef, LTRef, LBRef }) => {
   );
 };
 
-export default Mask;
+export default HeroImage;

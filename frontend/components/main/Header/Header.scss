@@ -5,12 +5,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
+  padding: 2rem 2rem;
 
   font-family: v.$itp-font-family--title;
 
   &__logo {
-    height: auto;
+    height: 3rem;
+    width: auto;
   }
 
   &__navigation {

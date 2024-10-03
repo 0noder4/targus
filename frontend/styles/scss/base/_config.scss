@@ -1,14 +1,3 @@
-@use "./fonts.scss";
-@use "./colors.scss";
-
-// Colors
-$itp-color--light: colors.$itp-color--white;
-$itp-color--dark: colors.$itp-color--charcoal;
-$itp-color--accent: colors.$itp-color--tiger;
-
-// Typography
-$itp-font-family--title: "Montserrat-Medium";
-$itp-font-family--display: "Major_Mono_Display-Regular";
-$itp-font-family--text: "Roboto_Mono-Regular";
-
-$itp-font-size--display: 96px;
+@forward "./colors.scss";
+@forward "./borders.scss";
+@forward "./typography.scss";
