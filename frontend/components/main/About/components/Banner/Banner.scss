@@ -1,0 +1,50 @@
+@use "/styles/scss" as v;
+
+.itp-c-banner_container {
+    display: flex;
+    flex-direction: column;
+    .itp-c-banner_label {
+        overflow: hidden;
+
+        font-family: v.$itp-font-family--display;
+        font-size: v.$itp-font-size--l;
+        font-weight: bolder;
+        text-wrap: nowrap;
+
+        display: flex;
+        gap: 1em;
+    }
+
+    .itp-c-banner::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 2.5rem;
+        
+        height: 0.5rem;
+        width: 100%;
+        background-color: v.$itp-color--dark;
+    }
+
+    .itp-c-banner {
+        padding: 2rem;
+        margin-top: 1rem;
+        background-color: v.$itp-color--dark;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        &_text {
+            font-family: v.$itp-font-family--title--bold;
+            font-size: v.$itp-font-size--display--m;
+            color: v.$itp-color--light;
+            text-transform: uppercase;
+            letter-spacing: 1rem;
+        }
+
+        &_text--right {
+            text-align: end;
+        }
+    }
+}

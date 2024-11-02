@@ -13,7 +13,7 @@ const Countdown = dynamic(() => import("./components/Countdown/Countdown"), {
   ssr: false,
 });
 
-const Landing = () => {
+const Hero = () => {
   // Refs definitions used for hero image scaling
   const ParentRef = useRef<HTMLInputElement>(null); // Ref of HERO section
   const UTRef = useRef<HTMLInputElement>(null);
@@ -26,7 +26,7 @@ const Landing = () => {
   const timeLeft = useCountdown(eventDate);
 
   return (
-    <section className="itp-l-landing" ref={ParentRef}>
+    <section className="itp-c-section--hero" ref={ParentRef}>
       <span className="itp-l-upper_text_container">
         <div className="itp-c-landing_text" id="upper-top" ref={UTRef}>
           napędź swoją
@@ -34,7 +34,7 @@ const Landing = () => {
         <div className="itp-c-landing_text" id="upper-bottom" ref={UBRef}>
           karierę
           <Icon
-            src="/images/icon_cog.svg"
+            src="/icons/itp-icon--cog.svg"
             alt="cog"
             className="itp-c-landing_text__icon"
           />
@@ -65,4 +65,4 @@ const Landing = () => {
   );
 };
 
-export default Landing;
+export default Hero;

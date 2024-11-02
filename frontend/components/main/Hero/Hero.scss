@@ -1,6 +1,6 @@
 @use "/styles/scss" as v;
 
-.itp-l-landing {
+.itp-c-section--hero {
   height: 80vh;
   position: relative;
   margin: 0 2rem;
@@ -27,8 +27,8 @@
     padding: 0.1em 0;
 
     font-family: v.$itp-font-family--title;
-    font-size: v.$itp-font-size--display;
-    line-height: v.$itp-font-size--display;
+    font-size: v.$itp-font-size--display--l;
+    line-height: v.$itp-font-size--display--l;
     letter-spacing: 0.5rem;
     text-transform: uppercase;
 
