@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
-import "./globals.css";
+import "@/styles/scss/index.scss";
+import "@/styles/css/index.css";
+import Head from "next/head";
 
 export const metadata: Metadata = {
   title: "Inżynierskie Targi Pracy 2025",
@@ -13,9 +15,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pl">
-      <body>
-        {children}
-      </body>
+      <Head>
+        <link rel="icon" href="/icon.ico" />
+      </Head>
+      <body>{children}</body>
     </html>
   );
 }

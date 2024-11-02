@@ -1,0 +1,22 @@
+@use "/styles/scss" as v;
+
+.itp-c-countdown-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  transform: rotate(-90deg) translateY(100%);
+  transform-origin: bottom left;
+
+  .itp-c-countdown {
+    display: block;
+    margin: 1rem;
+    padding: 0.5rem 2rem;
+    background-color: v.$itp-color--light;
+    border-radius: v.$itp-border-radius--m;
+
+    font-family: v.$itp-font-family--display;
+    font-size: v.$itp-font-size--xl;
+    text-align: center;
+  }
+}

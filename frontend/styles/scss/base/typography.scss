@@ -1,0 +1,33 @@
+// Fonts definitions
+
+@font-face {
+  font-family: "Montserrat-SemiBold";
+  src: url(/fonts/Montserrat/Montserrat-SemiBold.ttf);
+}
+
+@font-face {
+  font-family: "Montserrat-Medium";
+  src: url(/fonts/Montserrat/Montserrat-Medium.ttf);
+}
+
+@font-face {
+  font-family: "Major_Mono_Display-Regular";
+  src: url(/fonts/Major_Mono_Display/Major_Mono_Display-Regular.ttf);
+}
+
+@font-face {
+  font-family: "Roboto_Mono-Regular";
+  src: url(/fonts/Roboto_Mono/Roboto_Mono-Regular.ttf);
+}
+
+// Allocation
+
+$itp-font-family--title: "Montserrat-Medium";
+$itp-font-family--display: "Major_Mono_Display-Regular";
+$itp-font-family--text: "Roboto_Mono-Regular";
+
+$itp-font-size--display: 96px;
+$itp-font-size--s: 12px;
+$itp-font-size--m: 16px;
+$itp-font-size--l: 20px;
+$itp-font-size--xl: 28px;
