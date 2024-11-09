@@ -1,0 +1,27 @@
+.itp-l-offer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, auto);
+  padding: 2rem;
+  gap: 2rem;
+
+  &__workshops {
+    grid-column: 1;
+    grid-row: 1/3;
+  }
+
+  &__companies {
+    grid-column: 2/4;
+    grid-row: 1;
+  }
+
+  &__cv {
+    grid-column: 2;
+    grid-row: 2/3;
+  }
+
+  &__pdi {
+    grid-column: 3;
+    grid-row: 2/3;
+  }
+}

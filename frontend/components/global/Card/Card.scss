@@ -1,0 +1,55 @@
+@use "/styles/scss" as v;
+
+$color--primary: v.$itp-color--dark;
+$color--secondary: v.$itp-color--accent;
+$color--negative: v.$itp-color--light;
+
+$font-size--header: v.$itp-font-size--display--s;
+$font-size--content: v.$itp-font-size--l;
+$font-size--footer: v.$itp-font-size--l;
+
+$font-family--header: v.$itp-font-family--title--bold;
+$font-family--content: v.$itp-font-family--content;
+
+.itp-c-card {
+  background-color: $color--primary;
+  color: $color--negative;
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  padding: 2rem 2rem 1em 1em;
+}
+
+.itp-c-card__title {
+  font-family: $font-family--header;
+  font-size: $font-size--header;
+  letter-spacing: 0.05em;
+
+  text-transform: uppercase;
+}
+
+.itp-c-card__content {
+  font-family: $font-family--content;
+  font-size: $font-size--content;
+  text-align: justify;
+
+  text-indent: 2em;
+}
+
+.itp-c-card__footer {
+  margin-top: auto;
+  justify-self: flex-end;
+}
+.itp-c-card::before {
+  content: "";
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  bottom: -1px;
+  left: -1px;
+  border: 1px solid white; /* Change color as needed */
+  pointer-events: none;
+}
