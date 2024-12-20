@@ -1,50 +1,52 @@
 @use "/styles/scss" as v;
 
 .itp-c-banner_container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  .itp-c-banner_label {
+    overflow: hidden;
+
+    font-family: v.$itp-font-family--display;
+    font-size: v.$itp-font-size--l;
+    font-weight: bolder;
+    text-wrap: nowrap;
+
     display: flex;
-    flex-direction: column;
-    .itp-c-banner_label {
-        overflow: hidden;
+    gap: 1em;
+  }
 
-        font-family: v.$itp-font-family--display;
-        font-size: v.$itp-font-size--l;
-        font-weight: bolder;
-        text-wrap: nowrap;
+  .itp-c-banner::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0rem;
 
-        display: flex;
-        gap: 1em;
+    height: 0.5rem;
+    width: 100%;
+    background-color: v.$itp-color--dark;
+
+    transform: translateY(-6px);
+  }
+
+  .itp-c-banner {
+    padding: 2rem;
+    background-color: v.$itp-color--dark;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &_text {
+      font-family: v.$itp-font-family--title--bold;
+      font-size: v.$itp-font-size--display--m;
+      color: v.$itp-color--light;
+      text-transform: uppercase;
+      letter-spacing: 1rem;
     }
 
-    .itp-c-banner::before {
-        content: "";
-        position: absolute;
-        left: 0;
-        bottom: 2.5rem;
-        
-        height: 0.5rem;
-        width: 100%;
-        background-color: v.$itp-color--dark;
+    &_text--right {
+      text-align: end;
     }
-
-    .itp-c-banner {
-        padding: 2rem;
-        margin-top: 1rem;
-        background-color: v.$itp-color--dark;
-
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-
-        &_text {
-            font-family: v.$itp-font-family--title--bold;
-            font-size: v.$itp-font-size--display--m;
-            color: v.$itp-color--light;
-            text-transform: uppercase;
-            letter-spacing: 1rem;
-        }
-
-        &_text--right {
-            text-align: end;
-        }
-    }
+  }
 }

@@ -4,10 +4,9 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(2, auto);
-
   gap: 2rem;
 
-  padding: 2rem;
+  margin-top: 3rem;
 
   .itp-c-time_and_date {
     grid-row: 1;

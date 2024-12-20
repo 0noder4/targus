@@ -2,8 +2,9 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(2, auto);
-  padding: 2rem;
   gap: 2rem;
+
+  margin-top: 3rem;
 
   &__workshops {
     grid-column: 1;
