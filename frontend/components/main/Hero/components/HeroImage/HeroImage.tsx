@@ -105,6 +105,7 @@ const HeroImage: React.FC<Props> = ({
         </mask>
         <image
           href="/images/image_front-cover.jpg"
+          width={dimensions.w}
           className="itp-c-front-page-cover"
         />
       </svg>
