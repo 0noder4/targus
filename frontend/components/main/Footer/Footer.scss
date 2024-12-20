@@ -1,0 +1,37 @@
+@use "/styles/scss" as v;
+
+.itp-c-footer {
+  display: flex;
+  gap: 8rem;
+
+  padding: 2rem 0;
+
+  .itp-c-footer-section {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    &__header {
+      font-family: v.$itp-font-family--title;
+      font-size: v.$itp-font-size--xl;
+      text-transform: uppercase;
+    }
+
+    &__body {
+      font-family: v.$itp-font-family--content;
+
+      ul {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+    }
+  }
+
+  .itp-c-footer-nav {
+    ul {
+      margin-left: 1.5rem;
+      list-style: circle;
+    }
+  }
+}

@@ -4,6 +4,7 @@ import React from "react";
 import Header from "@/components/main/Header/Header";
 import Hero from "@/components/main/Hero/Hero";
 import About from "@/components/main/About/About";
+import Footer from "@/components/main/Footer/Footer";
 
 const Index = () => {
   return (
@@ -11,8 +12,9 @@ const Index = () => {
       <Header />
       <main>
         <Hero />
-        <About/>
+        <About />
       </main>
+      <Footer />
     </>
   );
 };
