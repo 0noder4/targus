@@ -2,22 +2,23 @@ import React from "react";
 
 import "./Footer.scss";
 import QR from "@/components/global/QR/QR";
+import Link from "next/link";
 
 const Footer = () => {
   return (
-    <footer className="itp-c-footer">
+    <footer className="itp-c-footer" id="contact">
       <div className="itp-c-footer-section itp-c-footer-nav">
         <h3 className="itp-c-footer-section__header">MENU</h3>
         <nav className="itp-c-footer-section__body">
           <ul>
             <li>
-              <a>Informacje</a>
+              <Link href="/#about">Informacje</Link>
             </li>
             <li>
-              <a>Ankieta PDI</a>
+              <Link href="/#pdi">Ankieta PDI</Link>
             </li>
             <li>
-              <a>Strefa Firm</a>
+              <Link href="/business">Strefa Firm</Link>
             </li>
           </ul>
         </nav>

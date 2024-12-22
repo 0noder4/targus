@@ -7,7 +7,7 @@ import Offer from "./components/Offer/Offer";
 
 const About = () => {
   return (
-    <section className="itp-c-section--about">
+    <section className="itp-c-section--about" id="about">
       <Banner />
       <Essentials />
       <Offer />

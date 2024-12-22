@@ -6,7 +6,7 @@ import { Card, CardContent, CardTitle } from "@/components/global/Card/Card";
 
 const Survey = () => {
   return (
-    <section className="itp-c-section--survey">
+    <section className="itp-c-section--survey" id="pdi">
       <div className="itp-c-section--survey__header">
         <h1 className="itp-c-section--survey__header__title">Okiem studenta</h1>
         <h2 className="itp-c-section--survey__header__subtitle">

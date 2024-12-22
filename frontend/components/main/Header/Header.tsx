@@ -35,7 +35,7 @@ const Header = () => {
             </Link>
           </li>
           <li>
-            <Link href={"/#contact"} className="itp-c-link--main">
+            <Link href={"/business"} className="itp-c-link--main">
               Strefa Firm
             </Link>
           </li>
