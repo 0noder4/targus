@@ -1,23 +1,11 @@
 import * as React from "react";
 import "./Card.scss";
 
-// Helper function to combine classNames
-const combineClassNames = (
-  baseClass: string,
-  additionalClass?: string,
-): string => {
-  return additionalClass ? `${baseClass} ${additionalClass}` : baseClass;
-};
-
 const Card = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => (
-  <div
-    ref={ref}
-    className={combineClassNames("itp-c-card", className)}
-    {...props}
-  />
+  <div ref={ref} className={`itp-c-card ${className}`.trim()} {...props} />
 ));
 Card.displayName = "Card";
 
@@ -27,7 +15,7 @@ const CardTitle = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <h3
     ref={ref}
-    className={combineClassNames("itp-c-card__title", className)}
+    className={`itp-c-card__title ${className}`.trim()}
     {...props}
   />
 ));
@@ -39,7 +27,7 @@ const CardContent = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <div
     ref={ref}
-    className={combineClassNames("itp-c-card__content", className)}
+    className={`itp-c-card__content ${className}`.trim()}
     {...props}
   />
 ));
@@ -51,7 +39,7 @@ const CardFooter = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <div
     ref={ref}
-    className={combineClassNames("itp-c-card__footer", className)}
+    className={`itp-c-card__footer ${className}`.trim()}
     {...props}
   />
 ));

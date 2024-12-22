@@ -19,6 +19,7 @@
 
     &__body {
       font-family: v.$itp-font-family--content;
+      flex: 1;
 
       ul {
         display: flex;
@@ -32,6 +33,13 @@
     ul {
       margin-left: 1.5rem;
       list-style: circle;
+    }
+  }
+
+  .itp-c-footer-socials {
+    ul {
+      flex-direction: row;
+      height: 100%;
     }
   }
 }
