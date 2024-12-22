@@ -1,8 +1,9 @@
 @use "/styles/scss" as v;
+@use "./styles/scss/modules/border";
 
 .itp-c-partner-container {
   padding: 2rem;
-  border: v.$itp-border-size--m solid v.$itp-color--dark;
+  @include border.itp-border--dark;
 
   display: flex;
   justify-content: center;

@@ -10,7 +10,7 @@ type Props = {
   className?: string;
 };
 
-const QR: React.FC<Props> = ({ src, alt, href, className }) => {
+const QR: React.FC<Props> = ({ src, alt, href, className = "" }) => {
   return (
     <figure className={`itp-c-qr_container ${className}`.trim()}>
       <a href={href} target="_blank" rel="noopener">

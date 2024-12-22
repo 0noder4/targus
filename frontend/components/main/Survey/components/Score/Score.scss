@@ -1,0 +1,31 @@
+@use "/styles/scss" as v;
+@use "./styles/scss/modules/border";
+
+.itp-c-score_container {
+  width: 100%;
+}
+
+.itp-c-score {
+  width: 100%;
+  height: 1.5rem;
+  overflow: hidden;
+  @include border.itp-border--dark;
+
+  &__fill {
+    height: 100%;
+    background-color: v.$itp-color--dark;
+    transition: width 0.3s ease;
+  }
+
+  &__label {
+    font-family: v.$itp-font-family--content;
+    font-size: v.$itp-font-size--l;
+    float: right;
+  }
+
+  &__value {
+    font-family: v.$itp-font-family--content;
+    font-size: v.$itp-font-size--m;
+    float: left;
+  }
+}

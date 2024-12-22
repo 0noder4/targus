@@ -4,7 +4,7 @@ import "./Card.scss";
 const Card = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
+>(({ className = "", ...props }, ref) => (
   <div ref={ref} className={`itp-c-card ${className}`.trim()} {...props} />
 ));
 Card.displayName = "Card";
@@ -12,7 +12,7 @@ Card.displayName = "Card";
 const CardTitle = React.forwardRef<
   HTMLParagraphElement,
   React.HTMLAttributes<HTMLHeadingElement>
->(({ className, ...props }, ref) => (
+>(({ className = "", ...props }, ref) => (
   <h3
     ref={ref}
     className={`itp-c-card__title ${className}`.trim()}
@@ -24,7 +24,7 @@ CardTitle.displayName = "CardTitle";
 const CardContent = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
+>(({ className = "", ...props }, ref) => (
   <div
     ref={ref}
     className={`itp-c-card__content ${className}`.trim()}
@@ -36,7 +36,7 @@ CardContent.displayName = "CardContent";
 const CardFooter = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
+>(({ className = "", ...props }, ref) => (
   <div
     ref={ref}
     className={`itp-c-card__footer ${className}`.trim()}

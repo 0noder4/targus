@@ -6,6 +6,8 @@
   grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
   gap: 2rem;
 
+  color: v.$itp-color--dark;
+
   .itp-c-partners__label {
     grid-column: 1/-1;
     font-family: v.$itp-font-family--title;

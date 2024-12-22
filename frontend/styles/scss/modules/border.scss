@@ -4,3 +4,7 @@
   border: v.$itp-border-size--s solid v.$itp-color--accent;
   border-radius: v.$itp-border-radius--s;
 }
+
+@mixin itp-border--dark {
+  border: v.$itp-border-size--s solid v.$itp-color--dark;
+}

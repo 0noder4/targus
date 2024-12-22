@@ -5,7 +5,7 @@ $color--secondary: v.$itp-color--accent;
 $color--negative: v.$itp-color--light;
 
 $font-size--header: v.$itp-font-size--display--s;
-$font-size--content: v.$itp-font-size--l;
+$font-size--content: v.$itp-font-size--m;
 $font-size--footer: v.$itp-font-size--l;
 
 $font-family--header: v.$itp-font-family--title--bold;
@@ -18,7 +18,7 @@ $font-family--content: v.$itp-font-family--content;
 
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
 
   padding: 2rem 2rem 1em 1em;
 }
@@ -26,7 +26,7 @@ $font-family--content: v.$itp-font-family--content;
 .itp-c-card__title {
   font-family: $font-family--header;
   font-size: $font-size--header;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.1em;
 
   text-transform: uppercase;
 }
@@ -35,6 +35,7 @@ $font-family--content: v.$itp-font-family--content;
   font-family: $font-family--content;
   font-size: $font-size--content;
   text-align: justify;
+  line-height: 1.5em;
 
   text-indent: 2em;
 }
