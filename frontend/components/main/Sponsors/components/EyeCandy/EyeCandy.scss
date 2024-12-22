@@ -1,0 +1,16 @@
+@use "/styles/scss" as v;
+
+.itp-c-eye-candy-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  grid-column-end: -1;
+
+  svg {
+    fill: v.$itp-color--dark;
+    overflow: visible;
+    display: flex;
+    justify-content: center;
+  }
+}

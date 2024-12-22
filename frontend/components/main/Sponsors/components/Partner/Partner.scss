@@ -1,0 +1,15 @@
+@use "/styles/scss" as v;
+
+.itp-c-partner-container {
+  padding: 2rem;
+  border: v.$itp-border-size--m solid v.$itp-color--dark;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.itp-c-partner--main {
+  grid-column-start: 1;
+  grid-column-end: -2;
+}
