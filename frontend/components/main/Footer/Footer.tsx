@@ -7,7 +7,7 @@ const Footer = () => {
   return (
     <footer className="itp-c-footer">
       <div className="itp-c-footer-section itp-c-footer-nav">
-        <h2 className="itp-c-footer-section__header">MENU</h2>
+        <h3 className="itp-c-footer-section__header">MENU</h3>
         <nav className="itp-c-footer-section__body">
           <ul>
             <li>
@@ -23,7 +23,7 @@ const Footer = () => {
         </nav>
       </div>
       <div className="itp-c-footer-section itp-c-footer-contact">
-        <h2 className="itp-c-footer-section__header">Kontakt</h2>
+        <h3 className="itp-c-footer-section__header">Kontakt</h3>
         <div className="itp-c-footer-section__body">
           <ul>
             <li>+48 22 234 50 23</li>
@@ -35,7 +35,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="itp-c-footer-section itp-c-footer-socials">
-        <h2 className="itp-c-footer-section__header">Socials</h2>
+        <h3 className="itp-c-footer-section__header">Socials</h3>
         <div className="itp-c-footer-section__body">
           <ul>
             <li>

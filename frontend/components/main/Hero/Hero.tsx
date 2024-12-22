@@ -28,25 +28,25 @@ const Hero = () => {
   return (
     <section className="itp-c-section--hero" ref={ParentRef}>
       <span className="itp-l-upper_text_container">
-        <div className="itp-c-landing_text" id="upper-top" ref={UTRef}>
+        <h1 className="itp-c-landing_text" id="upper-top" ref={UTRef}>
           napędź swoją
-        </div>
-        <div className="itp-c-landing_text" id="upper-bottom" ref={UBRef}>
+        </h1>
+        <h1 className="itp-c-landing_text" id="upper-bottom" ref={UBRef}>
           karierę
           <Icon
             src="/icons/itp-icon--cog.svg"
             alt="cog"
             className="itp-c-landing_text__icon"
           />
-        </div>
+        </h1>
       </span>
       <span className="itp-l-lower_text_container">
-        <div className="itp-c-landing_text" id="lower-top" ref={LTRef}>
+        <h1 className="itp-c-landing_text" id="lower-top" ref={LTRef}>
           inżynierskie
-        </div>
-        <div className="itp-c-landing_text" id="lower-bottom" ref={LBRef}>
+        </h1>
+        <h1 className="itp-c-landing_text" id="lower-bottom" ref={LBRef}>
           targi pracy
-        </div>
+        </h1>
       </span>
       <HeroImage
         ParentRef={ParentRef}

@@ -8,14 +8,14 @@ const Partners = () => {
   return (
     <section className="itp-c-section--partners">
       <div className="itp-c-partners__meet_our_partners"></div>
-      <label className="itp-c-partners__label">Sponsor Główny</label>
+      <h2 className="itp-c-partners__label">Sponsor Główny</h2>
       <Partner
         logo="/images/sponsors/itp-image-partner-tramwaje.png"
         description="Tramwaje Warszawskie"
         type="main"
       />
       <EyeCandy />
-      <label className="itp-c-partners__label">Sponsorzy</label>
+      <h2 className="itp-c-partners__label">Sponsorzy</h2>
       <Partner
         logo="/images/sponsors/itp-image-partner-tramwaje.png"
         description="Tramwaje Warszawskie"
