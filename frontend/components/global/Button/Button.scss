@@ -9,6 +9,7 @@ $color--negative: v.$itp-color--dark;
 .itp-c-button {
   display: flex;
   width: 100%;
+  height: 2.5rem;
   align-items: center;
   justify-content: center;
 
@@ -24,7 +25,8 @@ $color--negative: v.$itp-color--dark;
 
   &--primary {
     &:hover {
-      background-color: darken($color--primary, 10%);
+      background-color: darken($color--secondary, 10%);
+      color: $color--primary;
     }
 
     &:focus {
@@ -36,5 +38,19 @@ $color--negative: v.$itp-color--dark;
   &:disabled {
     opacity: 0.5;
     cursor: not-allowed;
+  }
+}
+
+.itp-c-button--secondary {
+  color: $color--secondary;
+
+  &:hover {
+    background-color: darken($color--secondary, 10%);
+    color: $color--primary;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba($color--negative, 0.3);
   }
 }

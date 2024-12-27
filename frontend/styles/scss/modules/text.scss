@@ -1,0 +1,18 @@
+@use "../" as v;
+
+@mixin itp-text--content {
+  font-family: v.$itp-font-family--content;
+  font-size: v.$itp-font-size--m;
+  text-align: justify;
+  line-height: 1.5em;
+
+  text-indent: 2em;
+
+  p {
+    margin-top: 1em;
+  }
+
+  p:first-child {
+    margin-top: 0;
+  }
+}

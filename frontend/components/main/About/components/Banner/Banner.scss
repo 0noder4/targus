@@ -2,8 +2,11 @@
 
 .itp-c-banner_container {
   position: relative;
+  margin: 0 -3rem;
+
   display: flex;
   flex-direction: column;
+
   .itp-c-banner_label {
     overflow: hidden;
 
@@ -30,7 +33,7 @@
   }
 
   .itp-c-banner {
-    padding: 2rem;
+    padding: 2rem 3rem;
     background-color: v.$itp-color--dark;
 
     display: flex;

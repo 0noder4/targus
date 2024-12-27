@@ -1,7 +1,10 @@
 @use "/styles/scss" as v;
 @use "./styles/scss/modules/border";
+@use "./styles/scss/modules/spacing";
 
 .itp-c-header {
+  @include spacing.itp-section_margin;
+
   display: flex;
   justify-content: space-between;
   align-items: center;

@@ -1,6 +1,8 @@
 @use "/styles/scss" as v;
+@use "./styles/scss/modules/spacing";
 
 .itp-c-footer {
+  @include spacing.itp-section_margin;
   display: flex;
   gap: 8rem;
   color: v.$itp-color--dark;

@@ -1,4 +1,5 @@
 @use "/styles/scss" as v;
+@use "/styles/scss/modules/text";
 
 $color--primary: v.$itp-color--dark;
 $color--secondary: v.$itp-color--accent;
@@ -57,12 +58,7 @@ $font-family--content: v.$itp-font-family--content;
 }
 
 .itp-c-card__content {
-  font-family: $font-family--content;
-  font-size: $font-size--content;
-  text-align: justify;
-  line-height: 1.5em;
-
-  text-indent: 2em;
+  @include text.itp-text--content;
 }
 
 .itp-c-card__footer {
