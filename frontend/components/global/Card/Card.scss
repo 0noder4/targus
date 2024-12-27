@@ -22,6 +22,31 @@ $font-family--content: v.$itp-font-family--content;
 
   padding: 2rem 2rem 1em 1em;
 }
+.itp-c-card--default {
+  margin-top: 0.75rem;
+}
+
+.itp-c-card--default::after {
+  content: "";
+  position: absolute;
+  right: 0.75rem;
+  bottom: 0.75rem;
+  left: -1px;
+  top: -1px;
+  border: 1px solid v.$itp-color--light;
+  pointer-events: none;
+}
+
+.itp-c-card--default::before {
+  content: "";
+  position: absolute;
+  right: 0.75rem;
+  bottom: 0.75rem;
+  left: -0.75rem;
+  top: -0.75rem;
+  border: 1px solid v.$itp-color--dark;
+  pointer-events: none;
+}
 
 .itp-c-card__title {
   font-family: $font-family--header;
@@ -43,14 +68,4 @@ $font-family--content: v.$itp-font-family--content;
 .itp-c-card__footer {
   margin-top: auto;
   justify-self: flex-end;
-}
-.itp-c-card::before {
-  content: "";
-  position: absolute;
-  top: 0.75rem;
-  right: 0.75rem;
-  bottom: -1px;
-  left: -1px;
-  border: 1px solid white; /* Change color as needed */
-  pointer-events: none;
 }

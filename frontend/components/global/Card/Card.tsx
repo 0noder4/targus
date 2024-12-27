@@ -1,12 +1,21 @@
 import * as React from "react";
 import "./Card.scss";
 
-const Card = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className = "", ...props }, ref) => (
-  <div ref={ref} className={`itp-c-card ${className}`.trim()} {...props} />
-));
+type CardProps = {
+  className: string;
+  type?: "default" | "no_outline";
+  children?: React.ReactNode;
+};
+
+const Card = React.forwardRef<HTMLDivElement, CardProps>(
+  ({ className = "", type = "default", ...props }, ref) => (
+    <div
+      ref={ref}
+      className={`itp-c-card itp-c-card--${type} ${className}`.trim()}
+      {...props}
+    />
+  ),
+);
 Card.displayName = "Card";
 
 const CardTitle = React.forwardRef<

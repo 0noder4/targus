@@ -12,7 +12,7 @@ import "./Offer.scss";
 const Offer = () => {
   return (
     <div className="itp-l-offer">
-      <Card className="itp-l-offer__workshops">
+      <Card className="itp-l-offer__workshops" type="no_outline">
         <CardTitle>warsztaty</CardTitle>
         <CardContent>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -26,7 +26,7 @@ const Offer = () => {
           <Button>zapisz się!</Button>
         </CardFooter>
       </Card>
-      <Card className="itp-l-offer__companies">
+      <Card className="itp-l-offer__companies" type="no_outline">
         <CardTitle>Firmy</CardTitle>
         <CardContent>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -40,7 +40,7 @@ const Offer = () => {
           <Button>zobacz katalog</Button>
         </CardFooter>
       </Card>
-      <Card className="itp-l-offer__cv">
+      <Card className="itp-l-offer__cv" type="no_outline">
         <CardTitle>Konsultacje CV</CardTitle>
         <CardContent>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -51,7 +51,7 @@ const Offer = () => {
           pariatus.
         </CardContent>
       </Card>
-      <Card className="itp-l-offer__pdi">
+      <Card className="itp-l-offer__pdi" type="no_outline">
         <CardTitle>PDI</CardTitle>
         <CardContent>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
