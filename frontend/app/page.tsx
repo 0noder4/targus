@@ -1,11 +1,11 @@
 import React from "react";
 
 // Core sections
-import Header from "@/components/main/Header/Header";
+import Header from "@/components/global/Header/Header";
+import Footer from "@/components/global/Footer/Footer";
 import Hero from "@/components/main/Hero/Hero";
 import About from "@/components/main/About/About";
-import Footer from "@/components/main/Footer/Footer";
-import Partners from "@/components/main/Sponsors/Partners";
+import Partners from "@/components/main/Partners/Partners";
 import Survey from "@/components/main/Survey/Survey";
 import Organization from "@/components/main/Organization/Organization";
 

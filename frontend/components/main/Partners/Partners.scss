@@ -1,7 +1,7 @@
 @use "/styles/scss" as v;
 @use "./styles/scss/modules/spacing";
 
-.itp-c-section--partners {
+.itp-main_section--partners {
   @include spacing.itp-section_margin;
   margin: 4rem 0;
   display: grid;

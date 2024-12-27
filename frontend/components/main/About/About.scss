@@ -1,6 +1,6 @@
 @use "./styles/scss/modules/spacing";
 
-.itp-c-section--about {
+.itp-main_section--about {
   @include spacing.itp-section_margin;
   margin-top: 3rem;
 }

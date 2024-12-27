@@ -6,12 +6,10 @@ import { Card, CardContent, CardTitle } from "@/components/global/Card/Card";
 
 const Survey = () => {
   return (
-    <section className="itp-c-section--survey" id="pdi">
-      <div className="itp-c-section--survey__header">
-        <h1 className="itp-c-section--survey__header__title">Okiem studenta</h1>
-        <h2 className="itp-c-section--survey__header__subtitle">
-          Ranking firm 2024
-        </h2>
+    <section className="itp-main_section--survey" id="pdi">
+      <div className="itp-c-survey__header">
+        <h1 className="itp-c-survey__header__title">Okiem studenta</h1>
+        <h2 className="itp-c-survey__header__subtitle">Ranking firm 2024</h2>
       </div>
       <div className="itp-c-survey_results">
         <Score current={100} label="Sieć Badawcza Łukasiewicz - IL" />

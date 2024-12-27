@@ -6,7 +6,7 @@ import EyeCandy from "./components/EyeCandy/EyeCandy";
 
 const Partners = () => {
   return (
-    <section className="itp-c-section--partners">
+    <section className="itp-main_section--partners">
       <div className="itp-c-partners__meet_our_partners"></div>
       <h2 className="itp-c-partners__label">Sponsor Główny</h2>
       <Partner

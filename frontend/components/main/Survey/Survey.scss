@@ -1,7 +1,7 @@
 @use "/styles/scss" as v;
 @use "./styles/scss/modules/spacing";
 
-.itp-c-section--survey {
+.itp-main_section--survey {
   @include spacing.itp-section_margin;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -9,13 +9,15 @@
 
   color: v.$itp-color--dark;
 
-  &__header {
-    font-family: v.$itp-font-family--title;
-    font-size: v.$itp-font-size--display--s;
-    text-transform: uppercase;
+  .itp-c-survey {
+    &__header {
+      font-family: v.$itp-font-family--title;
+      font-size: v.$itp-font-size--display--s;
+      text-transform: uppercase;
 
-    &__subtitle {
-      font-size: v.$itp-font-size--xl;
+      &__subtitle {
+        font-size: v.$itp-font-size--xl;
+      }
     }
   }
 

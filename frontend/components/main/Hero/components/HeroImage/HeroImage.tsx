@@ -2,6 +2,7 @@
 
 import { useDimensions } from "@/hooks/useDimensions";
 import React, { RefObject, useEffect, useState } from "react";
+
 import "./HeroImage.scss";
 
 interface Props {

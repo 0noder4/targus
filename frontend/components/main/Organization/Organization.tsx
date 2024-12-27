@@ -11,10 +11,10 @@ import IMAGE_2 from "@/public/images/itp-image--31_group.png";
 
 const Organization = () => {
   return (
-    <section className="itp-section--organization">
-      <div className="itp-section--organization-content_container">
-        <div className="itp-section--organization__header">Kim jesteśmy?</div>
-        <div className="itp-section--organization__about">
+    <section className="itp-main_section--organization">
+      <div className="itp-c-organization_container">
+        <div className="itp-c-organization_header">Kim jesteśmy?</div>
+        <div className="itp-c-organization_about">
           <p>
             Board of European Students of Technology (BEST) jest międzynarodową
             organizacją studencką skupiającą 88 grup lokalnych w 31 krajach
@@ -32,10 +32,7 @@ const Organization = () => {
             nieodkryty potencjał.
           </p>
         </div>
-        <Button
-          variant="secondary"
-          className="itp-section--organization__join_us"
-        >
+        <Button variant="secondary" className="itp-c-organization_join_us">
           <Link
             href="https://new.best.warszawa.pl/"
             target="_blank"
@@ -45,7 +42,7 @@ const Organization = () => {
           </Link>
         </Button>
       </div>
-      <aside className="itp-section--organization__photos">
+      <aside className="itp-c-organization_photos">
         <figure className="itp-c-image_container">
           <Image
             src={IMAGE_1}

@@ -26,7 +26,7 @@ const Hero = () => {
   const timeLeft = useCountdown(eventDate);
 
   return (
-    <section className="itp-c-section--hero" ref={ParentRef}>
+    <section className="itp-main_section--hero" ref={ParentRef}>
       <span className="itp-l-upper_text_container">
         <h1 className="itp-c-landing_text" id="upper-top" ref={UTRef}>
           napędź swoją
