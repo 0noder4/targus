@@ -25,8 +25,8 @@ const Countdown: React.FC<Props> = ({ timeLeft, ParentRef, UTRef, UBRef }) => {
   return (
     <div className="itp-c-countdown-container" style={{ width: width }}>
       <time className="itp-c-countdown">
-          ETA:{timeLeft.days}d|{timeLeft.hours}h|{timeLeft.minutes}m|
-          {timeLeft.seconds}s
+        eta: {timeLeft.days}d|{timeLeft.hours}h|{timeLeft.minutes}m|
+        {timeLeft.seconds}s
       </time>
     </div>
   );

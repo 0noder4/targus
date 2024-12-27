@@ -12,21 +12,7 @@ import "./Offer.scss";
 const Offer = () => {
   return (
     <div className="itp-l-offer">
-      <Card className="itp-l-offer__workshops" type="no_outline">
-        <CardTitle>warsztaty</CardTitle>
-        <CardContent>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatus.
-        </CardContent>
-        <CardFooter>
-          <Button>zapisz się!</Button>
-        </CardFooter>
-      </Card>
-      <Card className="itp-l-offer__companies" type="no_outline">
+      <Card className="itp-l-offer__companies">
         <CardTitle>Firmy</CardTitle>
         <CardContent>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -40,7 +26,7 @@ const Offer = () => {
           <Button>zobacz katalog</Button>
         </CardFooter>
       </Card>
-      <Card className="itp-l-offer__cv" type="no_outline">
+      <Card className="itp-l-offer__cv">
         <CardTitle>Konsultacje CV</CardTitle>
         <CardContent>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -51,7 +37,21 @@ const Offer = () => {
           pariatus.
         </CardContent>
       </Card>
-      <Card className="itp-l-offer__pdi" type="no_outline">
+      <Card className="itp-l-offer__workshops">
+        <CardTitle>warsztaty</CardTitle>
+        <CardContent>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatus.
+        </CardContent>
+        <CardFooter>
+          <Button>zapisz się!</Button>
+        </CardFooter>
+      </Card>
+      <Card className="itp-l-offer__pdi">
         <CardTitle>PDI</CardTitle>
         <CardContent>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do

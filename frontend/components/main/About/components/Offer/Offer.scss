@@ -1,28 +1,24 @@
 .itp-l-offer {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, auto);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   gap: 2rem;
+  margin-top: 2rem;
+  position: relative;
 
-  margin-top: 3rem;
+  background-image: url("/images/backgrounds/itp-image--offer_background.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 
-  &__workshops {
-    grid-column: 1;
-    grid-row: 1/3;
+  .itp-c-card {
+    max-width: 800px;
   }
 
-  &__companies {
-    grid-column: 2/4;
-    grid-row: 1;
+  .itp-c-card:nth-child(even) {
+    transform: translateX(-15%);
   }
-
-  &__cv {
-    grid-column: 2;
-    grid-row: 2/3;
-  }
-
-  &__pdi {
-    grid-column: 3;
-    grid-row: 2/3;
+  .itp-c-card:nth-child(odd) {
+    transform: translateX(15%);
   }
 }
