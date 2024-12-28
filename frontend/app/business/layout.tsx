@@ -3,6 +3,8 @@ import "@/styles/scss/index.scss";
 import "@/styles/css/index.css";
 import Head from "next/head";
 
+import "./page.scss";
+
 export const metadata: Metadata = {
   title: "Inżynierskie Targi Pracy 2025",
   description: "Największe Inżynierskie Targi Pracy w Polsce",
@@ -18,7 +20,7 @@ export default function RootLayout({
       <Head>
         <link rel="icon" href="/icon.ico" />
       </Head>
-      <body>{children}</body>
+      <body className="itp-business">{children}</body>
     </html>
   );
 }

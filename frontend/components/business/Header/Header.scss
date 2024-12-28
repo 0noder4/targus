@@ -1,0 +1,32 @@
+@use "/styles/scss" as v;
+@use "./styles/scss/modules/border";
+@use "./styles/scss/modules/spacing";
+
+.itp-business-header {
+  @include spacing.itp-section_margin;
+  padding: 2rem 0;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 4rem;
+
+  color: v.$itp-color--light;
+  font-family: v.$itp-font-family--title;
+  letter-spacing: 0.05em;
+
+  &__logo {
+    height: 3rem;
+    width: auto;
+  }
+
+  &__navigation {
+    display: flex;
+    gap: 4rem;
+
+    .itp-c-link--main {
+      color: v.$itp-color--accent;
+      border-bottom: 1px solid v.$itp-color--accent;
+    }
+  }
+}

@@ -1,8 +1,8 @@
 import React from "react";
 
 // Core sections
-import Header from "@/components/global/Header/Header";
-import Footer from "@/components/global/Footer/Footer";
+import Header from "@/components/main/Header/Header";
+import Footer from "@/components/main/Footer/Footer";
 import Hero from "@/components/main/Hero/Hero";
 import About from "@/components/main/About/About";
 import Partners from "@/components/main/Partners/Partners";

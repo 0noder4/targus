@@ -4,21 +4,23 @@ import React from "react";
 
 import "./Header.scss";
 
+import LOGO from "@/public/images/brand/itp-logo--horizontal--dark.svg";
+
 const Header = () => {
   return (
-    <header className="itp-c-header">
+    <header className="itp-main-header">
       <figure>
-        <Image
-          src="/images/logo_horizontal--dark.svg"
-          alt="Logo Inżynierskich Targów Pracy"
-          className="itp-c-header__logo"
-          width={200}
-          height={200}
-        />
+        <Link href="/">
+          <Image
+            src={LOGO}
+            alt="Logo Inżynierskich Targów Pracy"
+            className="itp-main-header__logo"
+          />
+        </Link>
         <figcaption></figcaption>
       </figure>
       <nav>
-        <ul className="itp-c-header__navigation">
+        <ul className="itp-main-header__navigation">
           <li>
             <Link href={"/#about"} className="itp-c-link--secondary">
               Informacje

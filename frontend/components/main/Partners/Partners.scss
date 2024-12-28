@@ -3,7 +3,9 @@
 
 .itp-main_section--partners {
   @include spacing.itp-section_margin;
+
   margin: 4rem 0;
+
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
   gap: 2rem;

@@ -2,7 +2,7 @@
 @use "./styles/scss/modules/border";
 @use "./styles/scss/modules/spacing";
 
-.itp-c-header {
+.itp-main-header {
   @include spacing.itp-section_margin;
 
   display: flex;
@@ -10,7 +10,9 @@
   align-items: center;
   padding: 2rem 0;
 
+  color: v.$itp-color--dark;
   font-family: v.$itp-font-family--title;
+  letter-spacing: 0.05em;
 
   &__logo {
     height: 3rem;

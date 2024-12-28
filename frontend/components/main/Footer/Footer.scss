@@ -1,7 +1,7 @@
 @use "/styles/scss" as v;
 @use "./styles/scss/modules/spacing";
 
-.itp-c-footer {
+.itp-main-footer {
   @include spacing.itp-section_margin;
   display: flex;
   gap: 8rem;
@@ -9,7 +9,7 @@
 
   padding: 2rem 0;
 
-  .itp-c-footer-section {
+  .itp-c-footer__section {
     display: flex;
     flex-direction: column;
     gap: 2rem;
@@ -30,19 +30,18 @@
         gap: 1rem;
       }
     }
-  }
 
-  .itp-c-footer-nav {
-    ul {
-      margin-left: 1.5rem;
-      list-style: circle;
+    &--nav {
+      ul {
+        margin-left: 1.5rem;
+        list-style: circle;
+      }
     }
-  }
-
-  .itp-c-footer-socials {
-    ul {
-      flex-direction: row;
-      height: 100%;
+    s &--socials {
+      ul {
+        flex-direction: row;
+        height: 100%;
+      }
     }
   }
 }
