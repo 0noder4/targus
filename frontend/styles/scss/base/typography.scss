@@ -11,6 +11,11 @@
 }
 
 @font-face {
+  font-family: "Montserrat-Regular";
+  src: url(/fonts/Montserrat/Montserrat-Regular.ttf);
+}
+
+@font-face {
   font-family: "Major_Mono_Display-Regular";
   src: url(/fonts/Major_Mono_Display/Major_Mono_Display-Regular.ttf);
 }
@@ -30,6 +35,7 @@
 $itp-font-family--display: "Major_Mono_Display-Regular";
 $itp-font-family--title: "Montserrat-Medium";
 $itp-font-family--title--bold: "Montserrat-Bold";
+$itp-font-family--title--thin: "Montserrat-Regular";
 $itp-font-family--content: "Roboto_Mono-Regular";
 $itp-font-family--content--bold: "Roboto_Mono-Bold";
 

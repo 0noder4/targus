@@ -4,6 +4,7 @@ import React from "react";
 import Header from "@/components/business/Header/Header";
 import Footer from "@/components/business/Footer/Footer";
 import Hero from "@/components/business/Hero/Hero";
+import ForBusiness from "@/components/business/ForBusiness/ForBusiness";
 
 const Index = () => {
   return (
@@ -11,6 +12,7 @@ const Index = () => {
       <Header />
       <main>
         <Hero />
+        <ForBusiness />
       </main>
       <Footer />
     </>

@@ -2,7 +2,7 @@ import * as React from "react";
 import "./Card.scss";
 
 type CardProps = {
-  className: string;
+  className?: string;
   type?: "default" | "no_outline";
   children?: React.ReactNode;
 };
