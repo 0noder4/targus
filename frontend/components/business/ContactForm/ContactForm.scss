@@ -1,0 +1,16 @@
+@use "/styles/scss" as v;
+@use "/styles/scss/modules/spacing";
+
+.itp-business_section--contact_form {
+  @include spacing.itp-section_margin;
+
+  margin-top: 2rem;
+  display: flex;
+
+  .itp-c-contact_form {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}

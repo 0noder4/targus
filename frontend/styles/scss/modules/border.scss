@@ -7,4 +7,10 @@
 
 @mixin itp-border--dark {
   border: v.$itp-border-size--s solid v.$itp-color--dark;
+  border-radius: v.$itp-border-radius--s;
+}
+
+@mixin itp-border--light {
+  border: v.$itp-border-size--s solid v.$itp-color--light;
+  border-radius: v.$itp-border-radius--s;
 }

@@ -1,0 +1,41 @@
+@use "/styles/scss" as v;
+@use "/styles/scss/modules/border";
+
+.itp-c-input--checkbox {
+  display: flex;
+
+  color: v.$itp-color--light;
+  font-family: v.$itp-font-family--content;
+  &__label {
+    margin-left: 1rem;
+  }
+  &__checkbox {
+    appearance: none;
+    background-color: transparent;
+    margin: 0;
+
+    width: 1.5rem;
+    height: 1.5rem;
+    @include border.itp-border--light;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__checkbox::before {
+    content: "";
+    width: 0.8rem;
+    height: 0.8rem;
+
+    background-color: v.$itp-color--light;
+    border-radius: 2px;
+
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+  }
+
+  &__checkbox:checked::before {
+    transform: scale(1);
+  }
+}
