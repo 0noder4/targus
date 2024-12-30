@@ -1,0 +1,42 @@
+@use "/styles/scss" as v;
+
+.itp-business_section--hero {
+  height: 90vh;
+  position: relative;
+  top: -10vh;
+
+  font-family: v.$itp-font-family--display;
+  font-size: v.$itp-font-size--display--s;
+  color: v.$itp-color--light;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .itp-c-hero__focus {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+
+    &__tl {
+      align-self: flex-start;
+      display: flex;
+      flex-direction: column;
+      gap: 0.2em;
+
+      color: v.$itp-color--accent;
+
+      transform: translate(0, -50%);
+    }
+
+    &__figure {
+      align-self: center;
+    }
+    &__br {
+      align-self: flex-end;
+      text-align: right;
+
+      transform: translate(0, 50%);
+    }
+  }
+}
