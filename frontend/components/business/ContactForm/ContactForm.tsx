@@ -1,11 +1,11 @@
 "use client";
 
-import React, { useState } from "react";
-import TextInput from "../components/TextInput/TextInput";
+import React, { FormEvent, useState } from "react";
+import TextInput from "@/components/global/TextInput/TextInput";
+import Checkbox from "@/components/global/Checkbox/Checkbox";
 
 import "./ContactForm.scss";
 import Button from "@/components/global/Button/Button";
-import Checkbox from "../components/Checkbox/Checkbox";
 
 const ContactForm = () => {
   const [name, setName] = useState("");
@@ -15,12 +15,16 @@ const ContactForm = () => {
   const [tel, setTel] = useState("");
   const [consent, setConsent] = useState(false);
 
+  const onSubmit = (e: FormEvent) => {
+    e.preventDefault();
+  };
+
   return (
     <section className="itp-business_section--contact_form">
       <aside className="itp-c-memorials"></aside>
       <div className="itp-c-contact_form_container">
         <h3 className="itp-c-contact_form_header"></h3>
-        <form className="itp-c-contact_form">
+        <form className="itp-c-contact_form" onSubmit={onSubmit}>
           <TextInput
             label="Imie"
             placeholder="Twoje imie"
@@ -43,12 +47,14 @@ const ContactForm = () => {
             label="Email"
             placeholder="example@example.com"
             value={email}
+            type="email"
             onChange={(e) => setEmail(e)}
           />
           <TextInput
             label="Telefon"
             placeholder="+48 000 000 000"
             value={tel}
+            type="tel"
             onChange={(e) => setTel(e)}
           />
           <Checkbox

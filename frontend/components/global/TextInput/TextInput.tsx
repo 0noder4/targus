@@ -6,6 +6,7 @@ interface Props {
   label?: string;
   placeholder?: string;
   value: string;
+  type?: "email" | "tel";
   onChange: (value: string) => void;
 }
 
@@ -14,6 +15,7 @@ const TextInput = ({
   label,
   value,
   placeholder,
+  type = "text",
   onChange,
 }: Props) => {
   return (
@@ -21,7 +23,7 @@ const TextInput = ({
       <label className="itp-c-input--text__label">{label}</label>
       <input
         className="itp-c-input--text__input"
-        type="text"
+        type={type}
         placeholder={placeholder}
         value={value}
         onChange={(e) => onChange(e.target.value)}
