@@ -36,7 +36,7 @@ export async function POST(formData: Request) {
       console.log(err.statusCode);
     });
 
-  return new Response("", {
+  return new Response(JSON.stringify({ submitted: true }), {
     status: 200,
   });
 }

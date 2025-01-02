@@ -6,6 +6,7 @@ import Checkbox from "@/components/global/Checkbox/Checkbox";
 
 import "./ContactForm.scss";
 import Button from "@/components/global/Button/Button";
+import Notification from "@/components/global/Notification/Notification";
 
 const ContactForm = () => {
   const [name, setName] = useState("");
@@ -13,6 +14,8 @@ const ContactForm = () => {
   const [companyName, setCompanyName] = useState("");
   const [email, setEmail] = useState("");
   const [tel, setTel] = useState("");
+
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const onSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -25,6 +28,10 @@ const ContactForm = () => {
           "content-type": "application/json",
         },
       });
+
+      if (req.status === 200) {
+        setIsSubmitted(true);
+      }
     } catch (err: any) {
       console.error(err);
     }
@@ -32,6 +39,13 @@ const ContactForm = () => {
 
   return (
     <section className="itp-business_section--contact_form">
+      {isSubmitted ? (
+        <Notification
+          title="Formularz został wysłany"
+          message="odezwiemy się w ciągu 24h..."
+          onClose={() => setIsSubmitted(false)}
+        />
+      ) : null}
       <aside className="itp-c-memorials"></aside>
       <div className="itp-c-contact_form_container">
         <h3 className="itp-c-contact_form_header"></h3>
