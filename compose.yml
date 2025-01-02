@@ -7,10 +7,10 @@ services:
     volumes:
       - ./data:/var/lib/postgresql/data
     environment:
-      - POSTGRES_DB=${DATABASE_NAME}
-      - POSTGRES_USER=${DATABASE_USERNAME}
-      - POSTGRES_PASSWORD=${DATABASE_PASSWORD}
-      - NEXT_TELEMETRY_DISABLED=1
+      POSTGRES_DB: ${DATABASE_NAME}
+      POSTGRES_USER: ${DATABASE_USERNAME}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
+      NEXT_TELEMETRY_DISABLED: 1
     networks:
       - internal
 
@@ -29,7 +29,6 @@ services:
       JWT_SECRET: ${JWT_SECRET}
       ADMIN_JWT_SECRET: ${ADMIN_JWT_SECRET}
       API_TOKEN_SALT: ${API_TOKEN_SALT}
-      TRANSFER_TOKEN_SALT: ${TRANSFER_TOKEN_SALT}
       APP_KEYS: ${APP_KEYS}
       NODE_ENV: ${NODE_ENV}
     ports:
@@ -51,6 +50,9 @@ services:
       - /app/.next
     networks:
       - internal
+    environment:
+      MJ_APIKEY_PUBLIC: ${MJ_APIKEY_PUBLIC}
+      MJ_APIKEY_PRIVATE: ${MJ_APIKEY_PRIVATE}
 
 volumes:
   data:

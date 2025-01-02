@@ -13,10 +13,21 @@ const ContactForm = () => {
   const [companyName, setCompanyName] = useState("");
   const [email, setEmail] = useState("");
   const [tel, setTel] = useState("");
-  const [consent, setConsent] = useState(false);
 
-  const onSubmit = (e: FormEvent) => {
+  const onSubmit = async (e: FormEvent) => {
     e.preventDefault();
+
+    try {
+      const req = await fetch("/api/contact", {
+        method: "POST",
+        body: JSON.stringify({ name, surname, companyName, email, tel }),
+        headers: {
+          "content-type": "application/json",
+        },
+      });
+    } catch (err: any) {
+      console.error(err);
+    }
   };
 
   return (
@@ -57,10 +68,7 @@ const ContactForm = () => {
             type="tel"
             onChange={(e) => setTel(e)}
           />
-          <Checkbox
-            label="wyrażam zgodę na przetwarzanie danych osobowych"
-            onChange={setConsent}
-          />
+          <Checkbox label="wyrażam zgodę na przetwarzanie danych osobowych" />
           <Button
             type="submit"
             variant="secondary"

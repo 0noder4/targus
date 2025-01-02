@@ -4,10 +4,10 @@ import "./Checkbox.scss";
 type Props = {
   className?: string;
   label?: string;
-  onChange: (value: boolean) => void;
+  onChange?: (value: boolean) => void;
 };
 
-const Checkbox = ({ className, label, onChange }: Props) => {
+const Checkbox = ({ className, label, onChange = (f) => f }: Props) => {
   return (
     <div className={`itp-c-input--checkbox ${className}`.trim()}>
       <input
