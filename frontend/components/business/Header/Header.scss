@@ -4,6 +4,9 @@
 
 .itp-business-header {
   @include spacing.itp-section_margin;
+
+  position: relative;
+  z-index: 2;
   height: 10vh;
 
   display: flex;
