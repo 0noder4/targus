@@ -12,8 +12,8 @@ const Header = () => {
       <nav>
         <ul className="itp-business-header__navigation">
           <li>
-            <Link href={"/#about"} className="itp-c-link--secondary">
-              Informacje
+            <Link href={"/business/#stats"} className="itp-c-link--secondary">
+              Liczby
             </Link>
           </li>
           <li>
@@ -22,7 +22,7 @@ const Header = () => {
             </Link>
           </li>
           <li>
-            <Link href={"/#contact"} className="itp-c-link--main">
+            <Link href={"/business/#contact"} className="itp-c-link--main">
               Kontakt
             </Link>
           </li>

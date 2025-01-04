@@ -16,13 +16,10 @@ const Footer = () => {
         <nav className="itp-c-footer__section__body">
           <ul>
             <li>
-              <Link href="/#about">Informacje</Link>
+              <Link href="/">Strona Główna</Link>
             </li>
             <li>
               <Link href="/#pdi">Ankieta PDI</Link>
-            </li>
-            <li>
-              <Link href="/business">Strefa Firm</Link>
             </li>
           </ul>
         </nav>

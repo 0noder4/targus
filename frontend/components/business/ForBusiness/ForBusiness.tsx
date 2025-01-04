@@ -4,7 +4,7 @@ import { Card, CardContent, CardTitle } from "@/components/global/Card/Card";
 
 function ForBusiness() {
   return (
-    <section className="itp-business_section--for_business">
+    <section className="itp-business_section--for_business" id="stats">
       <div className="itp-c-for_business__about">
         <ul className="itp-c-for_business__about__stats">
           <li>

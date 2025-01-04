@@ -44,7 +44,7 @@ const ContactForm = () => {
   };
 
   return (
-    <section className="itp-business_section--contact_form">
+    <section className="itp-business_section--contact_form" id="contact">
       {isSubmitted ? (
         <Notification
           title="Formularz został wysłany"
