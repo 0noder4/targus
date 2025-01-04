@@ -1,0 +1,8 @@
+@use "/styles/scss" as v;
+
+.itp-c-person_card {
+  width: 300px;
+  height: 400px;
+
+  background-color: v.$itp-color--dark;
+}

@@ -38,7 +38,7 @@ const ContactForm = () => {
       if (req.status === 200) {
         setIsSubmitted(true);
       }
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error(err);
     }
   };
