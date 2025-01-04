@@ -1,0 +1,24 @@
+@use "./styles/scss" as v;
+
+.itp-c-memorial {
+  background-color: v.$itp-color--light;
+  border-radius: v.$itp-border-radius--m;
+
+  font-family: v.$itp-font-family--content--bold;
+  padding: 1rem;
+
+  .itp-c-memorial__content {
+    text-align: justify;
+    color: v.$itp-color--dark;
+    font-size: v.$itp-font-size--m;
+  }
+
+  .itp-c-memorial__author {
+    color: v.$itp-color--accent;
+    font-size: v.$itp-font-size--l;
+  }
+
+  .itp-c-memorial__author::before {
+    content: "-- ";
+  }
+}

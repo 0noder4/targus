@@ -7,10 +7,22 @@
   margin-top: 2rem;
   display: flex;
 
+  justify-content: center;
+
+  gap: 2rem;
+
   .itp-c-contact_form {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     gap: 0.5rem;
+
+    .itp-c-form__submit_button {
+      margin-top: 1rem;
+    }
+  }
+
+  .itp-c-memorials_container {
+    max-width: 600px;
   }
 }

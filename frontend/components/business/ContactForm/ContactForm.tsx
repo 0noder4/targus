@@ -7,6 +7,12 @@ import Checkbox from "@/components/global/Checkbox/Checkbox";
 import "./ContactForm.scss";
 import Button from "@/components/global/Button/Button";
 import Notification from "@/components/global/Notification/Notification";
+import {
+  Memorial,
+  MemorialAuthor,
+  MemorialContent,
+} from "./components/Memorial/Memorial";
+import Masonry from "react-layout-masonry";
 
 const ContactForm = () => {
   const [name, setName] = useState("");
@@ -46,7 +52,34 @@ const ContactForm = () => {
           onClose={() => setIsSubmitted(false)}
         />
       ) : null}
-      <aside className="itp-c-memorials"></aside>
+      <aside className="itp-c-memorials_container">
+        <Masonry columns={2} gap={10}>
+          <Memorial>
+            <MemorialContent>
+              Jako Orange Polska już od kilku lat bierzemy udział w
+              Inżynierskich Targach Pracy w poszukiwaniu najlepszych talentów na
+              rynku.
+            </MemorialContent>
+            <MemorialAuthor>Orange Polska</MemorialAuthor>
+          </Memorial>
+          <Memorial>
+            <MemorialContent>
+              Z przyjemnością rokrocznie wracamy na Inżynierskie Targi Pracy.
+              Przede wszystkim frekwencja nigdy nie zawodzi, co jest pewnie
+              zasługą intensywnej promocji i prowadzi do dużej liczby
+              interesujących kandydatów...
+            </MemorialContent>
+            <MemorialAuthor>Schneider Electric</MemorialAuthor>
+          </Memorial>
+          <Memorial>
+            <MemorialContent>
+              Podczas współpracy przy Targach zawsze cenimy sobie profesjonalne
+              podejście, komunikację i zaangażowanie organizatorów.
+            </MemorialContent>
+            <MemorialAuthor>Orange Polska</MemorialAuthor>
+          </Memorial>
+        </Masonry>
+      </aside>
       <div className="itp-c-contact_form_container">
         <h3 className="itp-c-contact_form_header"></h3>
         <form className="itp-c-contact_form" onSubmit={onSubmit}>
