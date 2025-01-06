@@ -24,7 +24,17 @@ export async function POST(formData: Request) {
         ],
         Subject: `⚠️ Nowa firemka [${companyName}] w twojej okolicy ⚠️`,
         TextPart: `Nowa firemka`,
-        HTMLPart: `Nowa firemka: ${name} ${surname} z firmy ${companyName} o numerze telefonu ${tel} i emailu ${email}`,
+        HTMLPart: `
+        <div style="font-family: Courier New">
+        <h1>Nowa firemka: ${companyName}</h1> 
+        <h3>dane kontaktowe:</h3> 
+          <ul style="list-style: circle">
+            <li><b>imie:</b> ${name}</li>
+            <li><b>nazwisko:</b> ${surname}</li>
+            <li><b>numer telefonu:</b> ${tel}</li>
+            <li><b>email:</b> ${email}</li>
+          </ul>
+        </div>`,
       },
     ],
   });
