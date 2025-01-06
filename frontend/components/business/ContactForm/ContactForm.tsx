@@ -48,7 +48,7 @@ const ContactForm = () => {
       {isSubmitted ? (
         <Notification
           title="Formularz został wysłany"
-          message="odezwiemy się w ciągu 24h..."
+          message="odezwiemy się jak najszybciej..."
           onClose={() => setIsSubmitted(false)}
         />
       ) : null}
@@ -87,18 +87,24 @@ const ContactForm = () => {
             label="Imie"
             placeholder="Twoje imie"
             value={name}
+            name="name"
+            id="itp-input__name"
             onChange={(e) => setName(e)}
           />
           <TextInput
             label="Nazwisko"
             placeholder="Twoje nazwisko"
             value={surname}
+            name="surname"
+            id="itp-input__surname"
             onChange={(e) => setSurname(e)}
           />
           <TextInput
             label="Nazwa Firmy"
             placeholder="Nazwa firmy"
             value={companyName}
+            name="company_name"
+            id="itp-input__company_name"
             onChange={(e) => setCompanyName(e)}
           />
           <TextInput
@@ -106,6 +112,8 @@ const ContactForm = () => {
             placeholder="example@example.com"
             value={email}
             type="email"
+            name="email"
+            id="itp-input__email"
             onChange={(e) => setEmail(e)}
           />
           <TextInput
@@ -113,6 +121,8 @@ const ContactForm = () => {
             placeholder="+48 000 000 000"
             value={tel}
             type="tel"
+            name="tel"
+            id="itp-input__tel"
             onChange={(e) => setTel(e)}
           />
           <Checkbox label="wyrażam zgodę na przetwarzanie danych osobowych" />

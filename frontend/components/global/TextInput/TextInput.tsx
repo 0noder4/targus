@@ -7,6 +7,8 @@ interface Props {
   placeholder?: string;
   value: string;
   type?: "email" | "tel" | "text";
+  id?: string;
+  name?: string;
   onChange: (value: string) => void;
 }
 
@@ -16,6 +18,8 @@ const TextInput = ({
   value,
   placeholder,
   type = "text",
+  id,
+  name,
   onChange,
 }: Props) => {
   return (
@@ -26,6 +30,8 @@ const TextInput = ({
         type={type}
         placeholder={placeholder}
         value={value}
+        id={id}
+        name={name}
         onChange={(e) => onChange(e.target.value)}
         required
       />

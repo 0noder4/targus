@@ -21,7 +21,7 @@ const Notification: React.FC<NotificationProps> = ({
   useEffect(() => {
     const hideTimer = setTimeout(() => {
       setIsVisible(false);
-    }, duration - 300);
+    }, duration - 1000);
 
     const unmountTimer = setTimeout(() => {
       setIsMounted(false);
