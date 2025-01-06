@@ -18,7 +18,7 @@ export async function POST(formData: Request) {
         },
         To: [
           {
-            Email: "djbartox09@gmail.com",
+            Email: "bartosz.kuklewski@best.pw.edu.pl",
             Name: "Bartosz Kuklewski",
           },
         ],

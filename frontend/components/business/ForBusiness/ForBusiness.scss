@@ -14,7 +14,8 @@
   .itp-c-for_business__about {
     display: flex;
     gap: 8rem;
-    justify-content: space-around;
+    justify-content: space-between;
+    max-width: 1200px;
 
     &__stats {
       display: flex;
@@ -42,6 +43,8 @@
   .itp-c-benefits {
     position: relative;
     display: grid;
+    width: 100%;
+    max-width: 1200px;
 
     grid-template-columns: 1fr auto 1fr;
     grid-template-rows: repeat(3, 1fr);

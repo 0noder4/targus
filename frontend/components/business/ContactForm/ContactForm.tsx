@@ -53,7 +53,7 @@ const ContactForm = () => {
         />
       ) : null}
       <aside className="itp-c-memorials_container">
-        <Masonry columns={2} gap={10}>
+        <Masonry columns={2} gap={32}>
           <Memorial>
             <MemorialContent>
               Jako Orange Polska już od kilku lat bierzemy udział w
