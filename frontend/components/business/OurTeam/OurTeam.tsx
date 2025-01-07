@@ -7,7 +7,7 @@ const OurTeam = () => {
   return (
     <section className="itp-business_section--our_team">
       <h1 className="itp-c-section_header itp-c-section_header--our_team">
-        Lub skontaktuj się bespośrednio
+        Lub skontaktuj się bezpośrednio
       </h1>
       <div className="itp-c-team_container">
         <PersonCard />
