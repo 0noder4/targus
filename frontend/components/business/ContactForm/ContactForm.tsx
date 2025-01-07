@@ -12,7 +12,7 @@ import {
   MemorialAuthor,
   MemorialContent,
 } from "./components/Memorial/Memorial";
-import Masonry from "react-layout-masonry";
+import MasonryLayout from "react-masonry-layout";
 
 const ContactForm = () => {
   const [name, setName] = useState("");
@@ -53,7 +53,7 @@ const ContactForm = () => {
         />
       ) : null}
       <aside className="itp-c-memorials_container">
-        <Masonry columns={2} gap={32}>
+        <MasonryLayout id="masonry" sizes={[{ columns: 2, gutter: 16 }]}>
           <Memorial>
             <MemorialContent>
               Jako Orange Polska już od kilku lat bierzemy udział w
@@ -78,7 +78,7 @@ const ContactForm = () => {
             </MemorialContent>
             <MemorialAuthor>Orange Polska</MemorialAuthor>
           </Memorial>
-        </Masonry>
+        </MasonryLayout>
       </aside>
       <div className="itp-c-contact_form_container">
         <h3 className="itp-c-contact_form_header"></h3>

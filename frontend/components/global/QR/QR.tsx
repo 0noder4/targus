@@ -4,7 +4,7 @@ import React from "react";
 import "./QR.scss";
 
 type Props = {
-  src: React.ReactNode;
+  src: string;
   alt: string;
   href: string;
   className?: string;
