@@ -2,7 +2,7 @@ import React from "react";
 
 import "./Survey.scss";
 import Score from "./components/Score/Score";
-import { Card, CardContent, CardTitle } from "@/components/global/Card/Card";
+import { Card, CardContent, CardTitle } from "/components/global/Card/Card";
 
 const Survey = () => {
   return (

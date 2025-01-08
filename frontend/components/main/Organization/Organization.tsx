@@ -1,13 +1,13 @@
 import React from "react";
 
 import "./Organization.scss";
-import Button from "@/components/global/Button/Button";
+import Button from "/components/global/Button/Button";
 import Link from "next/link";
 import Image from "next/image";
 
-import IMAGE_1 from "@/public/images/itp-image--30_final_best.png";
-import IMAGE_2 from "@/public/images/itp-image--31_group.png";
-// import BEST_LOGO from "@/public/images/best/best-logo--horizontal--white.png";
+import IMAGE_1 from "/public/images/itp-image--30_final_best.png";
+import IMAGE_2 from "/public/images/itp-image--31_group.png";
+// import BEST_LOGO from "/public/images/best/best-logo--horizontal--white.png";
 
 const Organization = () => {
   return (

@@ -1,10 +1,10 @@
 "use client";
 
 import React, { useRef } from "react";
-import { useCountdown } from "@/hooks/useCountdown";
+import { useCountdown } from "/hooks/useCountdown";
 
 import HeroImage from "./components/HeroImage/HeroImage";
-import Icon from "@/components/global/Icon/Icon";
+import Icon from "/components/global/Icon/Icon";
 import "./Hero.scss";
 
 import dynamic from "next/dynamic";

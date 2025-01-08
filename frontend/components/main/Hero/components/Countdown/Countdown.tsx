@@ -1,4 +1,4 @@
-import { useDimensions } from "@/hooks/useDimensions";
+import { useDimensions } from "/hooks/useDimensions";
 import React, { RefObject } from "react";
 
 import "./Countdown.scss";

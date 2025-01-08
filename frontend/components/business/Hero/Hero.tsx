@@ -3,8 +3,8 @@ import React from "react";
 import "./Hero.scss";
 import Aside from "./components/Aside/Aside";
 
-import FOCUS from "@/public/figures/itp-figure--business_focus.svg";
-import BARCODE from "@/public/figures/itp-figure--barcode.svg";
+import FOCUS from "/public/figures/itp-figure--business_focus.svg";
+import BARCODE from "/public/figures/itp-figure--barcode.svg";
 import Image from "next/image";
 
 const Hero = () => {

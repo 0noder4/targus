@@ -1,4 +1,4 @@
-import Icon from "@/components/global/Icon/Icon";
+import Icon from "/components/global/Icon/Icon";
 import React from "react";
 
 import "./Essentials.scss";

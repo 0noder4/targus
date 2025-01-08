@@ -1,11 +1,11 @@
 import React from "react";
-import Button from "@/components/global/Button/Button";
+import Button from "/components/global/Button/Button";
 import {
   Card,
   CardContent,
   CardFooter,
   CardTitle,
-} from "@/components/global/Card/Card";
+} from "/components/global/Card/Card";
 
 import "./Offer.scss";
 

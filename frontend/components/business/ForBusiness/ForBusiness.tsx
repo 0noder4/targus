@@ -1,6 +1,6 @@
 import React from "react";
 import "./ForBusiness.scss";
-import { Card, CardContent, CardTitle } from "@/components/global/Card/Card";
+import { Card, CardContent, CardTitle } from "/components/global/Card/Card";
 
 function ForBusiness() {
   return (

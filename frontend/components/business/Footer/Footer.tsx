@@ -1,12 +1,12 @@
 import React from "react";
 
 import "./Footer.scss";
-import QR from "@/components/global/QR/QR";
+import QR from "/components/global/QR/QR";
 import Link from "next/link";
 
-import QR_LINKEDIN from "@/public/images/qr_codes/itp-qr_code--in--negative.svg";
-import QR_FACEBOOK from "@/public/images/qr_codes/itp-qr_code--fb--negative.svg";
-import QR_INSTAGRAM from "@/public/images/qr_codes/itp-qr_code--ig--negative.svg";
+import QR_LINKEDIN from "/public/images/qr_codes/itp-qr_code--in--negative.svg";
+import QR_FACEBOOK from "/public/images/qr_codes/itp-qr_code--fb--negative.svg";
+import QR_INSTAGRAM from "/public/images/qr_codes/itp-qr_code--ig--negative.svg";
 
 const Footer = () => {
   return (

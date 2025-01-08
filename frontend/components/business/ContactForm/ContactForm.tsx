@@ -1,12 +1,12 @@
 "use client";
 
 import React, { FormEvent, useState } from "react";
-import TextInput from "@/components/global/TextInput/TextInput";
-import Checkbox from "@/components/global/Checkbox/Checkbox";
+import TextInput from "/components/global/TextInput/TextInput";
+import Checkbox from "/components/global/Checkbox/Checkbox";
 
 import "./ContactForm.scss";
-import Button from "@/components/global/Button/Button";
-import Notification from "@/components/global/Notification/Notification";
+import Button from "/components/global/Button/Button";
+import Notification from "/components/global/Notification/Notification";
 import {
   Memorial,
   MemorialAuthor,

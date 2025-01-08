@@ -42,7 +42,7 @@ services:
     container_name: ${PROJECT_NAME}_frontend
     build:
       context: frontend
-      target: production
+      target: ${NODE_ENV}
     ports:
       - 80:3000
     volumes:
@@ -52,6 +52,7 @@ services:
     networks:
       - internal
     environment:
+      NODE_ENV: ${NODE_ENV}
       MJ_APIKEY_PUBLIC: ${MJ_APIKEY_PUBLIC}
       MJ_APIKEY_PRIVATE: ${MJ_APIKEY_PRIVATE}
 

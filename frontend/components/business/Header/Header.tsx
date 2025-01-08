@@ -4,7 +4,7 @@ import React from "react";
 
 import "./Header.scss";
 
-import LOGO from "@/public/images/brand/itp-logo--horizontal--light.svg";
+import LOGO from "/public/images/brand/itp-logo--horizontal--light.svg";
 
 const Header = () => {
   return (
