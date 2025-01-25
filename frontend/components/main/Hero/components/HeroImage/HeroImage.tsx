@@ -107,6 +107,8 @@ const HeroImage: React.FC<Props> = ({
         <image
           href="/images/image_front-cover.jpg"
           width={dimensions.w}
+          height={dimensions.h}
+          preserveAspectRatio="xMidYMid slice"
           className="itp-c-front-page-cover"
         />
       </svg>
