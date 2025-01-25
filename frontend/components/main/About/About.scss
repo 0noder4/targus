@@ -4,3 +4,9 @@
   @include spacing.itp-section_margin;
   margin-top: 3rem;
 }
+
+@media (max-width: 768px) {
+  .itp-main_section--about {
+    display: none;
+  }
+}

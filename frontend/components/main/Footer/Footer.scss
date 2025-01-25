@@ -34,7 +34,7 @@
     &--nav {
       ul {
         margin-left: 1.5rem;
-        list-style: circle;
+        list-style: square;
       }
     }
     &--socials {
@@ -43,5 +43,11 @@
         height: 100%;
       }
     }
+  }
+}
+
+@media (max-width: 768px) {
+  .itp-main-footer {
+    display: none;
   }
 }

@@ -5,6 +5,8 @@
 .itp-main-header {
   @include spacing.itp-section_margin;
 
+  position: relative;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -14,9 +16,15 @@
   font-family: v.$itp-font-family--title;
   letter-spacing: 0.05em;
 
+  list-style: none;
+
   &__logo {
     height: 3rem;
     width: auto;
+  }
+
+  &__navigation__container {
+    position: relative;
   }
 
   &__navigation {
@@ -29,5 +37,40 @@
       padding: 0.5rem 1.5rem;
       color: v.$itp-color--accent;
     }
+  }
+
+  .itp-main-header__navigation__mobile_dropdown {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1080px) {
+  .itp-main-header__navigation__mobile_dropdown {
+    display: block !important;
+  }
+
+  .itp-main-header__navigation {
+    position: absolute;
+    flex-direction: column-reverse;
+
+    list-style: square;
+
+    background-color: v.$itp-color--dark;
+    color: v.$itp-color--light;
+    padding: 1rem 1rem 1rem 2rem;
+
+    right: 0.5rem;
+
+    z-index: 2;
+
+    gap: 1rem;
+
+    .itp-c-link--main {
+      border: none;
+      padding: 0 0;
+    }
+  }
+  .itp-main-header__navigation.collapsed {
+    display: none;
   }
 }

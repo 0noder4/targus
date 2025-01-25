@@ -15,6 +15,7 @@ services:
       - internal
 
   backend:
+    image: 0noder4/targus:backend_alfa_1.0
     container_name: ${PROJECT_NAME}_backend
     build: 
       context: backend
@@ -39,6 +40,7 @@ services:
       - postgres
 
   frontend:
+    image: 0noder4/targus:frontend_alfa_1.0
     container_name: ${PROJECT_NAME}_frontend
     build:
       context: frontend

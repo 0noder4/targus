@@ -52,3 +52,9 @@
     color: v.$itp-color--accent;
   }
 }
+
+@media (max-width: 768px) {
+  .itp-main_section--hero {
+    display: none;
+  }
+}

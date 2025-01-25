@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import React from "react";
 
@@ -7,9 +9,10 @@ type Props = {
   src: string;
   alt: string;
   className?: string;
+  onClick: () => void;
 };
 
-const Icon: React.FC<Props> = ({ src, alt, className = "" }) => {
+const Icon: React.FC<Props> = ({ src, alt, className = "", onClick }) => {
   return (
     <figure className="itp-c-icon-container">
       <Image
@@ -18,6 +21,9 @@ const Icon: React.FC<Props> = ({ src, alt, className = "" }) => {
         alt={alt}
         width={0}
         height={0}
+        onClick={() => {
+          onClick();
+        }}
       />
     </figure>
   );
