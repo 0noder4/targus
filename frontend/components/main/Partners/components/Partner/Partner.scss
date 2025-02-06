@@ -1,13 +1,17 @@
-@use "/styles/scss" as v;
-@use "./styles/scss/modules/border";
+@use "/styles/scss" as *;
 
 .itp-c-partner-container {
-  padding: 2rem;
-  @include border.itp-border--dark;
+  padding: $itp-spacing--m;
+  @include itp-border--dark;
 
   display: flex;
   justify-content: center;
   align-items: center;
+
+  .itp-c-partner__logo {
+    height: 3rem;
+    width: auto;
+  }
 }
 
 .itp-c-partner--main {

@@ -2,7 +2,13 @@ import React from "react";
 
 import "./Survey.scss";
 import Score from "./components/Score/Score";
-import { Card, CardContent, CardTitle } from "/components/global/Card/Card";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardTitle,
+} from "/components/global/Card/Card";
+import Button from "/components/global/Button/Button";
 
 const Survey = () => {
   return (
@@ -24,13 +30,33 @@ const Survey = () => {
       <Card className="itp-c-survey_about">
         <CardTitle>Czym jest badanie?</CardTitle>
         <CardContent>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatus.
+          Badanie „Pracodawca dla Inżyniera” (PDI) to ankieta przeprowadzana
+          wśród polskich uczelni technicznych od wielu lat. Dzięki naszemu
+          badaniu pracodawcy mogą dowiedzieć się, czego oczekują pracownicy oraz
+          jakie aspekty są dla nich najistotniejsze podczas szukania pracy.
+          Wyniki prezentowane są na uroczystej gali, która jest nie tylko dobrą
+          zabawą, ale również świetną okazją do nawiązania nowych kontaktów.
         </CardContent>
+        <CardFooter>
+          <Button>
+            <a
+              href="https://ankieta.pw.edu.pl/index.php/511362?lang=pl"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Wypełnij ankietę
+            </a>
+          </Button>
+          <Button>
+            <a
+              href="/docs/Pracodawca_Dla_Inżyniera_2024.pdf"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Zobacz wyniki 2024 edycji
+            </a>
+          </Button>
+        </CardFooter>
       </Card>
     </section>
   );

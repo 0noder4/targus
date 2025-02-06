@@ -7,7 +7,15 @@ const Essentials = () => {
   return (
     <div className="itp-c-essentials">
       <div className="itp-c-catalouge_ref">
-        <div className="itp-c-catalouge_ref__link">zobacz katalog firm</div>
+        <div className="itp-c-catalouge_ref__link">
+          <a
+            href="/docs/Katalog_Firm_30_ITP.pdf"
+            target="_blank"
+            rel="noreferrer"
+          >
+            zobacz katalog firm
+          </a>
+        </div>
       </div>
       <ul className="itp-c-time_and_date">
         <li className="itp-c-essential_info itp-c-essential_info--date">

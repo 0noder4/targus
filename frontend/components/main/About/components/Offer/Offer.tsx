@@ -15,37 +15,45 @@ const Offer = () => {
       <Card className="itp-l-offer__companies">
         <CardTitle>Firmy</CardTitle>
         <CardContent>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatus.
+          Blisko 100 firm co roku zbiera się w jednym miejscu – w Gmachu Głównym
+          Politechniki Warszawskiej – podczas Inżynierskich Targów Pracy, aby
+          zaoferować miejsca pracy ambitnym studentom. Więc jeśli szukasz pracy
+          albo Twoja firma potrzebuje młodych talentów, to zapisz datę{" "}
+          <b>11–12 marca 2025</b> – mamy nadzieję, że do zobaczenia na targach!
         </CardContent>
         <CardFooter>
-          <Button>zobacz katalog</Button>
+          <Button>
+            <a
+              href="/docs/Katalog_Firm_30_ITP.pdf"
+              target="_blank"
+              rel="noreferrer"
+            >
+              zobacz katalog
+            </a>
+          </Button>
         </CardFooter>
       </Card>
       <Card className="itp-l-offer__cv">
         <CardTitle>Konsultacje CV</CardTitle>
         <CardContent>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatus.
+          Chcecie, aby Wasze CV przyciągało uwagę lub nie wiecie, co w nim
+          umieścić? Skorzystajcie z darmowych konsultacji, które oferujemy we
+          współpracy z Biurem Karier Politechniki Warszawskiej. Szykujcie swoje
+          CV i widzimy się 11–12 marca na Inżynierskich Targach Pracy!
         </CardContent>
       </Card>
       <Card className="itp-l-offer__workshops">
         <CardTitle>warsztaty</CardTitle>
         <CardContent>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatus.
+          Wiedzieliście, że podczas Inżynierskich Targów Pracy możecie nie tylko
+          znaleźć pracę, ale też dowiedzieć się wielu ciekawych rzeczy od samych
+          przedstawicieli firm? Może zastanawiałeś się, jak będzie wyglądać
+          zajezdnia tramwajowa albo zawsze chciałeś pobawić się w projektanta
+          procesów wytwarzania? Warsztaty, które oferujemy, są świetną okazją,
+          żeby bliżej poznać firmę i przy okazji dowiedzieć się interesujących
+          rzeczy na wiele tematów. Jeżeli jednak reprezentujesz firmę, która
+          chce podzielić się taką wiedzą ze studentami, skontaktuj się z nami w
+          celu ustalenia szczegółów.
         </CardContent>
         <CardFooter>
           <Button disabled={true}>Zapisy wkrótce...</Button>
@@ -54,12 +62,9 @@ const Offer = () => {
       <Card className="itp-l-offer__pdi">
         <CardTitle>PDI</CardTitle>
         <CardContent>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatus.
+          Już dziś podziel się swoją opinią na temat oczekiwań na rynku pracy,
+          wypełniając ankietę <b>„Pracodawca dla Inżyniera”</b>. Wyniki zostaną
+          ogłoszone <b>11 marca 2025</b> podczas Inżynierskich Targów Pracy.
         </CardContent>
       </Card>
     </div>

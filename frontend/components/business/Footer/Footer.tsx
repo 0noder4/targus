@@ -22,7 +22,7 @@ const Footer = () => {
               <Link href="/#pdi">Ankieta PDI</Link>
             </li>
             <li>
-              <Link href="/business">Strefa Firm</Link>
+              <Link href="/">Strona Główna</Link>
             </li>
           </ul>
         </nav>

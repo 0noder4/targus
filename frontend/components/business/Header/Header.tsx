@@ -33,6 +33,9 @@ const Header = () => {
           <li className="itp-c-link itp-c-link--secondary">
             <Link href={"/#pdi"}>Plebiscyt</Link>
           </li>
+          <li className="itp-c-link itp-c-link--secondary">
+            <Link href={"/"}>Strona Główna</Link>
+          </li>
           <li className="itp-c-link itp-c-link--main">
             <Link href={"#contact"}>Kontakt</Link>
           </li>

@@ -28,6 +28,7 @@ const PersonCard: React.FC<Props> = ({
       <Image
         src={avatar}
         alt={`${name} ${surname}`}
+        width={100}
         className="itp-c-image_meta"
       ></Image>
       <div className="itp-c-person_card__info">

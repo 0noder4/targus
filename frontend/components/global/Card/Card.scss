@@ -1,16 +1,15 @@
-@use "/styles/scss" as v;
-@use "/styles/scss/modules/text";
+@use "/styles/scss" as *;
 
-$color--primary: v.$itp-color--dark;
-$color--secondary: v.$itp-color--accent;
-$color--negative: v.$itp-color--light;
+$color--primary: $itp-color--dark;
+$color--secondary: $itp-color--accent;
+$color--negative: $itp-color--light;
 
-$font-size--header: v.$itp-font-size--display--s;
-$font-size--content: v.$itp-font-size--m;
-$font-size--footer: v.$itp-font-size--l;
+$font-size--header: $itp-font-size--display--s;
+$font-size--content: $itp-font-size--m;
+$font-size--footer: $itp-font-size--l;
 
-$font-family--header: v.$itp-font-family--title--bold;
-$font-family--content: v.$itp-font-family--content;
+$font-family--header: $itp-font-family--title--bold;
+$font-family--content: $itp-font-family--content;
 
 .itp-c-card {
   background-color: $color--primary;
@@ -34,7 +33,7 @@ $font-family--content: v.$itp-font-family--content;
   bottom: 0.75rem;
   left: -1px;
   top: -1px;
-  border: 1px solid v.$itp-color--light;
+  border: 1px solid $itp-color--light;
   pointer-events: none;
 }
 
@@ -45,7 +44,7 @@ $font-family--content: v.$itp-font-family--content;
   bottom: 0.75rem;
   left: -0.75rem;
   top: -0.75rem;
-  border: 1px solid v.$itp-color--dark;
+  border: 1px solid $itp-color--dark;
   pointer-events: none;
 }
 
@@ -58,10 +57,17 @@ $font-family--content: v.$itp-font-family--content;
 }
 
 .itp-c-card__content {
-  @include text.itp-text--paragraph;
+  @include itp-text--paragraph;
 }
 
 .itp-c-card__footer {
   margin-top: auto;
   justify-self: flex-end;
+
+  display: flex;
+  gap: $itp-spacing--s;
+
+  @include for-size(tablet-lg) {
+    flex-direction: column;
+  }
 }

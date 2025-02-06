@@ -23,12 +23,28 @@ function ForBusiness() {
         <Card className="itp-c-for_business__about__why_us">
           <CardTitle>Zostań wystawcą</CardTitle>
           <CardContent>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatus.
+            Jeśli Inżynierskie Targi Pracy to miejsce, gdzie Wasza firma
+            idealnie pasuje i chcecie nawiązać kontakt z pełnymi pasji
+            studentami, mamy coś dla Was! Jak zostać wystawcą? To proste:
+            <br />
+            <p>
+              1. Na naszej stronie wejdźcie w zakładkę Strefa Firmy wypełnijcie
+              formularz zgłoszeniowy. Możecie także skontaktować się z nami
+              bezpośrednio – dane kontaktowe znajdziecie na stronie w zakładce
+              Kontakt.
+            </p>
+            <p>
+              2. Nasi konsultanci skontaktują się z Wami, aby potwierdzić
+              zgłoszenie i ustalić szczegóły.
+            </p>
+            <p>
+              3. Zarezerwujcie miejsce – nasz przedstawiciel pomoże Wam wybrać
+              najlepsze stanowisko.
+            </p>
+            <p>
+              4. Gotowe! Jesteście uczestnikami Inżynierskich Targów Pracy.
+              Pozostało tylko ustalić ostatnie szczegóły.
+            </p>
           </CardContent>
         </Card>
       </div>
