@@ -3,7 +3,7 @@
 .itp-l-offer {
   display: grid;
   grid-template-columns: 15% 1fr 15%;
-  gap: $itp-spacing-l;
+  gap: $itp-spacing--l;
 
   background-image: url("/images/backgrounds/itp-image--offer_background.svg");
   background-size: contain;

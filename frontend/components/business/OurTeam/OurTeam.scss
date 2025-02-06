@@ -1,24 +1,40 @@
-@use "/styles/scss" as v;
-@use "/styles/scss/modules/spacing";
+@use "/styles/scss" as *;
 
 .itp-business_section--our_team {
-  @include spacing.itp-section_padding;
-  padding: 2rem;
+  @include itp-section_padding;
 
-  background-color: v.$itp-color--light;
-  color: v.$itp-color--dark;
+  background-color: $itp-color--light;
+  color: $itp-color--dark;
 
   .itp-c-section_header {
-    margin-bottom: 2rem;
-
-    font-family: v.$itp-font-family--title;
-    font-size: v.$itp-font-size--display--m;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
+    @include itp-text--section_header;
+    margin-bottom: $itp-spacing--m;
   }
 
   .itp-c-team_container {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    gap: $itp-spacing--l;
+  }
+}
+
+@include for-size(1200px) {
+  .itp-business_section--our_team {
+    .itp-c-team_container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .itp-c-person_card {
+      place-self: center;
+    }
+  }
+}
+
+@include for-size(phone) {
+  .itp-business_section--our_team {
+    .itp-c-team_container {
+      grid-template-columns: 1fr;
+    }
   }
 }

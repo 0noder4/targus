@@ -1,24 +1,22 @@
-@use "/styles/scss" as v;
+@use "/styles/scss" as *;
 
 .itp-business_section--hero {
+  @include itp-section_padding;
   position: relative;
   height: 90vh;
-  top: -10vh;
+  top: 0;
 
-  margin-bottom: -10vh;
-
-  font-family: v.$itp-font-family--display;
-  font-size: v.$itp-font-size--display--s;
-  color: v.$itp-color--light;
+  font-family: $itp-font-family--display;
+  font-size: $itp-font-size--display--s;
+  color: $itp-color--light;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
   .itp-c-hero__focus {
-    display: flex;
-    flex-direction: row;
-    gap: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 500px 1fr;
 
     transform: translate(10%, 0);
 
@@ -28,19 +26,81 @@
       flex-direction: column;
       gap: 0.2em;
 
-      color: v.$itp-color--accent;
+      color: $itp-color--accent;
 
-      transform: translate(0, -50%);
+      transform: translate(10%, -50%);
+
+      img {
+        position: relative;
+        height: 1em;
+        width: fit-content;
+        transform: translate(0.1em, 0);
+      }
     }
 
     &__figure {
-      align-self: center;
+      display: flex;
+      justify-content: center;
+
+      img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+      }
     }
+
     &__br {
       align-self: flex-end;
       text-align: right;
 
-      transform: translate(0, 50%);
+      transform: translate(-10%, 50%);
+    }
+  }
+}
+
+@include for-size(1250px) {
+  .itp-business_section--hero {
+    .itp-c-hero__focus {
+      transform: none;
+    }
+  }
+
+  .itp-c-hero__focus {
+    grid-template-columns: 1fr 400px 1fr !important;
+  }
+}
+
+@include for-size(tablet-lg) {
+  .itp-business_section--hero {
+    .itp-c-hero__focus {
+      grid-template-columns: 1fr 350px 1fr !important;
+    }
+  }
+}
+
+@include for-size(tablet) {
+  .itp-business_section--hero {
+    font-size: $itp-font-size--l;
+    .itp-c-hero__focus {
+      grid-template-columns: 1fr 250px 1fr !important;
+    }
+  }
+}
+
+@include for-size(phone) {
+  .itp-business_section--hero {
+    height: 70vh;
+    .itp-c-hero__focus {
+      display: flex;
+      flex-direction: column;
+
+      &__tl {
+        transform: translate(0, -10%);
+      }
+
+      &__br {
+        transform: translate(0, 50%);
+      }
     }
   }
 }

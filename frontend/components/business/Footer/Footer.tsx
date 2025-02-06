@@ -4,22 +4,25 @@ import "./Footer.scss";
 import QR from "/components/global/QR/QR";
 import Link from "next/link";
 
-import QR_LINKEDIN from "/public/images/qr_codes/itp-qr_code--in--negative.svg";
-import QR_FACEBOOK from "/public/images/qr_codes/itp-qr_code--fb--negative.svg";
-import QR_INSTAGRAM from "/public/images/qr_codes/itp-qr_code--ig--negative.svg";
+import QR_LINKEDIN from "/public/images/qr_codes/itp-qr_code--in--light.svg";
+import QR_FACEBOOK from "/public/images/qr_codes/itp-qr_code--fb--light.svg";
+import QR_INSTAGRAM from "/public/images/qr_codes/itp-qr_code--ig--light.svg";
 
 const Footer = () => {
   return (
-    <footer className="itp-business-footer" id="contact">
+    <footer className="itp-business-footer">
       <div className="itp-c-footer__section itp-c-footer__section--nav">
         <h3 className="itp-c-footer__section__header">MENU</h3>
         <nav className="itp-c-footer__section__body">
           <ul>
             <li>
-              <Link href="/">Strona Główna</Link>
+              <Link href="/#about">Informacje</Link>
             </li>
             <li>
               <Link href="/#pdi">Ankieta PDI</Link>
+            </li>
+            <li>
+              <Link href="/business">Strefa Firm</Link>
             </li>
           </ul>
         </nav>
@@ -32,7 +35,9 @@ const Footer = () => {
             <li>
               <a href="mailto:best@best.warszawa.pl">best@best.warszawa.pl</a>
             </li>
-            <li>Pl. Politechniki 1 pok. 142 00-661 Warszawa</li>
+            <li>
+              Pl. Politechniki 1 pok. <br /> 142 00-661 Warszawa
+            </li>
           </ul>
         </div>
       </div>

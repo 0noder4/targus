@@ -10,7 +10,7 @@
 
   .itp-c-countdown {
     display: block;
-    margin: $itp-spacing-m;
+    margin: $itp-spacing--m;
     padding: 0.5rem 2rem;
     background-color: $itp-color--light;
     border-radius: $itp-border-radius--m;
@@ -23,7 +23,7 @@
 
   @include for-size(phone) {
     .itp-c-countdown {
-      margin: $itp-spacing-xs;
+      margin: $itp-spacing--xs;
 
       font-size: $itp-font-size--l;
     }

@@ -1,8 +1,35 @@
-@use "/styles/scss" as v;
+@use "/styles/scss" as *;
 
 .itp-c-person_card {
+  position: relative;
   width: 300px;
   height: 400px;
 
-  background-color: v.$itp-color--dark;
+  background-color: $itp-color--dark;
+  color: $itp-color--light;
+
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  @include itp-text--content;
+  font-size: $itp-font-size--s;
+
+  .itp-c-person_card__info {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    right: 0;
+
+    padding: $itp-spacing--xs;
+
+    background-color: $itp-color--dark;
+
+    &__name {
+      font-size: $itp-font-size--m;
+      margin-bottom: $itp-spacing--xs;
+    }
+    &__email {
+      text-decoration: underline;
+    }
+  }
 }

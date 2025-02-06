@@ -1,37 +1,38 @@
-@use "/styles/scss" as v;
-@use "/styles/scss/modules/border";
+@use "/styles/scss" as *;
 
 .itp-business_section--for_business {
-  padding: 2rem;
+  @include itp-section_padding;
 
-  background-color: v.$itp-color--light;
+  background-color: $itp-color--light;
   display: flex;
   align-items: center;
   flex-direction: column;
 
-  color: v.$itp-color--dark;
+  color: $itp-color--dark;
 
   .itp-c-for_business__about {
     display: flex;
-    gap: 8rem;
+    gap: $itp-spacing--xl;
     justify-content: space-between;
     max-width: 1200px;
 
     &__stats {
       display: flex;
       flex-direction: column;
-      gap: 2rem;
+      justify-content: space-between;
+      gap: $itp-spacing--m;
+
       text-transform: uppercase;
       letter-spacing: 0.1em;
 
       h1 {
-        font-family: v.$itp-font-family--title--thin;
-        font-size: v.$itp-font-size--display--l;
+        font-family: $itp-font-family--title--thin;
+        font-size: $itp-font-size--display--l;
       }
 
       label {
-        font-family: v.$itp-font-family--title--thin;
-        font-size: v.$itp-font-size--l;
+        font-family: $itp-font-family--title--thin;
+        font-size: $itp-font-size--l;
       }
     }
 
@@ -51,11 +52,11 @@
     gap: 1rem 2rem;
 
     margin-top: 3rem;
-    padding: 3rem;
-    @include border.itp-border--dark;
+    padding: $itp-spacing--l;
+    @include itp-border--dark;
 
-    font-family: v.$itp-font-family--content;
-    font-size: v.$itp-font-size--m;
+    font-family: $itp-font-family--content;
+    font-size: $itp-font-size--m;
 
     &__bullet_point {
       grid-column: 2;
@@ -69,8 +70,8 @@
       width: 1rem;
       height: 1rem;
 
-      background-color: v.$itp-color--light;
-      @include border.itp-border--dark;
+      background-color: $itp-color--light;
+      @include itp-border--dark;
 
       z-index: 2;
     }
@@ -116,11 +117,52 @@
     width: 1px;
     height: 80%;
 
-    background-color: v.$itp-color--dark;
+    background-color: $itp-color--dark;
 
     left: 50%;
     top: 50%;
 
     transform: translate(-50%, -50%);
+  }
+}
+
+@include for-size(tablet) {
+  .itp-business_section--for_business {
+    .itp-c-for_business__about {
+      &__stats {
+        h1 {
+          font-size: $itp-font-size--display--m;
+        }
+
+        label {
+          font-size: $itp-font-size--m;
+        }
+      }
+    }
+
+    .itp-c-benefits {
+      font-size: $itp-font-size--s;
+      padding: $itp-spacing--m;
+    }
+  }
+}
+
+@include for-size(phone) {
+  .itp-business_section--for_business {
+    .itp-c-for_business__about {
+      &__stats {
+        display: none;
+      }
+    }
+
+    .itp-c-benefits {
+      padding: $itp-spacing--s;
+      #_1,
+      #_2,
+      #_3 {
+        text-align: center;
+        text-align-last: center;
+      }
+    }
   }
 }

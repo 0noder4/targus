@@ -1,32 +1,25 @@
-@use "/styles/scss" as v;
-@use "./styles/scss/modules/spacing";
+@use "/styles/scss" as *;
 
 .itp-business-footer {
-  @include spacing.itp-section_margin;
+  @include itp-section_margin;
   display: flex;
-  flex-direction: row-reverse;
-  justify-content: flex-start;
-  gap: 8rem;
-  color: v.$itp-color--light;
-  text-align: right;
-
-  padding: 2rem 0;
+  gap: $itp-spacing--l;
+  color: $itp-color--light;
 
   .itp-c-footer__section {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
 
     &__header {
-      font-family: v.$itp-font-family--title;
-      font-size: v.$itp-font-size--xl;
+      font-family: $itp-font-family--title;
+      font-size: $itp-font-size--xl;
       text-transform: uppercase;
+
+      margin-bottom: 1rem;
     }
 
     &__body {
-      font-family: v.$itp-font-family--content;
-      height: 100%;
-      width: auto;
+      font-family: $itp-font-family--content;
 
       ul {
         display: flex;
@@ -34,21 +27,42 @@
         gap: 1rem;
       }
     }
+  }
 
+  .itp-c-footer__section {
     &--nav {
       ul {
         margin-left: 1.5rem;
-        list-style: circle;
+        list-style: square;
       }
     }
 
     &--socials {
-      display: flex;
-      width: min-content;
-
       ul {
-        flex-direction: row-reverse;
-        height: 100%;
+        display: flex;
+        flex-direction: row;
+      }
+    }
+  }
+
+  @include for-size(tablet-lg) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @include for-size(phone) {
+    display: grid;
+    grid-template-columns: 1fr;
+
+    .itp-c-footer__section--socials {
+      grid-row: 1;
+    }
+  }
+
+  @include for-size(phone-sm) {
+    .itp-c-footer__section--socials {
+      ul {
+        flex-wrap: wrap;
       }
     }
   }

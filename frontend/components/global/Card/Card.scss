@@ -58,7 +58,7 @@ $font-family--content: v.$itp-font-family--content;
 }
 
 .itp-c-card__content {
-  @include text.itp-text--content;
+  @include text.itp-text--paragraph;
 }
 
 .itp-c-card__footer {

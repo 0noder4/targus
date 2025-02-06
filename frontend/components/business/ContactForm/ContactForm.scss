@@ -1,14 +1,13 @@
-@use "/styles/scss" as v;
-@use "/styles/scss/modules/spacing";
+@use "/styles/scss" as *;
 
 .itp-business_section--contact_form {
-  @include spacing.itp-section_margin;
+  @include itp-section_margin;
   margin: 2rem 0;
   display: flex;
 
   justify-content: center;
 
-  gap: 4rem;
+  gap: $itp-spacing--l;
 
   .itp-c-contact_form {
     display: flex;
@@ -23,5 +22,14 @@
 
   .itp-c-memorials_container {
     max-width: 600px;
+  }
+}
+
+@include for-size(tablet-lg) {
+  .itp-business_section--contact_form {
+    flex-direction: column;
+    .itp-c-memorials_container {
+      display: none;
+    }
   }
 }

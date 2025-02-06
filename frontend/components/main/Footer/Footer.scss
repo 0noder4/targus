@@ -3,7 +3,7 @@
 .itp-main-footer {
   @include itp-section_margin;
   display: flex;
-  gap: $itp-spacing-l;
+  gap: $itp-spacing--l;
   color: $itp-color--dark;
 
   .itp-c-footer__section {
@@ -62,7 +62,7 @@
   @include for-size(phone-sm) {
     .itp-c-footer__section--socials {
       ul {
-        flex-direction: column;
+        flex-wrap: wrap;
       }
     }
   }

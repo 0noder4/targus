@@ -1,7 +1,7 @@
 @use "/styles/scss" as *;
 
 .itp-c-banner_container {
-  width: calc(100% + 2 * $itp-spacing-l);
+  width: calc(100% + 2 * $itp-spacing--l);
   position: relative;
 
   display: flex;
@@ -32,7 +32,7 @@
   }
 
   .itp-c-banner {
-    padding: $itp-spacing-m;
+    padding: $itp-spacing--m;
     background-color: $itp-color--dark;
 
     display: flex;
@@ -53,10 +53,10 @@
   }
 
   @include for-size(tablet-lg) {
-    width: calc(100% + 2 * $itp-spacing-m);
+    width: calc(100% + 2 * $itp-spacing--m);
 
     .itp-c-banner {
-      padding: $itp-spacing-m;
+      padding: $itp-spacing--m;
     }
 
     .itp-c-banner_text {
@@ -66,10 +66,10 @@
   }
 
   @include for-size(phone) {
-    width: calc(100% + 2 * $itp-spacing-s);
+    width: calc(100% + 2 * $itp-spacing--s);
 
     .itp-c-banner {
-      padding: $itp-spacing-s;
+      padding: $itp-spacing--s;
     }
 
     .itp-c-banner_text {

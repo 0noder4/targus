@@ -1,8 +1,14 @@
 @use "../base/typography.scss" as *;
+@use "./for-size.scss" as *;
 
 @mixin itp-text--content {
   font-family: $itp-font-family--content;
   font-size: $itp-font-size--m;
+}
+
+@mixin itp-text--paragraph {
+  @include itp-text--content;
+
   text-align: justify;
   line-height: 1.5em;
 
@@ -14,5 +20,17 @@
 
   p:first-child {
     margin-top: 0;
+  }
+}
+
+@mixin itp-text--section_header {
+  font-family: $itp-font-family--title;
+  font-size: $itp-font-size--display--m;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+
+  @include for-size(tablet-lg) {
+    font-size: $itp-font-size--display--s;
+    letter-spacing: 0.05em;
   }
 }
