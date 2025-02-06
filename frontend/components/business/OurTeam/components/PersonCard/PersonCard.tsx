@@ -1,6 +1,6 @@
 import React from "react";
 import "./PersonCard.scss";
-import { StaticImageData } from "next/image";
+import Image, { StaticImageData } from "next/image";
 
 type Props = {
   name: string;
@@ -25,6 +25,11 @@ const PersonCard: React.FC<Props> = ({
       style={{ backgroundImage: `url(${avatar.src})` }}
       {...props}
     >
+      <Image
+        src={avatar}
+        alt={`${name} ${surname}`}
+        className="itp-c-image_meta"
+      ></Image>
       <div className="itp-c-person_card__info">
         <h2 className="itp-c-person_card__info__name">
           {name} {surname}

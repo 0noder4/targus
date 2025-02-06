@@ -48,7 +48,7 @@ const Offer = () => {
           pariatus.
         </CardContent>
         <CardFooter>
-          <Button>zapisz się!</Button>
+          <Button disabled={true}>Zapisy wkrótce...</Button>
         </CardFooter>
       </Card>
       <Card className="itp-l-offer__pdi">
