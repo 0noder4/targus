@@ -14,7 +14,7 @@ const Banner = () => {
         <h2 className="itp-c-banner_text itp-c-banner_text--left">
           setki zdobytych<br></br>stanowisk
         </h2>
-        <div className="itp-c-banner_figure">tbd</div>
+        {/* <div className="itp-c-banner_figure">tbd</div> */}
         <h2 className="itp-c-banner_text itp-c-banner_text--right">
           30 lat<br></br>historii
         </h2>

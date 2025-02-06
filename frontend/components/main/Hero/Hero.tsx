@@ -31,7 +31,11 @@ const Hero = () => {
         <h1 className="itp-c-landing_text" id="upper-top" ref={UTRef}>
           napędź swoją
         </h1>
-        <h1 className="itp-c-landing_text" id="upper-bottom" ref={UBRef}>
+        <h1
+          className="itp-c-landing_text itp-c-landing_icon"
+          id="upper-bottom"
+          ref={UBRef}
+        >
           karierę
           <Icon
             src="/icons/itp-icon--cog.svg"

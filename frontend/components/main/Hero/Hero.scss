@@ -53,8 +53,26 @@
   }
 }
 
-@media (max-width: 768px) {
+@media screen and (max-width: 1080px) {
   .itp-main_section--hero {
-    display: none;
+    .itp-c-landing_text {
+      font-size: v.$itp-font-size--display--m !important;
+      line-height: v.$itp-font-size--display--m !important;
+      letter-spacing: 0.3rem;
+    }
+
+    .itp-c-landing_text__icon {
+      display: none;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .itp-main_section--hero {
+    .itp-c-landing_text {
+      font-size: v.$itp-font-size--xl !important;
+      line-height: v.$itp-font-size--xl !important;
+      letter-spacing: 0.1rem;
+    }
   }
 }

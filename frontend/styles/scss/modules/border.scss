@@ -1,16 +1,17 @@
-@use "../" as v;
+@use "../base/borders.scss" as *;
+@use "../base/colors.scss" as *;
 
 @mixin itp-border--accent {
-  border: v.$itp-border-size--s solid v.$itp-color--accent;
-  border-radius: v.$itp-border-radius--s;
+  border: $itp-border-size--s solid $itp-color--accent;
+  border-radius: $itp-border-radius--s;
 }
 
 @mixin itp-border--dark {
-  border: v.$itp-border-size--s solid v.$itp-color--dark;
-  border-radius: v.$itp-border-radius--s;
+  border: $itp-border-size--s solid $itp-color--dark;
+  border-radius: $itp-border-radius--s;
 }
 
 @mixin itp-border--light {
-  border: v.$itp-border-size--s solid v.$itp-color--light;
-  border-radius: v.$itp-border-radius--s;
+  border: $itp-border-size--s solid $itp-color--light;
+  border-radius: $itp-border-radius--s;
 }

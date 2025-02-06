@@ -5,9 +5,7 @@ import Button from "/components/global/Button/Button";
 import Link from "next/link";
 import Image from "next/image";
 
-import IMAGE_1 from "/public/images/itp-image--30_final_best.png";
-import IMAGE_2 from "/public/images/itp-image--31_group.png";
-// import BEST_LOGO from "/public/images/best/best-logo--horizontal--white.png";
+import GROUP_IMAGE from "/public/images/itp-image--31_group.png";
 
 const Organization = () => {
   return (
@@ -45,14 +43,7 @@ const Organization = () => {
       <aside className="itp-c-organization_photos">
         <figure className="itp-c-image_container">
           <Image
-            src={IMAGE_1}
-            alt="30 Inżynierskie Targi Pracy, BEST"
-            className="itp-c-image"
-          />
-        </figure>
-        <figure className="itp-c-image_container">
-          <Image
-            src={IMAGE_2}
+            src={GROUP_IMAGE}
             alt="31 Inżynierskie Targi Pracy, Grupa"
             className="itp-c-image"
           />

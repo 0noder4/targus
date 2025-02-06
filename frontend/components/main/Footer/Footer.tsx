@@ -35,7 +35,9 @@ const Footer = () => {
             <li>
               <a href="mailto:best@best.warszawa.pl">best@best.warszawa.pl</a>
             </li>
-            <li>Pl. Politechniki 1 pok. 142 00-661 Warszawa</li>
+            <li>
+              Pl. Politechniki 1 pok. <br /> 142 00-661 Warszawa
+            </li>
           </ul>
         </div>
       </div>

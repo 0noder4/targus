@@ -9,10 +9,15 @@ type Props = {
   src: string;
   alt: string;
   className?: string;
-  onClick: () => void;
+  onClick?: () => void;
 };
 
-const Icon: React.FC<Props> = ({ src, alt, className = "", onClick }) => {
+const Icon: React.FC<Props> = ({
+  src,
+  alt,
+  className = "",
+  onClick = () => {},
+}) => {
   return (
     <figure className="itp-c-icon-container">
       <Image

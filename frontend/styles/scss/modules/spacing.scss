@@ -1,9 +1,26 @@
+@use "../base/spacing" as *;
+@use "./for-size.scss" as *;
+
 @mixin itp-section_padding {
-  padding-left: 3rem !important;
-  padding-right: 3rem !important;
+  padding: $itp-spacing-l;
+
+  @include for-size(desktop, down) {
+    padding: $itp-spacing-m;
+  }
+
+  @include for-size(tablet, down) {
+    padding: $itp-spacing-s;
+  }
 }
 
 @mixin itp-section_margin {
-  margin-left: 3rem !important;
-  margin-right: 3rem !important;
+  margin: $itp-spacing-l;
+
+  @include for-size(tablet-lg, down) {
+    margin: $itp-spacing-m;
+  }
+
+  @include for-size(phone, down) {
+    margin: $itp-spacing-s;
+  }
 }

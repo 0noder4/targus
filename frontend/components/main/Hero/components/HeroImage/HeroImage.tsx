@@ -69,6 +69,14 @@ const HeroImage: React.FC<Props> = ({
     lb: { w: lb.width, h: lb.height },
   };
 
+  if (dimensions.w < 1000) {
+    dimensions.a = 10;
+  }
+
+  if (dimensions.w < 600) {
+    dimensions.a = 5;
+  }
+
   return (
     <figure className="oedu-l-landing-mask">
       <svg width={`${dimensions.w}px`} height={`${dimensions.h}px`}>

@@ -1,12 +1,11 @@
-@use "./styles/scss/modules/spacing";
+@use "/styles/scss" as *;
 
 .itp-main_section--about {
-  @include spacing.itp-section_margin;
-  margin-top: 3rem;
-}
+  @include itp-section_margin;
 
-@media (max-width: 768px) {
-  .itp-main_section--about {
-    display: none;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: $itp-spacing-l;
 }

@@ -6,6 +6,9 @@ import "./Essentials.scss";
 const Essentials = () => {
   return (
     <div className="itp-c-essentials">
+      <div className="itp-c-catalouge_ref">
+        <div className="itp-c-catalouge_ref__link">zobacz katalog firm</div>
+      </div>
       <ul className="itp-c-time_and_date">
         <li className="itp-c-essential_info itp-c-essential_info--date">
           <Icon
@@ -36,7 +39,6 @@ const Essentials = () => {
           </label>
         </li>
       </ul>
-      <div className="itp-c-essentials_figure"></div>
       <p className="itp-c-description">
         Już od ponad 30 lat Inżynierskie Targi Pracy dają studentkom i studentom
         szansę na znalezienie wymarzonej pracy. W dniach 11 i 12 marca 2025 roku
@@ -44,9 +46,6 @@ const Essentials = () => {
         będą miały okazję poznać oferty firm, skonsultować swoje CV oraz
         uczestniczyć w warsztatach przygotowanych przez naszych Partnerów. 
       </p>
-      <div className="itp-c-catalouge_ref">
-        <div className="itp-c-catalouge_ref__link">zobacz katalog firm</div>
-      </div>
     </div>
   );
 };

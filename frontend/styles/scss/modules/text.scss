@@ -1,8 +1,8 @@
-@use "../" as v;
+@use "../base/typography.scss" as *;
 
 @mixin itp-text--content {
-  font-family: v.$itp-font-family--content;
-  font-size: v.$itp-font-size--m;
+  font-family: $itp-font-family--content;
+  font-size: $itp-font-size--m;
   text-align: justify;
   line-height: 1.5em;
 

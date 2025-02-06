@@ -1,41 +1,41 @@
-@use "/styles/scss" as v;
-@use "./styles/scss/modules/border";
-@use "./styles/scss/modules/spacing";
+@use "/styles/scss" as *;
 
 .itp-main-header {
-  @include spacing.itp-section_margin;
+  @include itp-section_padding;
 
   position: relative;
 
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 2rem 0;
 
-  color: v.$itp-color--dark;
-  font-family: v.$itp-font-family--title;
+  color: $itp-color--dark;
+  font-family: $itp-font-family--title;
   letter-spacing: 0.05em;
-
-  list-style: none;
 
   &__logo {
     height: 3rem;
-    width: auto;
   }
 
   &__navigation__container {
     position: relative;
+    display: flex;
   }
 
   &__navigation {
     display: flex;
     gap: 4rem;
 
+    .itp-c-link {
+      display: flex;
+      align-items: center;
+    }
+
     .itp-c-link--main {
-      @include border.itp-border--accent;
+      @include itp-border--accent;
 
       padding: 0.5rem 1.5rem;
-      color: v.$itp-color--accent;
+      color: $itp-color--accent;
     }
   }
 
@@ -55,15 +55,20 @@
 
     list-style: square;
 
-    background-color: v.$itp-color--dark;
-    color: v.$itp-color--light;
+    background-color: $itp-color--dark;
+    color: $itp-color--light;
     padding: 1rem 1rem 1rem 2rem;
 
-    right: 0.5rem;
+    top: 2rem;
+    right: 1rem;
 
     z-index: 2;
 
     gap: 1rem;
+
+    .itp-c-link {
+      display: list-item !important;
+    }
 
     .itp-c-link--main {
       border: none;

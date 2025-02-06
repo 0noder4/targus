@@ -1,4 +1,4 @@
-@use "/styles/scss" as v;
+@use "/styles/scss" as *;
 
 .itp-c-countdown-container {
   position: absolute;
@@ -10,14 +10,22 @@
 
   .itp-c-countdown {
     display: block;
-    margin: 1rem;
+    margin: $itp-spacing-m;
     padding: 0.5rem 2rem;
-    background-color: v.$itp-color--light;
-    border-radius: v.$itp-border-radius--m;
+    background-color: $itp-color--light;
+    border-radius: $itp-border-radius--m;
 
-    font-family: v.$itp-font-family--display;
-    font-size: v.$itp-font-size--xl;
-    color: v.$itp-color--accent;
+    font-family: $itp-font-family--display;
+    font-size: $itp-font-size--xl;
+    color: $itp-color--accent;
     text-align: center;
+  }
+
+  @include for-size(phone) {
+    .itp-c-countdown {
+      margin: $itp-spacing-xs;
+
+      font-size: $itp-font-size--l;
+    }
   }
 }

@@ -1,21 +1,58 @@
-@use "/styles/scss" as v;
-@use "./styles/scss/modules/spacing";
+@use "/styles/scss" as *;
 
 .itp-main_section--partners {
-  @include spacing.itp-section_margin;
-
-  margin: 4rem 0;
+  @include itp-section_margin;
 
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
 
-  color: v.$itp-color--dark;
+  color: $itp-color--dark;
 
   .itp-c-partners__label {
-    grid-column: 1/-2;
-    font-family: v.$itp-font-family--title;
-    font-size: v.$itp-font-size--xl;
+    grid-column: span 3;
+    font-family: $itp-font-family--title;
+    font-size: $itp-font-size--xl;
     text-transform: uppercase;
+  }
+
+  .itp-c-partners__meet_our_partners {
+    grid-column: -2 / -1;
+    grid-row: 1 / 4;
+
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@include for-size(1200px) {
+  .itp-main_section--partners {
+    grid-template-columns: repeat(2, 1fr);
+
+    .itp-c-partners__label {
+      grid-column: span 2;
+    }
+
+    .itp-c-partners__meet_our_partners {
+      display: none;
+    }
+
+    .itp-c-partner--main {
+      grid-column: span 2;
+    }
+  }
+
+  @include for-size(phone) {
+    .itp-main_section--partners {
+      grid-template-columns: 1fr;
+
+      .itp-c-partners__label {
+        grid-column: span 1;
+      }
+
+      .itp-c-partner--main {
+        grid-column: span 1;
+      }
+    }
   }
 }
