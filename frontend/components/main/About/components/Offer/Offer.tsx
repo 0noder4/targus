@@ -66,6 +66,17 @@ const Offer = () => {
           wypełniając ankietę <b>„Pracodawca dla Inżyniera”</b>. Wyniki zostaną
           ogłoszone <b>11 marca 2025</b> podczas Inżynierskich Targów Pracy.
         </CardContent>
+        <CardFooter>
+          <Button>
+            <a
+              href="https://ankieta.pw.edu.pl/index.php/511362?lang=pl"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Wypełnij ankietę
+            </a>
+          </Button>
+        </CardFooter>
       </Card>
     </div>
   );
