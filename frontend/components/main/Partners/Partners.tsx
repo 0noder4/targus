@@ -27,9 +27,9 @@ const Partners = () => {
       />
       <h2 className="itp-c-partners__label">Sponsorzy</h2>
       <Partner logo={PARTNER_MARS} description="Tramwaje Warszawskie" />
-      <Partner logo={PARTNER_SCHNEIDER} description="Tramwaje Warszawskie" />
-      <Partner logo={PARTNER_RWE} description="Tramwaje Warszawskie" />
-      <Partner logo={PARTNER_RECCKIT} description="Tramwaje Warszawskie" />
+      <Partner logo={PARTNER_SCHNEIDER} description="Schneider" />
+      <Partner logo={PARTNER_RWE} description="RWE" />
+      <Partner logo={PARTNER_RECCKIT} description="Recckit" />
     </section>
   );
 };
