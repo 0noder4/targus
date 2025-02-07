@@ -1,6 +1,5 @@
 Dockerfile
 .dockerignore
 node_modules
-.next
 .git
 .eslintrc.json
