@@ -33,7 +33,7 @@ const Footer = () => {
           <ul>
             <li>+48 22 234 50 23</li>
             <li>
-              <a href="mailto:best@best.warszawa.pl">best@best.warszawa.pl</a>
+              <a href="mailto:best@best.warszawa.pl">BEST@BEST.warszawa.pl</a>
             </li>
             <li>
               Pl. Politechniki 1 pok. <br /> 142 00-661 Warszawa
@@ -56,7 +56,7 @@ const Footer = () => {
             <li>
               <QR
                 src={QR_LINKEDIN}
-                href="https://www.linkedin.com/company/engineeringjobfair"
+                href="https://www.linkedin.com/company/engineeringjobfair-"
                 alt="Inżynierskie Targi Pracy: LinkedIn"
                 className="itp-c-qr_code"
               />

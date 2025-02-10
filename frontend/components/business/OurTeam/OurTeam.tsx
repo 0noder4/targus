@@ -40,7 +40,7 @@ const OurTeam = () => {
           name="Katarzyna"
           surname="Gajos"
           tel="790-647-206"
-          email="kasia.gajos@best.pw.edu.pl"
+          email="katarzyna.gajos@best.pw.edu.pl"
           avatar={KASIA}
         />
       </div>

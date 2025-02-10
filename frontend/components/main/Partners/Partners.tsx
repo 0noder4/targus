@@ -18,14 +18,14 @@ const Partners = () => {
         <Image src={IMAGE} alt="Meet our partners" />
       </div>
       <h2 className="itp-c-partners__label itp-c-partners__label--first">
-        Sponsor Główny
+        Sponsor Główny 2024
       </h2>
       <Partner
         logo={PARTNER_TRAMWAJE_WARSZAWSKIE}
         description="Tramwaje Warszawskie"
         type="main"
       />
-      <h2 className="itp-c-partners__label">Sponsorzy</h2>
+      <h2 className="itp-c-partners__label">Sponsorzy 2024  </h2>
       <Partner logo={PARTNER_MARS} description="Tramwaje Warszawskie" />
       <Partner logo={PARTNER_SCHNEIDER} description="Schneider" />
       <Partner logo={PARTNER_RWE} description="RWE" />

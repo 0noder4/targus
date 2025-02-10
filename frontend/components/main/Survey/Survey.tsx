@@ -8,7 +8,7 @@ import {
   CardFooter,
   CardTitle,
 } from "/components/global/Card/Card";
-import Button from "/components/global/Button/Button";
+import { LinkButton } from "/components/global/Button/Button";
 
 const Survey = () => {
   return (
@@ -38,24 +38,12 @@ const Survey = () => {
           zabawą, ale również świetną okazją do nawiązania nowych kontaktów.
         </CardContent>
         <CardFooter>
-          <Button>
-            <a
-              href="https://ankieta.pw.edu.pl/index.php/511362?lang=pl"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Wypełnij ankietę
-            </a>
-          </Button>
-          <Button>
-            <a
-              href="/docs/Pracodawca_Dla_Inżyniera_2024.pdf"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Zobacz wyniki 2024 edycji
-            </a>
-          </Button>
+          <LinkButton href="https://ankieta.pw.edu.pl/index.php/511362?lang=pl">
+            Wypełnij ankietę
+          </LinkButton>
+          <LinkButton href="/docs/Pracodawca_Dla_Inżyniera_2024.pdf">
+            Zobacz wyniki 2024 edycji
+          </LinkButton>
         </CardFooter>
       </Card>
     </section>

@@ -37,6 +37,10 @@ export async function POST(formData: Request) {
             Email: "joanna.kruk@best.pw.edu.pl",
             Name: "Joanna Kruk",
           },
+          {
+            Email: "antoni.maczenski@best.pw.edu.pl",
+            Name: "Antoni Mączeński",
+          },
         ],
         Subject: `⚠️ Nowa firemka [${companyName}] w twojej okolicy ⚠️`,
         TextPart: `Nowa firemka`,

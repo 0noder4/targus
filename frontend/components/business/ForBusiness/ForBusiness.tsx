@@ -25,13 +25,14 @@ function ForBusiness() {
           <CardContent>
             Jeśli Inżynierskie Targi Pracy to miejsce, gdzie Wasza firma
             idealnie pasuje i chcecie nawiązać kontakt z pełnymi pasji
-            studentami, mamy coś dla Was! Jak zostać wystawcą? To proste:
+            studentami, mamy coś dla Was! <br />
+            Jak zostać wystawcą? To proste:
             <br />
             <p>
-              1. Na naszej stronie wejdźcie w zakładkę Strefa Firmy wypełnijcie
-              formularz zgłoszeniowy. Możecie także skontaktować się z nami
-              bezpośrednio – dane kontaktowe znajdziecie na stronie w zakładce
-              Kontakt.
+              1. Na naszej stronie wejdźcie w zakładkę Strefa Firmy i
+              wypełnijcie formularz zgłoszeniowy. Możecie także skontaktować się
+              z nami bezpośrednio – dane kontaktowe znajdziecie na stronie w
+              zakładce Kontakt.
             </p>
             <p>
               2. Nasi konsultanci skontaktują się z Wami, aby potwierdzić
@@ -53,8 +54,8 @@ function ForBusiness() {
         <div className="itp-c-benefits__bullet_point" />
         <div className="itp-c-benefits__bullet_point" />
         <label className="itp-c-benefits__entry" id="_1">
-          Zyskaj rozpoznalność na Politechnice Warszawskiej - najlepszej uczelni
-          technicznej w polsce
+          Zyskaj rozpoznawalność na Politechnice Warszawskiej - najlepszej
+          uczelni technicznej w Polsce
         </label>
         <label className="itp-c-benefits__entry" id="_2">
           Przeprowadź warsztaty lub webinary w zakresach ważnych dla twojej

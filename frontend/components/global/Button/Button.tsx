@@ -7,6 +7,14 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   disabled?: boolean;
 }
 
+interface LinkButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  variant?: "primary" | "secondary";
+  type?: "submit";
+  disabled?: boolean;
+  href?: string;
+}
+
 const Button: React.FC<ButtonProps> = ({
   variant = "primary",
   disabled = false,
@@ -27,5 +35,29 @@ const Button: React.FC<ButtonProps> = ({
   );
 };
 Button.displayName = "Button";
+
+export const LinkButton: React.FC<LinkButtonProps> = ({
+  variant,
+  disabled,
+  className = "",
+  type,
+  href,
+  children,
+  ...props
+}) => {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noreferrer"
+      className={`itp-c-link_button ${className}`.trim()}
+    >
+      <Button variant={variant} type={type} disabled={disabled} {...props}>
+        {children}
+      </Button>
+    </a>
+  );
+};
+LinkButton.displayName = "LinkButton";
 
 export default Button;

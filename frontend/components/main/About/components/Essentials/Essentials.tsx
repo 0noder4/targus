@@ -2,19 +2,20 @@ import Icon from "/components/global/Icon/Icon";
 import React from "react";
 
 import "./Essentials.scss";
+import Link from "next/link";
 
 const Essentials = () => {
   return (
     <div className="itp-c-essentials">
       <div className="itp-c-catalouge_ref">
         <div className="itp-c-catalouge_ref__link">
-          <a
+          <Link
             href="/docs/Katalog_Firm_30_ITP.pdf"
             target="_blank"
             rel="noreferrer"
           >
             zobacz katalog firm
-          </a>
+          </Link>
         </div>
       </div>
       <ul className="itp-c-time_and_date">

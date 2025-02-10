@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "/components/global/Button/Button";
+import { LinkButton } from "/components/global/Button/Button";
 import {
   Card,
   CardContent,
@@ -22,15 +22,9 @@ const Offer = () => {
           <b>11–12 marca 2025</b> – mamy nadzieję, że do zobaczenia na targach!
         </CardContent>
         <CardFooter>
-          <Button>
-            <a
-              href="/docs/Katalog_Firm_30_ITP.pdf"
-              target="_blank"
-              rel="noreferrer"
-            >
-              zobacz katalog
-            </a>
-          </Button>
+          <LinkButton href="/docs/Katalog_Firm_30_ITP.pdf">
+            zobacz katalog
+          </LinkButton>
         </CardFooter>
       </Card>
       <Card className="itp-l-offer__cv">
@@ -56,7 +50,7 @@ const Offer = () => {
           celu ustalenia szczegółów.
         </CardContent>
         <CardFooter>
-          <Button disabled={true}>Zapisy wkrótce...</Button>
+          <LinkButton disabled={true}>Zapisy wkrótce...</LinkButton>
         </CardFooter>
       </Card>
       <Card className="itp-l-offer__pdi">
@@ -67,15 +61,9 @@ const Offer = () => {
           ogłoszone <b>11 marca 2025</b> podczas Inżynierskich Targów Pracy.
         </CardContent>
         <CardFooter>
-          <Button>
-            <a
-              href="https://ankieta.pw.edu.pl/index.php/511362?lang=pl"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Wypełnij ankietę
-            </a>
-          </Button>
+          <LinkButton href="https://ankieta.pw.edu.pl/index.php/511362?lang=pl">
+            Wypełnij ankietę
+          </LinkButton>
         </CardFooter>
       </Card>
     </div>

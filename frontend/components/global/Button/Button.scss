@@ -54,3 +54,8 @@ $color--negative: v.$itp-color--dark;
     box-shadow: 0 0 0 3px rgba($color--negative, 0.3);
   }
 }
+
+.itp-c-link_button {
+  display: flex;
+  width: 100%;
+}
