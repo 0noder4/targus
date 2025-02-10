@@ -25,9 +25,7 @@ const Essentials = () => {
             alt="callendar"
             className="itp-c-essential_info__icon"
           />
-          <label className="itp-c-essential_info__label">
-            11-12 marca 2025
-          </label>
+          <h4 className="itp-c-essential_info__label">11-12 marca 2025</h4>
         </li>
         <li className="itp-c-essential_info itp-c-essential_info--date">
           <Icon
@@ -35,7 +33,7 @@ const Essentials = () => {
             alt="clock"
             className="itp-c-essential_info__icon"
           />
-          <label className="itp-c-essential_info__label">09:00 - 16:00</label>
+          <h4 className="itp-c-essential_info__label">09:00 - 16:00</h4>
         </li>
         <li className="itp-c-essential_info itp-c-essential_info--date">
           <Icon
@@ -43,9 +41,9 @@ const Essentials = () => {
             alt="location"
             className="itp-c-essential_info__icon"
           />
-          <label className="itp-c-essential_info__label">
+          <h4 className="itp-c-essential_info__label">
             Gmach Główny Politechniki Warszawskiej
-          </label>
+          </h4>
         </li>
       </ul>
       <p className="itp-c-description">

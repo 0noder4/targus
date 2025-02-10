@@ -8,15 +8,15 @@ function ForBusiness() {
       <div className="itp-c-for_business__about">
         <ul className="itp-c-for_business__about__stats">
           <li>
-            <h2>300+</h2>
+            <h4>300+</h4>
             <label>zapisów na warszaty</label>
           </li>
           <li>
-            <h2>1100+</h2>
+            <h4>1100+</h4>
             <label>wypełnień ankiety pdi</label>
           </li>
           <li>
-            <h2>300+</h2>
+            <h4>300+</h4>
             <label>uczestników wydarzenia</label>
           </li>
         </ul>

@@ -23,9 +23,9 @@ const Hero = () => {
         <figure className="itp-c-hero__focus__figure">
           <Image src={FOCUS} alt="Business focus" />
         </figure>
-        <label className="itp-c-hero__focus__br">
+        <h1 className="itp-c-hero__focus__br">
           odkrywamy <br /> nowe talenty
-        </label>
+        </h1>
       </div>
     </section>
   );

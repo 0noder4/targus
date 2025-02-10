@@ -14,8 +14,8 @@ const Survey = () => {
   return (
     <section className="itp-main_section--survey" id="pdi">
       <div className="itp-c-survey__header">
-        <h1 className="itp-c-survey__header__title">Okiem studenta</h1>
-        <h2 className="itp-c-survey__header__subtitle">Ranking firm 2024</h2>
+        <h2 className="itp-c-survey__header__title">Okiem studenta</h2>
+        <h3 className="itp-c-survey__header__subtitle">Ranking firm 2024</h3>
       </div>
       <div className="itp-c-survey_results">
         <Score current={100} label="Sieć Badawcza Łukasiewicz - IL" />

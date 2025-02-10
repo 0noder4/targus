@@ -10,7 +10,7 @@ const Organization = () => {
   return (
     <section className="itp-main_section--organization">
       <div className="itp-c-organization_container">
-        <div className="itp-c-organization_header">Kim jesteśmy?</div>
+        <h2 className="itp-c-organization_header">Kim jesteśmy?</h2>
         <div className="itp-c-organization_about">
           <p>
             Board of European Students of Technology (BEST) jest międzynarodową

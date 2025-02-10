@@ -11,9 +11,9 @@ import KASIA from "/public/images/fr/Katarzyna_Gajos.jpg";
 const OurTeam = () => {
   return (
     <section className="itp-business_section--our_team">
-      <h1 className="itp-c-section_header itp-c-section_header--our_team">
+      <h2 className="itp-c-section_header itp-c-section_header--our_team">
         Lub skontaktuj się bezpośrednio
-      </h1>
+      </h2>
       <div className="itp-c-team_container">
         <PersonCard
           name="Sandra"
