@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import "/styles/scss/index.scss";
 import "/styles/css/index.css";
-import Head from "next/head";
 
 export const metadata: Metadata = {
   title: "Inżynierskie Targi Pracy 2025",
-  description: "Największe Inżynierskie Targi Pracy w Polsce",
+  description:
+    "31. Inżynierskie Targi Pracy – największe wydarzenie rekrutacyjne dla inżynierów i studentów kierunków technicznych na Politechnice Warszawskiej! Spotkaj czołowych pracodawców, znajdź staż, praktyki lub wymarzoną pracę. Dołącz 11-12 marca na Politechnice Warszawskiej i rozwijaj swoją karierę!",
 };
 
 export default function RootLayout({
@@ -15,9 +15,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pl">
-      <Head>
-        <link rel="icon" type="image/x-icon" href="/icon.ico" />
-      </Head>
       <body>{children}</body>
     </html>
   );
