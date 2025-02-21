@@ -4,13 +4,13 @@ services:
     container_name: ${PROJECT_NAME}_postgres
     ports:
       - 5432:5432
-    volumes:
-      - ./data:/var/lib/postgresql/data
     environment:
       POSTGRES_DB: ${DATABASE_NAME}
       POSTGRES_USER: ${DATABASE_USERNAME}
       POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
       NEXT_TELEMETRY_DISABLED: 1
+    volumes:
+      - ./data:/var/lib/postgresql/data
     networks:
       - internal
 
@@ -32,6 +32,11 @@ services:
       API_TOKEN_SALT: ${API_TOKEN_SALT}
       APP_KEYS: ${APP_KEYS}
       NODE_ENV: ${NODE_ENV}
+    volumes:
+      - ./backend/config:/opt/app/config
+      - ./backend/src:/opt/app/src
+      - ./backend/package.json:/opt/package.json
+      - ./backend/public/uploads:/opt/app/public/uploads
     ports:
       - "1337:1337"
     networks:

@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import "/styles/scss/index.scss";
 import "/styles/css/index.css";
-import Head from "next/head";
 
 import "./page.scss";
 
@@ -17,9 +16,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pl">
-      <Head>
-        <link rel="icon" href="/icon.ico" />
-      </Head>
       <body className="itp-business">{children}</body>
     </html>
   );
