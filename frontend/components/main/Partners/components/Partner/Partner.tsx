@@ -1,19 +1,27 @@
 import React from "react";
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 
 import "./Partner.scss";
+import { Company } from "../../../../../interfaces/company";
+import navigateBackend from "/lib/navigateBackend";
 
-type Props = {
-  logo: StaticImageData;
-  description: string;
-  type?: string;
-};
+interface PartnerProps {
+  partner: Company;
+}
 
-const Partner = ({ logo, description, type = "default" }: Props) => {
+const Partner = ({ partner }: PartnerProps) => {
   return (
-    <div className={`itp-c-partner-container itp-c-partner--${type}`}>
+    <div
+      className={`itp-c-partner-container itp-c-partner--${partner.partnershipType}`}
+    >
       <figure>
-        <Image src={logo} alt={description} className="itp-c-partner__logo" />
+        <Image
+          src={navigateBackend(partner.logo.url)}
+          alt={`Logo ${partner.externalName}`}
+          width={partner.logo.width}
+          height={partner.logo.height}
+          className="itp-c-partner__logo"
+        />
       </figure>
     </div>
   );

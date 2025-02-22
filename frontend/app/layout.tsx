@@ -1,3 +1,5 @@
+"use-client";
+
 import type { Metadata } from "next";
 import "/styles/scss/index.scss";
 import "/styles/css/index.css";

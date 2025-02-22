@@ -4,7 +4,8 @@
   "info": {
     "singularName": "company",
     "pluralName": "companies",
-    "displayName": "Company"
+    "displayName": "Company",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -25,14 +26,15 @@
       ]
     },
     "logo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "description": {
       "type": "richtext"
@@ -48,6 +50,16 @@
       "relation": "oneToMany",
       "target": "api::job.job",
       "mappedBy": "company"
+    },
+    "stand": {
+      "displayName": "stand",
+      "type": "component",
+      "repeatable": false,
+      "component": "location.stand"
+    },
+    "codeID": {
+      "type": "uid",
+      "targetField": "internalName"
     }
   }
 }

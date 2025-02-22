@@ -15,9 +15,9 @@ services:
       - internal
 
   backend:
-    image: 0noder4/targus:backend_alfa_1.0
+    image: 0noder4/targus:backend_1.0
     container_name: ${PROJECT_NAME}_backend
-    build: 
+    build:
       context: backend
     env_file: .env
     environment:
@@ -32,6 +32,7 @@ services:
       API_TOKEN_SALT: ${API_TOKEN_SALT}
       APP_KEYS: ${APP_KEYS}
       NODE_ENV: ${NODE_ENV}
+      PORT: ${BACKEND_PORT}
     volumes:
       - ./backend/config:/opt/app/config
       - ./backend/src:/opt/app/src
@@ -45,7 +46,7 @@ services:
       - postgres
 
   frontend:
-    image: 0noder4/targus:frontend_alfa_2.0
+    image: 0noder4/targus:frontend_alfa_3.0
     container_name: ${PROJECT_NAME}_frontend
     build:
       context: frontend
@@ -62,6 +63,11 @@ services:
       NODE_ENV: ${NODE_ENV}
       MJ_APIKEY_PUBLIC: ${MJ_APIKEY_PUBLIC}
       MJ_APIKEY_PRIVATE: ${MJ_APIKEY_PRIVATE}
+      BACKEND_PROTOCOL: ${BACKEND_PROTOCOL}
+      BACKEND_HOST: ${BACKEND_HOST}
+      BACKEND_PORT: ${BACKEND_PORT}
+    depends_on:
+      - backend
 
 volumes:
   data:
