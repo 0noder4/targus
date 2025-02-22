@@ -23,6 +23,12 @@
     display: flex;
     justify-content: center;
   }
+
+  .itp-c-partner--main {
+    grid-row: 2;
+    grid-column-start: 1;
+    grid-column-end: -2;
+  }
 }
 
 @include for-size(1200px) {

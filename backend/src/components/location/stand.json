@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_location_stands",
+  "info": {
+    "displayName": "stand"
+  },
+  "options": {},
+  "attributes": {
+    "firstDay": {
+      "type": "string"
+    },
+    "secondDay": {
+      "type": "string"
+    }
+  }
+}

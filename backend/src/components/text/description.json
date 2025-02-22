@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_text_descriptions",
+  "info": {
+    "displayName": "description"
+  },
+  "options": {},
+  "attributes": {
+    "outline": {
+      "type": "richtext"
+    },
+    "benefits": {
+      "type": "richtext"
+    },
+    "requirements": {
+      "type": "richtext"
+    }
+  }
+}

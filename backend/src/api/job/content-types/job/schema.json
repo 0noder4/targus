@@ -1,0 +1,65 @@
+{
+  "kind": "collectionType",
+  "collectionName": "jobs",
+  "info": {
+    "singularName": "job",
+    "pluralName": "jobs",
+    "displayName": "Job",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "internalName": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "employmentType": {
+      "type": "enumeration",
+      "enum": [
+        "full-time",
+        "part-time"
+      ]
+    },
+    "contractType": {
+      "type": "enumeration",
+      "enum": [
+        "UoP",
+        "UoZ",
+        "UoD",
+        "BB",
+        "internship",
+        "traineeship"
+      ]
+    },
+    "workModel": {
+      "type": "enumeration",
+      "enum": [
+        "on-site",
+        "hybrid",
+        "remote"
+      ]
+    },
+    "location": {
+      "type": "string"
+    },
+    "contact": {
+      "type": "string"
+    },
+    "description": {
+      "displayName": "description",
+      "type": "component",
+      "repeatable": false,
+      "component": "text.description"
+    },
+    "company": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::company.company",
+      "inversedBy": "jobs"
+    }
+  }
+}

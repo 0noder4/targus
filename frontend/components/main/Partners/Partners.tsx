@@ -5,31 +5,46 @@ import Image from "next/image";
 import "./Partners.scss";
 import IMAGE from "/public/figures/itp-figure--meet_out_partners.svg";
 
-import PARTNER_TRAMWAJE_WARSZAWSKIE from "/public/images/partners/itp-partner_logo--tramwaje_warszawskie.svg";
-import PARTNER_MARS from "/public/images/partners/itp-partner_logo--mars.png";
-import PARTNER_SCHNEIDER from "/public/images/partners/itp-partner_logo--schneider.jpg";
-import PARTNER_RWE from "/public/images/partners/itp-partner_logo--rwe.jpg";
-import PARTNER_RECCKIT from "/public/images/partners/itp-partner_logo--recckit.png";
+import { getClient } from "../../../lib/ApolloClient";
+import { gql } from "@apollo/client";
+import { Company } from "../../../interfaces/company";
 
-const Partners = () => {
+const Partners = async () => {
+  const GET_DATA = gql`
+    query Companies($filters: CompanyFiltersInput) {
+      companies(filters: $filters) {
+        internalName
+        externalName
+        partnershipType
+        logo {
+          alternativeText
+          url
+          width
+          height
+        }
+      }
+    }
+  `;
+  const client = getClient();
+  const { data: companiesData } = await client.query({
+    query: GET_DATA,
+    variables: {
+      filters: { partnershipType: { in: ["main", "partner"] } }, // Filter by partnershipType
+    },
+  });
+
   return (
     <section className="itp-main_section--partners">
       <div className="itp-c-partners__meet_our_partners">
         <Image src={IMAGE} alt="Meet our partners" />
       </div>
       <h2 className="itp-c-partners__label itp-c-partners__label--first">
-        Sponsor Główny 2024
+        Sponsor Główny 2025
       </h2>
-      <Partner
-        logo={PARTNER_TRAMWAJE_WARSZAWSKIE}
-        description="Tramwaje Warszawskie"
-        type="main"
-      />
-      <h2 className="itp-c-partners__label">Sponsorzy 2024  </h2>
-      <Partner logo={PARTNER_MARS} description="Tramwaje Warszawskie" />
-      <Partner logo={PARTNER_SCHNEIDER} description="Schneider" />
-      <Partner logo={PARTNER_RWE} description="RWE" />
-      <Partner logo={PARTNER_RECCKIT} description="Recckit" />
+      <h2 className="itp-c-partners__label">Sponsorzy 2025 </h2>
+      {companiesData.companies.map((partner: Company) => (
+        <Partner key={partner.internalName} partner={partner} />
+      ))}
     </section>
   );
 };
