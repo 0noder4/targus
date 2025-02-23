@@ -10,7 +10,7 @@ import { gql } from "@apollo/client";
 import { Company } from "../../../interfaces/company";
 
 const Partners = async () => {
-  const GET_DATA = gql`
+  const GET_PARTNERS = gql`
     query Companies($filters: CompanyFiltersInput) {
       companies(filters: $filters) {
         internalName
@@ -27,7 +27,7 @@ const Partners = async () => {
   `;
   const client = getClient();
   const { data: companiesData } = await client.query({
-    query: GET_DATA,
+    query: GET_PARTNERS,
     variables: {
       filters: { partnershipType: { in: ["main", "partner"] } }, // Filter by partnershipType
     },
