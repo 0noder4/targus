@@ -22,7 +22,7 @@ services:
     env_file: .env
     environment:
       DATABASE_CLIENT: ${DATABASE_CLIENT}
-      DATABASE_HOST: postgres
+      DATABASE_HOST: ${DATABASE_HOST}
       DATABASE_PORT: ${DATABASE_PORT}
       DATABASE_NAME: ${DATABASE_NAME}
       DATABASE_USERNAME: ${DATABASE_USERNAME}
@@ -42,15 +42,26 @@ services:
       - "1337:1337"
     networks:
       - internal
-    depends_on:
-      - postgres
 
   frontend:
     image: 0noder4/targus:frontend_alfa_3.0
     container_name: ${PROJECT_NAME}_frontend
+    restart: on-failure
     build:
       context: frontend
       target: ${NODE_ENV}
+      args:
+        NODE_ENV: ${NODE_ENV}
+        BACKEND_PROTOCOL: ${BACKEND_PROTOCOL}
+        BACKEND_HOST: ${BACKEND_HOST}
+        BACKEND_PORT: ${BACKEND_PORT}
+    environment:
+      NODE_ENV: ${NODE_ENV}
+      MJ_APIKEY_PUBLIC: ${MJ_APIKEY_PUBLIC}
+      MJ_APIKEY_PRIVATE: ${MJ_APIKEY_PRIVATE}
+      BACKEND_PROTOCOL: ${BACKEND_PROTOCOL}
+      BACKEND_HOST: ${BACKEND_HOST}
+      BACKEND_PORT: ${BACKEND_PORT}
     ports:
       - 80:3000
     volumes:
@@ -59,19 +70,8 @@ services:
       - /app/.next
     networks:
       - internal
-    environment:
-      NODE_ENV: ${NODE_ENV}
-      MJ_APIKEY_PUBLIC: ${MJ_APIKEY_PUBLIC}
-      MJ_APIKEY_PRIVATE: ${MJ_APIKEY_PRIVATE}
-      BACKEND_PROTOCOL: ${BACKEND_PROTOCOL}
-      BACKEND_HOST: ${BACKEND_HOST}
-      BACKEND_PORT: ${BACKEND_PORT}
-    depends_on:
-      - backend
 
 volumes:
   data:
-
 networks:
   internal:
-    driver: bridge
