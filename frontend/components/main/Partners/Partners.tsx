@@ -6,25 +6,10 @@ import "./Partners.scss";
 import IMAGE from "/public/figures/itp-figure--meet_out_partners.svg";
 
 import { getClient } from "../../../lib/ApolloClient";
-import { gql } from "@apollo/client";
 import { Company } from "../../../interfaces/company";
+import { GET_PARTNERS } from "/graphql/queries/companies";
 
 const Partners = async () => {
-  const GET_PARTNERS = gql`
-    query Companies($filters: CompanyFiltersInput) {
-      companies(filters: $filters) {
-        internalName
-        externalName
-        partnershipType
-        logo {
-          alternativeText
-          url
-          width
-          height
-        }
-      }
-    }
-  `;
   const client = getClient();
   const { data: companiesData } = await client.query({
     query: GET_PARTNERS,

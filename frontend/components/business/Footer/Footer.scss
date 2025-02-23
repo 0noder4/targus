@@ -1,7 +1,7 @@
 @use "/styles/scss" as *;
 
 .itp-business-footer {
-  @include itp-section_margin;
+  @include itp-section_padding;
   display: flex;
   gap: $itp-spacing--l;
   color: $itp-color--light;
