@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_metadata_open_graphs",
+  "info": {
+    "displayName": "openGraph",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "OG_title": {
+      "type": "string"
+    },
+    "OG_description": {
+      "type": "text"
+    },
+    "OG_image": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "OG_type": {
+      "type": "string"
+    },
+    "OG_url": {
+      "type": "string"
+    }
+  }
+}

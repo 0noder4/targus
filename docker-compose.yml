@@ -19,7 +19,8 @@ services:
     container_name: ${PROJECT_NAME}_backend
     build:
       context: backend
-    env_file: .env
+      args:
+        NODE_ENV: ${NODE_ENV}
     environment:
       DATABASE_CLIENT: ${DATABASE_CLIENT}
       DATABASE_HOST: ${DATABASE_HOST}
@@ -62,6 +63,7 @@ services:
       BACKEND_PROTOCOL: ${BACKEND_PROTOCOL}
       BACKEND_HOST: ${BACKEND_HOST}
       BACKEND_PORT: ${BACKEND_PORT}
+      BACKEND_API_TOKEN: ${BACKEND_API_TOKEN}
     ports:
       - 80:3000
     volumes:

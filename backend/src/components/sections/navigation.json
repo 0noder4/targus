@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_sections_navigations",
+  "info": {
+    "displayName": "navigation",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "internalName": {
+      "type": "string"
+    },
+    "navigationItems": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::link.link"
+    },
+    "focusedLink": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::link.link"
+    }
+  }
+}

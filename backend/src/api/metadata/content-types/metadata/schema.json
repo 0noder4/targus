@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "metadata_all",
+  "info": {
+    "singularName": "metadata",
+    "pluralName": "metadata-all",
+    "displayName": "Metadata",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "pageTitle": {
+      "type": "string"
+    },
+    "pageDescription": {
+      "type": "text"
+    },
+    "keywords": {
+      "type": "string"
+    },
+    "canonicalUrl": {
+      "type": "string"
+    },
+    "openGraph": {
+      "displayName": "openGraph",
+      "type": "component",
+      "repeatable": false,
+      "component": "metadata.open-graph"
+    },
+    "twitterCard": {
+      "type": "component",
+      "repeatable": false,
+      "component": "metadata.twitter-card"
+    },
+    "structuredData": {
+      "type": "json"
+    },
+    "internalName": {
+      "type": "string"
+    }
+  }
+}
