@@ -1,4 +1,5 @@
-import { HttpLink } from "@apollo/client";
+import { from, HttpLink } from "@apollo/client";
+import { onError } from "@apollo/client/link/error";
 import {
   registerApolloClient,
   ApolloClient,
@@ -6,18 +7,32 @@ import {
 } from "@apollo/experimental-nextjs-app-support";
 import navigateBackend from "./navigateBackend";
 
+const errorLink = onError(({ graphQLErrors, networkError }) => {
+  if (graphQLErrors)
+    graphQLErrors.forEach(({ message, locations, path }) =>
+      console.log(
+        `[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`,
+      ),
+    );
+  if (networkError) {
+  }
+});
+
+const httpLink = new HttpLink({
+  uri: navigateBackend("/graphql"),
+  headers: {
+    Authorization: `Bearer ${process.env.BACKEND_API_TOKEN}`,
+  },
+});
+
 export const { getClient, query, PreloadQuery } = registerApolloClient(() => {
   return new ApolloClient({
     cache: new InMemoryCache(),
-    link: new HttpLink({
-      // this needs to be an absolute url, as relative urls cannot be used in SSR
-      uri: navigateBackend("/graphql"),
-      headers: {
-        Authorization: `Bearer ${process.env.BACKEND_API_TOKEN}`,
+    link: from([errorLink, httpLink]),
+    defaultOptions: {
+      watchQuery: {
+        fetchPolicy: "network-only", // Skip cache for critical queries
       },
-      // you can disable result caching here if you want to
-      // (this does not work if you are rendering your page with `export const dynamic = "force-static"`)
-      // fetchOptions: { cache: "no-store" },
-    }),
+    },
   });
 });

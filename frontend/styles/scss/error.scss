@@ -1,0 +1,60 @@
+@use "./index.scss" as *;
+
+.itp-error {
+  @include itp-section_padding;
+
+  width: 100%;
+  height: 100vh;
+  background-color: $itp-color--dark;
+
+  color: $itp-color--light;
+  font-family: $itp-font-family--content;
+  font-weight: 300;
+
+  .itp-error-container {
+    width: 400px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    gap: $itp-spacing--m;
+
+    display: flex;
+    flex-direction: column;
+
+    .itp-error__code {
+      font-family: $itp-font-family--display;
+      font-size: $itp-font-size--display--l;
+      text-align: center;
+    }
+
+    .itp-decor_1 {
+      font-size: $itp-font-size--xl;
+    }
+
+    .itp-decor_2 {
+      text-align: right;
+      font-size: $itp-font-size--xl;
+    }
+
+    .itp-error__message {
+      font-size: $itp-font-size--s;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  a {
+    text-decoration: underline;
+  }
+}
+
+@include for-size("mobile") {
+  .itp-error {
+    .itp-error-container {
+      width: 300px;
+    }
+  }
+}
