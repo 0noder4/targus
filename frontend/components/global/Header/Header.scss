@@ -1,0 +1,130 @@
+@use "/styles/scss" as *;
+
+.itp-header {
+  @include itp-section_padding;
+  display: flex;
+  align-items: center;
+
+  font-family: $itp-font-family--title;
+  letter-spacing: 0.05em;
+
+  .itp-header__logo {
+    height: 3rem;
+    width: auto;
+  }
+
+  .itp-header__navigation__container {
+    position: relative;
+    display: flex;
+  }
+
+  .itp-header__navigation {
+    display: flex;
+    gap: $itp-spacing--l;
+
+    .itp-c-link {
+      display: flex;
+      align-items: center;
+    }
+
+    .itp-c-link--main {
+      color: $itp-color--accent;
+      order: 1;
+    }
+  }
+
+  .itp-header__navigation__mobile_dropdown {
+    display: none;
+  }
+}
+
+.itp-header--homeHeader {
+  position: relative;
+  justify-content: space-between;
+
+  color: $itp-color--dark;
+
+  .itp-c-link--main {
+    @include itp-border--accent;
+    padding: 0.5rem 1.5rem;
+  }
+}
+
+.itp-header--businessHeader {
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 2;
+
+  color: $itp-color--light;
+  flex-direction: row-reverse;
+
+  gap: $itp-spacing--l;
+
+  .itp-c-link--main {
+    text-decoration: underline;
+  }
+}
+
+@include for-size(tablet-lg) {
+  .itp-header {
+    .itp-header__logo {
+      height: 2rem;
+      width: fit-content;
+    }
+
+    .itp-header__navigation.collapsed {
+      display: none;
+    }
+
+    .itp-header__navigation__mobile_dropdown {
+      display: block !important;
+    }
+
+    .itp-header__navigation {
+      position: absolute;
+      top: 2rem;
+      right: 1rem;
+      z-index: 2;
+
+      padding: 1rem 1rem 1rem 2rem;
+
+      flex-direction: column-reverse;
+      gap: $itp-spacing--s;
+
+      list-style: square;
+
+      .itp-c-link {
+        display: list-item !important;
+      }
+
+      .itp-c-link--main {
+        border: none;
+        padding: 0 0;
+      }
+    }
+  }
+
+  .itp-header--homeHeader {
+    .itp-header__navigation {
+      background-color: $itp-color--dark;
+      color: $itp-color--light;
+    }
+  }
+
+  .itp-header--businessHeader {
+    flex-direction: row;
+    justify-content: space-between;
+
+    .itp-header__navigation__container {
+      position: relative;
+    }
+
+    .itp-header__navigation {
+      padding: 1rem 1rem 1rem 2rem;
+
+      background-color: $itp-color--light;
+      color: $itp-color--dark;
+    }
+  }
+}

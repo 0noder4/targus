@@ -4,7 +4,7 @@ import { getClient } from "/lib/ApolloClient";
 import { GET_HOME_METADATA } from "/graphql/queries/metadata";
 
 // Core sections
-import Header from "/components/main/Header/Header";
+import Header from "/components/global/Header/Header";
 import Footer from "/components/main/Footer/Footer";
 import Hero from "/components/main/Hero/Hero";
 import About from "/components/main/About/About";
@@ -12,6 +12,7 @@ import Partners from "/components/main/Partners/Partners";
 import Survey from "/components/main/Survey/Survey";
 import Organization from "/components/main/Organization/Organization";
 import navigateBackend from "/lib/navigateBackend";
+import { GET_HOME_SECTIONS } from "/graphql/queries/sections";
 
 // Metadata fetch from backend
 export async function generateMetadata(): Promise<Metadata> {
@@ -45,10 +46,24 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-const Index = () => {
+const Index = async () => {
+  const client = getClient();
+  const {
+    data: {
+      homePage: { sections },
+    },
+  } = await client.query({
+    query: GET_HOME_SECTIONS,
+  });
+
+  const homeHeaderSection = sections.find(
+    (section: { internalName: string }) =>
+      section.internalName === "homeHeader",
+  );
+
   return (
     <div className="itp-main">
-      <Header />
+      <Header {...homeHeaderSection} />
       <main>
         <Hero />
         <About />

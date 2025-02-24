@@ -22,7 +22,7 @@
     "sections": {
       "type": "dynamiczone",
       "components": [
-        "sections.navigation"
+        "sections.header"
       ]
     }
   }

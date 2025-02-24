@@ -5,7 +5,7 @@ import { getClient } from "/lib/ApolloClient";
 import navigateBackend from "/lib/navigateBackend";
 
 // Core sections
-import Header from "/components/business/Header/Header";
+import Header from "/components/global/Header/Header";
 import Footer from "/components/business/Footer/Footer";
 import Hero from "/components/business/Hero/Hero";
 import ForBusiness from "/components/business/ForBusiness/ForBusiness";
@@ -14,6 +14,7 @@ import OurTeam from "/components/business/OurTeam/OurTeam";
 
 // Styles
 import "./page.scss";
+import { GET_BUSINESS_SECTIONS } from "/graphql/queries/sections";
 
 // Metadata fetch from backend
 export async function generateMetadata(): Promise<Metadata> {
@@ -47,10 +48,23 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-const Index = () => {
+const Index = async () => {
+  const client = getClient();
+  const {
+    data: {
+      businessPage: { sections },
+    },
+  } = await client.query({
+    query: GET_BUSINESS_SECTIONS,
+  });
+
+  const businessHeaderSection = sections.find(
+    (section: { internalName: string }) =>
+      section.internalName === "businessHeader",
+  );
   return (
     <div className="itp-business">
-      <Header />
+      <Header {...businessHeaderSection} />
       <main>
         <Hero />
         <ForBusiness />

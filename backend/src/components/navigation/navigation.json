@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_navigation_navigations",
+  "info": {
+    "displayName": "Navigation",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "internalName": {
+      "type": "string"
+    },
+    "navigationItems": {
+      "displayName": "NavigationItem",
+      "type": "component",
+      "repeatable": true,
+      "component": "navigation.navigation-item"
+    }
+  }
+}
