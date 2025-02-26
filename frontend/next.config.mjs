@@ -4,7 +4,7 @@ const cspHeader = `
     default-src 'self';
     script-src 'self' 'unsafe-eval' 'unsafe-inline';
     style-src 'self' 'unsafe-inline';
-    img-src 'self' blob: data:;
+    img-src 'self' data:;
     font-src 'self';
     object-src 'none';
     base-uri 'self';
@@ -18,9 +18,9 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: process.env.BACKEND_PROTOCOL,
-        hostname: process.env.BACKEND_HOST,
-        port: process.env.BACKEND_PORT,
+        protocol: process.env.NEXT_PUBLIC_BACKEND_PROTOCOL,
+        hostname: process.env.NEXT_PUBLIC_BACKEND_HOST,
+        port: process.env.NEXT_PUBLIC_BACKEND_PORT,
         pathname: "/uploads/**",
         search: "",
       },

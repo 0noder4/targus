@@ -1,0 +1,29 @@
+{
+  "kind": "singleType",
+  "collectionName": "business_pages",
+  "info": {
+    "singularName": "business-page",
+    "pluralName": "business-pages",
+    "displayName": "Business Page",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "internalName": {
+      "type": "string"
+    },
+    "metadata": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::metadata.metadata"
+    },
+    "sections": {
+      "type": "dynamiczone",
+      "components": [
+        "sections.header"
+      ]
+    }
+  }
+}

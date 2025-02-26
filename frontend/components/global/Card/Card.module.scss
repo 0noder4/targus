@@ -1,0 +1,90 @@
+@use "/styles/scss" as *;
+
+.card_container {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  padding: 2rem 2rem 2rem 1rem;
+  margin-top: 0.75rem;
+}
+
+.dark {
+  background-color: $itp-color--dark;
+  color: $itp-color--light;
+
+  &::after {
+    content: "";
+    position: absolute;
+    right: 0.75rem;
+    bottom: 0.75rem;
+    left: -1px;
+    top: -1px;
+    border: 1px solid $itp-color--light;
+    pointer-events: none;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    right: 0.75rem;
+    bottom: 0.75rem;
+    left: -0.75rem;
+    top: -0.75rem;
+    border: 1px solid $itp-color--dark;
+    pointer-events: none;
+  }
+}
+
+.light {
+  background-color: $itp-color--light;
+  color: $itp-color--dark;
+
+  &::after {
+    content: "";
+    position: absolute;
+    right: 0.75rem;
+    bottom: 0.75rem;
+    left: -1px;
+    top: -1px;
+    border: 1px solid $itp-color--dark;
+    pointer-events: none;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    right: 0.75rem;
+    bottom: 0.75rem;
+    left: -0.75rem;
+    top: -0.75rem;
+    border: 1px solid $itp-color--light;
+    pointer-events: none;
+  }
+}
+
+.title {
+  font-family: $itp-font-family--title--bold;
+  font-size: $itp-font-size--display--s;
+  letter-spacing: 0.1em;
+
+  text-transform: uppercase;
+}
+
+.content {
+  @include itp-text--paragraph;
+}
+
+.footer {
+  margin-top: auto;
+  justify-self: flex-end;
+
+  display: flex;
+  gap: $itp-spacing--s;
+
+  @include for-size(tablet-lg) {
+    flex-direction: column;
+  }
+}

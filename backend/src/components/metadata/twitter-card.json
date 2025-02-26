@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_metadata_twitter_cards",
+  "info": {
+    "displayName": "twitterCard"
+  },
+  "options": {},
+  "attributes": {
+    "T_title": {
+      "type": "string"
+    },
+    "T_description": {
+      "type": "text"
+    },
+    "T_image": {
+      "allowedTypes": [
+        "images",
+        "files"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "T_cardType": {
+      "type": "string"
+    }
+  }
+}

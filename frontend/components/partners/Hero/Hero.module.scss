@@ -1,0 +1,71 @@
+@use "/styles/scss" as *;
+
+.section {
+  height: 60vh;
+  background-color: $itp-color--dark;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+
+  gap: $itp-spacing--s;
+}
+
+.main_text {
+  grid-column: span 2;
+
+  color: $itp-color--light;
+  font-family: $itp-font-family--display;
+  font-size: $itp-font-size--display--l;
+  text-align: center;
+
+  @include for-size(tablet-lg) {
+    font-size: $itp-font-size--display--m;
+  }
+
+  @include for-size(500px) {
+    font-size: $itp-font-size--display--s;
+  }
+}
+
+.secondary_text {
+  color: $itp-color--light;
+  font-family: $itp-font-family--content--light;
+  font-size: $itp-font-size--display--m;
+
+  text-transform: uppercase;
+
+  @include for-size(tablet-lg) {
+    font-size: $itp-font-size--l;
+  }
+
+  @include for-size(500px) {
+    font-size: $itp-font-size--m;
+  }
+}
+
+.call_to_action {
+  color: $itp-color--light;
+  flex: 1;
+
+  height: 100%;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  gap: $itp-spacing--m;
+
+  @include for-size(500px) {
+    flex-direction: column;
+
+    gap: $itp-spacing--xs;
+    align-items: flex-start;
+  }
+}

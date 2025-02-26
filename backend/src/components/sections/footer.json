@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_sections_footers",
+  "info": {
+    "displayName": "Footer",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "internalName": {
+      "type": "string"
+    },
+    "navigation": {
+      "type": "component",
+      "repeatable": false,
+      "component": "navigation.navigation"
+    },
+    "contact": {
+      "type": "component",
+      "repeatable": false,
+      "component": "data.contact"
+    },
+    "socials": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.qr"
+    }
+  }
+}

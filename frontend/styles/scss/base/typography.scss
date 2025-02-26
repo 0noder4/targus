@@ -30,6 +30,11 @@
   src: url(/fonts/Roboto_Mono/Roboto_Mono-Bold.ttf);
 }
 
+@font-face {
+  font-family: "Roboto_Mono-Light";
+  src: url(/fonts/Roboto_Mono/Roboto_Mono-Light.ttf);
+}
+
 // Allocation
 
 $itp-font-family--display: "Major_Mono_Display-Regular";
@@ -38,6 +43,7 @@ $itp-font-family--title--bold: "Montserrat-Bold";
 $itp-font-family--title--thin: "Montserrat-Regular";
 $itp-font-family--content: "Roboto_Mono-Regular";
 $itp-font-family--content--bold: "Roboto_Mono-Bold";
+$itp-font-family--content--light: "Roboto_Mono-Light";
 
 $itp-font-size--display--l: 96px;
 $itp-font-size--display--m: 48px;

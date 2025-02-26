@@ -1,0 +1,34 @@
+{
+  "kind": "singleType",
+  "collectionName": "partners_pages",
+  "info": {
+    "singularName": "partners-page",
+    "pluralName": "partners-pages",
+    "displayName": "Partners Page",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "internalName": {
+      "type": "string"
+    },
+    "metadata": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::metadata.metadata"
+    },
+    "sections": {
+      "type": "dynamiczone",
+      "components": [
+        "sections.header",
+        "sections.partners-hero",
+        "sections.partners-display",
+        "sections.partners-description",
+        "sections.footer",
+        "sections.patrons-display"
+      ]
+    }
+  }
+}

@@ -1,0 +1,55 @@
+@use "/styles/scss" as *;
+
+.section {
+  @include itp-section_padding;
+  background-color: $itp-color--dark;
+}
+
+.grid_container {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(auto, 700px));
+  background-color: $itp-color--dark;
+  color: $itp-color--light;
+
+  gap: $itp-spacing--m;
+
+  align-self: center;
+  justify-self: center;
+
+  @include for-size(tablet-lg) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.label {
+  grid-column: span 2;
+  @include itp-text--section_header;
+
+  @include for-size(tablet-lg) {
+    grid-column: span 1;
+  }
+}
+
+.image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  grid-row: 2;
+  grid-column: 2;
+
+  img {
+    object-fit: contain;
+    width: auto;
+    max-height: 200px;
+  }
+
+  @include for-size(tablet-lg) {
+    display: none;
+  }
+}
+
+.main {
+  grid-row: 2;
+  grid-column: 1;
+}

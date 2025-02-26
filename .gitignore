@@ -4,6 +4,8 @@ data
 .eslintrc.json
 .vscode
 
+backend/public/uploads
+
 
 ### React ###
 .DS_*
