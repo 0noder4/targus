@@ -1,17 +1,17 @@
 import * as React from "react";
-import "./Card.scss";
+import styles from "./Card.module.scss";
 
 type CardProps = {
   className?: string;
-  type?: "default" | "no_outline";
+  type?: "light" | "dark";
   children?: React.ReactNode;
 };
 
 const Card = React.forwardRef<HTMLDivElement, CardProps>(
-  ({ className = "", type = "default", ...props }, ref) => (
+  ({ className = "", type = "dark", ...props }, ref) => (
     <div
       ref={ref}
-      className={`itp-c-card itp-c-card--${type} ${className}`.trim()}
+      className={`${styles.card_container} ${styles[type]} ${className}`.trim()}
       {...props}
     />
   ),
@@ -22,11 +22,7 @@ const CardTitle = React.forwardRef<
   HTMLParagraphElement,
   React.HTMLAttributes<HTMLHeadingElement>
 >(({ className = "", ...props }, ref) => (
-  <h3
-    ref={ref}
-    className={`itp-c-card__title ${className}`.trim()}
-    {...props}
-  />
+  <h3 ref={ref} className={`${styles.title} ${className}`.trim()} {...props} />
 ));
 CardTitle.displayName = "CardTitle";
 
@@ -36,9 +32,9 @@ const CardContent = React.forwardRef<
 >(({ className = "", ...props }, ref) => (
   <div
     ref={ref}
-    className={`itp-c-card__content ${className}`.trim()}
+    className={`${styles.content} ${className}`.trim()}
     {...props}
-  />
+  ></div>
 ));
 CardContent.displayName = "CardContent";
 
@@ -48,7 +44,7 @@ const CardFooter = React.forwardRef<
 >(({ className = "", ...props }, ref) => (
   <div
     ref={ref}
-    className={`itp-c-card__footer ${className}`.trim()}
+    className={`${styles.footer} ${className}`.trim()}
     {...props}
   />
 ));

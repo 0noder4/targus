@@ -6,6 +6,7 @@ export const GET_PARTNERS = gql`
       internalName
       externalName
       partnershipType
+      description
       logo {
         alternativeText
         url

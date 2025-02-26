@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 
 import "./Partner.scss";
-import { Company } from "../../../../../interfaces/company";
+import { Company } from "../../../../../interfaces/Company";
 import navigateBackend from "/lib/navigateBackend";
 
 interface PartnerProps {

@@ -6,8 +6,8 @@ import "./Partners.scss";
 import IMAGE from "/public/figures/itp-figure--meet_out_partners.svg";
 
 import { getClient } from "../../../lib/ApolloClient";
-import { Company } from "../../../interfaces/company";
 import { GET_PARTNERS } from "/graphql/queries/companies";
+import { Company } from "../../../interfaces/Company";
 
 const Partners = async () => {
   const client = getClient();

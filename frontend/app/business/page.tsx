@@ -1,6 +1,5 @@
 import React from "react";
 import { Metadata } from "next";
-import { GET_BUSINESS_METADATA } from "/graphql/queries/metadata";
 import { getClient } from "/lib/ApolloClient";
 import navigateBackend from "/lib/navigateBackend";
 
@@ -12,9 +11,12 @@ import ForBusiness from "/components/business/ForBusiness/ForBusiness";
 import ContactForm from "/components/business/ContactForm/ContactForm";
 import OurTeam from "/components/business/OurTeam/OurTeam";
 
+// Queries
+import { GET_BUSINESS_SECTIONS } from "/graphql/queries/sections";
+import { GET_BUSINESS_METADATA } from "/graphql/queries/metadata";
+
 // Styles
 import "./page.scss";
-import { GET_BUSINESS_SECTIONS } from "/graphql/queries/sections";
 
 // Metadata fetch from backend
 export async function generateMetadata(): Promise<Metadata> {

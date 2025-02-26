@@ -1,0 +1,74 @@
+@use "/styles/scss" as *;
+
+.itp-main-footer {
+  @include itp-section_margin;
+  display: flex;
+  gap: $itp-spacing--l;
+  color: $itp-color--dark;
+
+  .itp-c-footer__section {
+    display: flex;
+    flex-direction: column;
+
+    &__header {
+      font-family: $itp-font-family--title;
+      font-size: $itp-font-size--xl;
+      text-transform: uppercase;
+
+      margin-bottom: 1rem;
+    }
+
+    &__body {
+      font-family: $itp-font-family--content;
+
+      ul {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+    }
+  }
+
+  .itp-c-footer__section {
+    &--nav {
+      ul {
+        margin-left: 1.5rem;
+        list-style: square;
+      }
+    }
+
+    &--socials {
+      ul {
+        display: flex;
+        flex-direction: row;
+
+        img {
+          height: 100px;
+          width: auto;
+        }
+      }
+    }
+  }
+
+  @include for-size(tablet-lg) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @include for-size(phone) {
+    display: grid;
+    grid-template-columns: 1fr;
+
+    .itp-c-footer__section--socials {
+      grid-row: 1;
+    }
+  }
+
+  @include for-size(phone-sm) {
+    .itp-c-footer__section--socials {
+      ul {
+        flex-wrap: wrap;
+      }
+    }
+  }
+}

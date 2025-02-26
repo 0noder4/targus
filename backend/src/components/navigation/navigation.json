@@ -14,6 +14,9 @@
       "type": "component",
       "repeatable": true,
       "component": "navigation.navigation-item"
+    },
+    "externalName": {
+      "type": "string"
     }
   }
 }

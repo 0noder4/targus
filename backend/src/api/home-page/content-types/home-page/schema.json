@@ -22,7 +22,8 @@
     "sections": {
       "type": "dynamiczone",
       "components": [
-        "sections.header"
+        "sections.header",
+        "sections.partners-display"
       ]
     }
   }

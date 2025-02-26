@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_sections_partners_descriptions",
+  "info": {
+    "displayName": "Partners Description"
+  },
+  "options": {},
+  "attributes": {
+    "internalName": {
+      "type": "string"
+    },
+    "mainPartnerLabel": {
+      "type": "string"
+    },
+    "partnersLabel": {
+      "type": "string"
+    },
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

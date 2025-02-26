@@ -1,8 +1,8 @@
 import React from "react";
-import "./Button.scss";
+import styles from "./Button.module.scss";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: "primary" | "secondary";
+  variant?: "primary" | "secondary" | "orange";
   type?: "submit";
   disabled?: boolean;
 }
@@ -13,6 +13,7 @@ interface LinkButtonProps
   type?: "submit";
   disabled?: boolean;
   href?: string;
+  target?: string;
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -25,7 +26,9 @@ const Button: React.FC<ButtonProps> = ({
 }) => {
   return (
     <button
-      className={`itp-c-button itp-c-button--${variant} ${className}`.trim()}
+      className={
+        `${styles.button}` + ` ${styles[variant]}` + ` ${className}`.trim()
+      }
       type={type}
       disabled={disabled}
       {...props}
@@ -43,14 +46,17 @@ export const LinkButton: React.FC<LinkButtonProps> = ({
   type,
   href,
   children,
+  target = "_blank",
   ...props
 }) => {
   return (
     <a
       href={href}
-      target="_blank"
+      target={target}
       rel="noreferrer"
-      className={`itp-c-link_button ${className}`.trim()}
+      className={
+        `${styles.link_button_container}` + " " + ` ${className}`.trim()
+      }
     >
       <Button variant={variant} type={type} disabled={disabled} {...props}>
         {children}

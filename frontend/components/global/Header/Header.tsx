@@ -9,7 +9,7 @@ import "./Header.scss";
 
 import MENU from "/public/icons/itp-icon--menu.svg";
 import MENU_LIGHT from "/public/icons/itp-icon--menu--light.svg";
-import type { Header } from "/interfaces/header";
+import type { Header } from "../../../interfaces/sections/Header";
 import navigateBackend from "/lib/navigateBackend";
 
 const Header = ({ internalName, logo, navigation }: Header) => {

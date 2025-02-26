@@ -1,4 +1,4 @@
-import { Logo } from "./logo";
+import { Image } from "./Image";
 
 export interface Company {
   internalName: string;
@@ -6,5 +6,5 @@ export interface Company {
   codeID?: string;
   partnershipType: "main" | "partner" | "regular";
   description?: string;
-  logo: Logo;
+  logo: Image;
 }

@@ -10,15 +10,15 @@
   background-repeat: no-repeat;
   background-position: center;
 
-  .itp-c-card {
+  .itp-l-offer_card {
     max-width: 800px;
-  }
 
-  .itp-c-card:nth-child(even) {
-    grid-column: 1 / span 2;
-  }
-  .itp-c-card:nth-child(odd) {
-    grid-column: 2 / span 2;
+    &:nth-child(even) {
+      grid-column: 1 / span 2;
+    }
+    &:nth-child(odd) {
+      grid-column: 2 / span 2;
+    }
   }
 
   @include for-size(tablet-lg) {

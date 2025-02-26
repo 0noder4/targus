@@ -8,9 +8,18 @@ type Props = {
   alt: string;
   href: string;
   className?: string;
+  width?: number;
+  height?: number;
 };
 
-const QR: React.FC<Props> = ({ src, alt, href, className = "" }) => {
+const QR: React.FC<Props> = ({
+  src,
+  alt,
+  href,
+  className = "",
+  width,
+  height,
+}) => {
   return (
     <a
       href={href}
@@ -18,7 +27,13 @@ const QR: React.FC<Props> = ({ src, alt, href, className = "" }) => {
       rel="noopener"
       className={`itp-c-qr_container ${className}`.trim()}
     >
-      <Image className="itp-c-qr__image" src={src} alt={alt} />
+      <Image
+        className="itp-c-qr__image"
+        src={src}
+        alt={alt}
+        width={width}
+        height={height}
+      />
     </a>
   );
 };

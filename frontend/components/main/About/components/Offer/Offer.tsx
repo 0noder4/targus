@@ -12,7 +12,7 @@ import "./Offer.scss";
 const Offer = () => {
   return (
     <div className="itp-l-offer">
-      <Card className="itp-l-offer__companies">
+      <Card className="itp-l-offer_card">
         <CardTitle>Firmy</CardTitle>
         <CardContent>
           Blisko 100 firm co roku zbiera się w jednym miejscu – w Gmachu Głównym
@@ -27,7 +27,7 @@ const Offer = () => {
           </LinkButton>
         </CardFooter>
       </Card>
-      <Card className="itp-l-offer__cv">
+      <Card className="itp-l-offer_card">
         <CardTitle>Konsultacje CV</CardTitle>
         <CardContent>
           Chcecie, aby Wasze CV przyciągało uwagę lub nie wiecie, co w nim
@@ -36,7 +36,7 @@ const Offer = () => {
           CV i widzimy się 11–12 marca na Inżynierskich Targach Pracy!
         </CardContent>
       </Card>
-      <Card className="itp-l-offer__workshops">
+      <Card className="itp-l-offer_card">
         <CardTitle>warsztaty</CardTitle>
         <CardContent>
           Wiedzieliście, że podczas Inżynierskich Targów Pracy możecie nie tylko
@@ -53,7 +53,7 @@ const Offer = () => {
           <LinkButton disabled={true}>Zapisy wkrótce...</LinkButton>
         </CardFooter>
       </Card>
-      <Card className="itp-l-offer__pdi">
+      <Card className="itp-l-offer_card">
         <CardTitle>PDI</CardTitle>
         <CardContent>
           Już dziś podziel się swoją opinią na temat oczekiwań na rynku pracy,

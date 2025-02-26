@@ -3,4 +3,5 @@ export interface Link {
   label: string;
   target: string;
   type: string;
+  internalName: string;
 }
