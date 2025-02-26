@@ -133,12 +133,17 @@ export const GET_PARTNERS_SECTIONS = gql`
             height
           }
         }
+        ... on ComponentSectionsPatronsDisplay {
+          internalName
+          mediaPatronsLabel
+        }
         ... on ComponentSectionsFooter {
           internalName
           navigation {
             externalName
             navigationItems {
               link {
+                internalName
                 url
                 label
                 target

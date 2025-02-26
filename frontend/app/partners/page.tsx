@@ -6,7 +6,7 @@ import navigateBackend from "/lib/navigateBackend";
 // Core sections
 import Header from "/components/global/Header/Header";
 import Hero from "/components/partners/Hero/Hero";
-import PartnerDisplay from "../../components/partners/PartnerDisplay/PartnersDisplay";
+import PartnerDisplay from "../../components/partners/PartnersDisplay/PartnersDisplay";
 import Footer from "/components/global/Footer/Footer";
 
 // Queries
@@ -14,9 +14,10 @@ import { GET_PARTNERS_SECTIONS } from "/graphql/queries/sections";
 import { GET_PARTNERS_METADATA } from "/graphql/queries/metadata";
 
 // Styles
-import "./page.scss";
 import PartnersDescription from "/components/partners/PartnersDescription/PartnersDescription";
 import { GET_PARTNERS } from "/graphql/queries/companies";
+import { GET_PATRONS } from "/graphql/queries/patrons";
+import PatronsDisplay from "/components/partners/PatronsDisplay/PatronsDisplay";
 
 // Metadata fetch from backend
 export async function generateMetadata(): Promise<Metadata> {
@@ -67,6 +68,13 @@ const Index = async () => {
     },
   });
 
+  const { data: patronsData } = await client.query({
+    query: GET_PATRONS,
+    variables: {
+      filters: { type: { in: ["honorable", "media"] } },
+    },
+  });
+
   const partnerHeaderProps = sections.find(
     (section: { internalName: string }) =>
       section.internalName === "partnersHeader",
@@ -87,18 +95,24 @@ const Index = async () => {
       section.internalName === "partnersDescription",
   );
 
+  const patronsDisplayProps = sections.find(
+    (section: { internalName: string }) =>
+      section.internalName === "patronsDisplay",
+  );
+
   const partnersFooterProps = sections.find(
     (section: { internalName: string }) =>
       section.internalName === "partnersFooter",
   );
 
   return (
-    <div className="itp-business">
+    <div className="itp-partners">
       <Header {...partnerHeaderProps} />
       <main>
         <Hero {...partnerHeroProps} />
-        <PartnerDisplay {...partnersDisplayProps} />
+        <PartnerDisplay {...partnersDisplayProps} {...partnersData} />
         <PartnersDescription {...partnersDescriptionProps} {...partnersData} />
+        <PatronsDisplay {...patronsDisplayProps} {...patronsData} />
       </main>
       <Footer {...partnersFooterProps} />
     </div>

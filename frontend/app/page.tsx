@@ -8,11 +8,14 @@ import Header from "/components/global/Header/Header";
 import Footer from "/components/main/Footer/Footer";
 import Hero from "/components/main/Hero/Hero";
 import About from "/components/main/About/About";
-import Partners from "/components/main/Partners/Partners";
 import Survey from "/components/main/Survey/Survey";
 import Organization from "/components/main/Organization/Organization";
 import navigateBackend from "/lib/navigateBackend";
+import PartnerDisplay from "../components/partners/PartnersDisplay/PartnersDisplay";
+
+// Queries
 import { GET_HOME_SECTIONS } from "/graphql/queries/sections";
+import { GET_PARTNERS } from "/graphql/queries/companies";
 
 // Metadata fetch from backend
 export async function generateMetadata(): Promise<Metadata> {
@@ -56,18 +59,30 @@ const Index = async () => {
     query: GET_HOME_SECTIONS,
   });
 
-  const homeHeaderSection = sections.find(
+  const { data: partnersData } = await client.query({
+    query: GET_PARTNERS,
+    variables: {
+      filters: { partnershipType: { in: ["main", "partner"] } }, // Filter by partnershipType
+    },
+  });
+
+  const homeHeaderProps = sections.find(
     (section: { internalName: string }) =>
       section.internalName === "homeHeader",
   );
 
+  const partnersDisplayProps = sections.find(
+    (section: { internalName: string }) =>
+      section.internalName === "partnersDisplay",
+  );
+
   return (
     <div className="itp-main">
-      <Header {...homeHeaderSection} />
+      <Header {...homeHeaderProps} />
       <main>
         <Hero />
         <About />
-        <Partners />
+        <PartnerDisplay {...partnersDisplayProps} {...partnersData} />
         <Survey />
         <Organization />
       </main>

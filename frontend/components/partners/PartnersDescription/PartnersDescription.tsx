@@ -13,9 +13,10 @@ function PartnersDescription({
   partnersLabel,
   image,
   companies,
+  internalName,
 }: PartnersDescription & { companies: Company[] }) {
   return (
-    <div className={styles.section}>
+    <div className={styles.section} id={internalName}>
       <div className={styles.grid_container}>
         <h2 className={styles.label}>{mainPartnerLabel}</h2>
         <h2 className={styles.label}>{partnersLabel}</h2>

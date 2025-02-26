@@ -1,0 +1,37 @@
+@use "/styles/scss" as *;
+
+.section {
+  @include itp-section_padding;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: $itp-spacing--m;
+
+  background-color: $itp-color--light;
+  color: $itp-color--dark;
+}
+
+.label {
+  grid-column: span 4;
+  font-family: $itp-font-family--title;
+  font-size: $itp-font-size--xl;
+  text-transform: uppercase;
+}
+
+@include for-size(1200px) {
+  .section {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .label {
+    grid-column: span 2;
+  }
+}
+
+@include for-size(phone) {
+  .section {
+    grid-template-columns: 1fr;
+  }
+  .label {
+    grid-column: span 1;
+  }
+}

@@ -8,11 +8,17 @@ export interface PartnerHero {
   cta: Button;
 }
 
-export interface PartnerDisplay {
+export interface PartnersDisplay {
   internalName: string;
   mainPartnerLabel: string;
   partnersLabel: string;
   image: Image;
+}
+
+export interface PatronsDisplay {
+  internalName: string;
+  mediaPatronsLabel: string;
+  honorablePatronsLabel: string;
 }
 
 export interface PartnersDescription {

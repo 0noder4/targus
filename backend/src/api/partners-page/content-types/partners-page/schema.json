@@ -26,7 +26,8 @@
         "sections.partners-hero",
         "sections.partners-display",
         "sections.partners-description",
-        "sections.footer"
+        "sections.footer",
+        "sections.patrons-display"
       ]
     }
   }

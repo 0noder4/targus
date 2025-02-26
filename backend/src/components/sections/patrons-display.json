@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_sections_patrons_displays",
+  "info": {
+    "displayName": "Patrons Display",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "internalName": {
+      "type": "string"
+    },
+    "mediaPatronsLabel": {
+      "type": "string"
+    }
+  }
+}
