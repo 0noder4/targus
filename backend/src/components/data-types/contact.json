@@ -21,7 +21,7 @@
     "email": {
       "type": "email"
     },
-    "address": {
+    "adress": {
       "type": "string"
     }
   }
