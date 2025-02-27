@@ -3,8 +3,11 @@
 data
 .eslintrc.json
 .vscode
+.env.prod
+.env.dev
 
 backend/public/uploads
+backend_export_*
 
 
 ### React ###
