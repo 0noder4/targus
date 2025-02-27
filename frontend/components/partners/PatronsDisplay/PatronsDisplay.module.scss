@@ -32,6 +32,7 @@
     grid-template-columns: 1fr;
   }
   .label {
+    font-size: $itp-font-size--l;
     grid-column: span 1;
   }
 }
