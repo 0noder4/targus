@@ -33,7 +33,6 @@ services:
       API_TOKEN_SALT: ${API_TOKEN_SALT}
       APP_KEYS: ${APP_KEYS}
       NODE_ENV: ${NODE_ENV}
-      PORT: ${NEXT_PUBLIC_BACKEND_PORT}
     volumes:
       - ./backend/config:/opt/app/config
       - ./backend/src:/opt/app/src
@@ -66,15 +65,13 @@ services:
       NEXT_PUBLIC_BACKEND_HOST: ${NEXT_PUBLIC_BACKEND_HOST}
       NEXT_PUBLIC_BACKEND_PORT: ${NEXT_PUBLIC_BACKEND_PORT}
     ports:
-      - 80:3000
+      - 3080:3000
     volumes:
       - ./frontend:/app
       - /app/node_modules
       - /app/.next
     networks:
       - internal
-    depends_on:
-      - backend
 
 volumes:
   data:
