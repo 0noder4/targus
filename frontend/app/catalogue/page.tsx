@@ -23,7 +23,8 @@ const Index = () => {
   } = useSuspenseQuery<{ companies: CompanyBrief[] }>(GET_COMPANIES_BRIEF);
 
   const [selectedCompany, setSelectedCompany] = useState(
-    companies[0].documentId,
+    companies.filter((company) => company.partnershipType == "main")[0]
+      .documentId,
   );
 
   const [showMobile, setShowMobile] = useState(false);
