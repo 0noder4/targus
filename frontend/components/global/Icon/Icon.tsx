@@ -7,14 +7,14 @@ import "./Icon.scss";
 
 type Props = {
   src: string;
-  alt: string;
+  alt?: string;
   className?: string;
   onClick?: () => void;
 };
 
 const Icon: React.FC<Props> = ({
   src,
-  alt,
+  alt = "",
   className = "",
   onClick = () => {},
 }) => {

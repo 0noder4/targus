@@ -1,0 +1,29 @@
+@use "./styles/scss" as *;
+
+.map_day_1 {
+  .cls-1 {
+    fill: none;
+    stroke-width: 0.1px;
+    stroke: $itp-color--black;
+  }
+
+  .active_day_1 {
+    .cls-1 {
+      fill: $itp-color--accent !important;
+    }
+  }
+}
+
+.map_day_2 {
+  .cls-1 {
+    fill: none;
+    stroke-width: 0.1px;
+    stroke: $itp-color--black;
+  }
+
+  .active_day_2 {
+    .cls-1 {
+      fill: $itp-color--accent !important;
+    }
+  }
+}

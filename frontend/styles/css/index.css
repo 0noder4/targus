@@ -38,3 +38,27 @@ button {
   border: none;
   cursor: pointer;
 }
+
+/* width */
+::-webkit-scrollbar {
+  width: 14px;
+  padding: 0.5rem;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  border-left: 4px white solid;
+  background: #d9d9d9;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  border-left: 4px white solid;
+  background: #f55718;
+  border-radius: 2px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

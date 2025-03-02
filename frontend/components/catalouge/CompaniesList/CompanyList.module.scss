@@ -1,0 +1,30 @@
+@use "./styles/scss/" as *;
+
+.container {
+  @include itp-border--dark;
+  @include itp-padding--s;
+
+  grid-column: 2;
+
+  display: flex;
+  flex-direction: column;
+
+  @include for-size(1200px) {
+    grid-column: 1;
+  }
+}
+
+.header {
+  @include itp-text--title--l;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+
+  margin-top: $itp-spacing--s;
+  gap: $itp-spacing--xs;
+
+  height: auto;
+  overflow: auto;
+}

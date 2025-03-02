@@ -6,6 +6,30 @@
   font-size: $itp-font-size--m;
 }
 
+@mixin itp-text--title--l {
+  font-family: $itp-font-family--title;
+  font-size: $itp-font-size--display--m;
+  text-transform: uppercase;
+
+  @include for-size(desktop-lg) {
+    font-size: $itp-font-size--display--s;
+  }
+
+  @include for-size(tablet-lg) {
+    font-size: $itp-font-size--xl;
+  }
+}
+
+@mixin itp-text--title--m {
+  font-family: $itp-font-family--title;
+  font-size: $itp-font-size--xl;
+  text-transform: uppercase;
+
+  @include for-size(tablet-lg) {
+    font-size: $itp-font-size--m;
+  }
+}
+
 @mixin itp-text--paragraph {
   @include itp-text--content;
 

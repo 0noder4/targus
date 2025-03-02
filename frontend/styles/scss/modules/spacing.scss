@@ -24,3 +24,11 @@
     margin: $itp-spacing--s;
   }
 }
+
+@mixin itp_padding--s {
+  padding: $itp-spacing--s;
+
+  @include for-size(desktop, down) {
+    padding: $itp-spacing--xs;
+  }
+}

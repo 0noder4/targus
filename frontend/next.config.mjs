@@ -10,12 +10,13 @@ const cspHeader = `
     base-uri 'self';
     form-action 'self';
     frame-ancestors 'none';
+    connect-src 'self' https://api.targipracy.org.pl/ http://localhost:1337/;
     upgrade-insecure-requests;
 `;
 
-// console.log(process.env.NEXT_PUBLIC_BACKEND_PROTOCOL);
-// console.log(process.env.NEXT_PUBLIC_BACKEND_HOST);
-// console.log(process.env.NEXT_PUBLIC_BACKEND_PORT);
+console.log(process.env.NEXT_PUBLIC_BACKEND_PROTOCOL);
+console.log(process.env.NEXT_PUBLIC_BACKEND_HOST);
+console.log(process.env.NEXT_PUBLIC_BACKEND_PORT);
 const nextConfig = {
   reactStrictMode: true,
   images: {
@@ -23,7 +24,7 @@ const nextConfig = {
       {
         protocol: process.env.NEXT_PUBLIC_BACKEND_PROTOCOL,
         hostname: process.env.NEXT_PUBLIC_BACKEND_HOST,
-        port: "",
+        port: process.env.NEXT_PUBLIC_BACKEND_PORT,
         pathname: "/uploads/**",
         search: "",
       },

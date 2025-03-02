@@ -1,0 +1,85 @@
+@use "/styles/scss" as *;
+
+.container {
+  grid-column: 1;
+
+  display: flex;
+  flex-direction: column;
+  gap: $itp-spacing--m;
+
+  overflow-y: auto;
+
+  background-color: $itp-color--light;
+
+  @include for-size(1200px) {
+    @include itp-section-margin;
+    position: absolute;
+    left: 0;
+
+    z-index: 2;
+    height: 80vh;
+
+    border-radius: $itp-border-radius--s;
+    padding: $itp-spacing--m;
+  }
+}
+
+@include for-size(1200px) {
+  .mobileHide {
+    display: none;
+  }
+
+  .mobileShow {
+    display: flex;
+  }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+
+  gap: $itp-spacing--l;
+
+  flex-wrap: wrap;
+}
+
+.companyName {
+  @include itp-text--title--l;
+  color: $itp-color--accent;
+}
+
+.companyStatus {
+  @include itp-text--title--m;
+  color: $itp-color--black;
+}
+
+.image {
+  display: flex;
+  height: auto;
+  align-items: center;
+  padding: $itp-spacing--s;
+  padding-right: 0;
+
+  img {
+    height: 4rem;
+    object-fit: cover;
+    width: auto;
+  }
+}
+
+.companyDescription {
+  @include itp-text--paragraph;
+}
+
+.maps {
+  margin-top: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  gap: $itp-spacing--s;
+
+  @include for-size(1200px) {
+    display: flex;
+    flex-direction: column;
+  }
+}

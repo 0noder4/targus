@@ -8,16 +8,14 @@ import Header from "/components/global/Header/Header";
 import Hero from "/components/partners/Hero/Hero";
 import PartnerDisplay from "../../components/partners/PartnersDisplay/PartnersDisplay";
 import Footer from "/components/global/Footer/Footer";
+import PartnersDescription from "/components/partners/PartnersDescription/PartnersDescription";
+import PatronsDisplay from "/components/partners/PatronsDisplay/PatronsDisplay";
 
 // Queries
 import { GET_PARTNERS_SECTIONS } from "/graphql/queries/sections";
 import { GET_PARTNERS_METADATA } from "/graphql/queries/metadata";
-
-// Styles
-import PartnersDescription from "/components/partners/PartnersDescription/PartnersDescription";
 import { GET_PARTNERS } from "/graphql/queries/companies";
 import { GET_PATRONS } from "/graphql/queries/patrons";
-import PatronsDisplay from "/components/partners/PatronsDisplay/PatronsDisplay";
 
 // Metadata fetch from backend
 export async function generateMetadata(): Promise<Metadata> {

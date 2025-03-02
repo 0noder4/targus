@@ -16,7 +16,7 @@ import { GET_BUSINESS_SECTIONS } from "/graphql/queries/sections";
 import { GET_BUSINESS_METADATA } from "/graphql/queries/metadata";
 
 // Styles
-import "./page.scss";
+import styles from "./page.module.scss";
 
 // Metadata fetch from backend
 export async function generateMetadata(): Promise<Metadata> {
@@ -64,8 +64,9 @@ const Index = async () => {
     (section: { internalName: string }) =>
       section.internalName === "businessHeader",
   );
+
   return (
-    <div className="itp-business">
+    <div className={styles.page}>
       <Header {...businessHeaderSection} />
       <main>
         <Hero />

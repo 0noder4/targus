@@ -1,0 +1,25 @@
+@use "./styles/scss/" as *;
+
+.container {
+  @include itp-section-margin;
+  margin-top: 0;
+  flex-grow: 1;
+
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  grid-template-rows: 85vh;
+
+  gap: $itp-spacing--m;
+
+  @include for-size(1200px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.page {
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
