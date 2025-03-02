@@ -41,7 +41,6 @@ const CompanyDetails = ({
   } = company;
 
   const ref = useOutsideClick(() => {
-    console.log("sdsds");
     setShowMobile(false);
   });
 
