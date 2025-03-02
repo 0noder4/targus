@@ -10,9 +10,9 @@ import { GET_COMPANIES_BRIEF } from "/graphql/queries/companies";
 import { CompanyBrief } from "/interfaces/Company";
 
 // Components
-import CompaniesList from "../../components/catalouge/CompaniesList/CompanyList";
+import CompaniesList from "../../components/catalogue/CompaniesList/CompanyList";
 import Loading from "/components/global/Loading/Loading";
-import CompanyDetails from "/components/catalouge/CompanyDetails/CompanyDetails";
+import CompanyDetails from "../../components/catalogue/CompanyDetails/CompanyDetails";
 
 //Styles
 import styles from "./page.module.scss";
