@@ -23,17 +23,17 @@
         "main",
         "partner",
         "regular"
-      ]
+      ],
+      "default": "regular",
+      "required": true
     },
     "logo": {
       "type": "media",
       "multiple": false,
-      "required": false,
+      "required": true,
       "allowedTypes": [
         "images",
-        "files",
-        "videos",
-        "audios"
+        "files"
       ]
     },
     "description": {

@@ -1,0 +1,43 @@
+@use "/styles/scss" as v;
+@use "/styles/scss/modules/border";
+
+.container {
+  display: flex;
+  flex-direction: column;
+
+  font-family: v.$itp-font-family--content;
+  color: v.$itp-color--light;
+}
+
+.label {
+  margin-bottom: 0.1em;
+}
+
+.input {
+  background-color: transparent;
+  box-shadow: none;
+
+  padding-left: 0.75rem;
+
+  font-family: v.$itp-font-family--content;
+  font-size: v.$itp-font-size--l;
+  color: inherit;
+
+  min-height: 3rem;
+}
+
+.light {
+  color: v.$itp-color--light;
+
+  input {
+    @include border.itp-border--light;
+  }
+}
+
+.dark {
+  color: v.$itp-color--dark;
+
+  input {
+    @include border.itp-border--dark;
+  }
+}

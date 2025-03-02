@@ -1,32 +1,32 @@
+import "/styles/scss/index.scss";
+import "/styles/css/index.css";
+
 import React from "react";
-import { Metadata } from "next";
+import { ApolloProvider } from "/lib/ApolloProvider";
 import { getClient } from "/lib/ApolloClient";
 import navigateBackend from "/lib/navigateBackend";
 
-// Core sections
+// Querise
+import { GET_CATALOUGE_METADATA } from "/graphql/queries/metadata";
+import { GET_CATALOUGE_HEADER } from "/graphql/queries/sections";
+
+// Types
+import { Metadata } from "next";
+
+// Components
 import Header from "/components/global/Header/Header";
-import Footer from "/components/business/Footer/Footer";
-import Hero from "/components/business/Hero/Hero";
-import ForBusiness from "/components/business/ForBusiness/ForBusiness";
-import ContactForm from "/components/business/ContactForm/ContactForm";
-import OurTeam from "/components/business/OurTeam/OurTeam";
 
-// Queries
-import { GET_BUSINESS_SECTIONS } from "/graphql/queries/sections";
-import { GET_BUSINESS_METADATA } from "/graphql/queries/metadata";
-
-// Styles
+//Styles
 import styles from "./page.module.scss";
 
-// Metadata fetch from backend
 export async function generateMetadata(): Promise<Metadata> {
   const client = getClient();
   const { data } = await client.query({
-    query: GET_BUSINESS_METADATA,
+    query: GET_CATALOUGE_METADATA,
   });
 
   const {
-    businessPage: { metadata },
+    catalouge: { metadata },
   } = data;
 
   return {
@@ -50,33 +50,26 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-const Index = async () => {
+export default async function CatalougeLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   const client = getClient();
   const {
     data: {
-      businessPage: { sections },
+      catalouge: { header },
     },
   } = await client.query({
-    query: GET_BUSINESS_SECTIONS,
+    query: GET_CATALOUGE_HEADER,
   });
-
-  const businessHeaderSection = sections.find(
-    (section: { internalName: string }) =>
-      section.internalName === "businessHeader",
-  );
 
   return (
     <div className={styles.page}>
-      <Header {...businessHeaderSection} />
-      <main>
-        <Hero />
-        <ForBusiness />
-        <ContactForm />
-        <OurTeam />
+      <Header {...header} />
+      <main className={styles.container}>
+        <ApolloProvider>{children}</ApolloProvider>
       </main>
-      <Footer />
     </div>
   );
-};
-
-export default Index;
+}

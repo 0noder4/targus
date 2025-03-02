@@ -1,0 +1,27 @@
+{
+  "kind": "singleType",
+  "collectionName": "catalouges",
+  "info": {
+    "singularName": "catalouge",
+    "pluralName": "catalouges",
+    "displayName": "Catalouge"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "internalName": {
+      "type": "string"
+    },
+    "metadata": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::metadata.metadata"
+    },
+    "header": {
+      "type": "component",
+      "repeatable": false,
+      "component": "sections.header"
+    }
+  }
+}

@@ -9,13 +9,7 @@ const Essentials = () => {
     <div className="itp-c-essentials">
       <div className="itp-c-catalouge_ref">
         <div className="itp-c-catalouge_ref__link">
-          <Link
-            href="/docs/Katalog_Firm_30_ITP.pdf"
-            target="_blank"
-            rel="noreferrer"
-          >
-            zobacz katalog firm
-          </Link>
+          <Link href="/catalouge">zobacz katalog firm</Link>
         </div>
       </div>
       <ul className="itp-c-time_and_date">

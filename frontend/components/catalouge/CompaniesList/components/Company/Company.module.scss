@@ -1,0 +1,39 @@
+@use "/styles/scss" as *;
+.container {
+  @include itp-padding--s;
+  @include itp-border--dark;
+
+  font-family: $itp-font-family--content;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &:hover {
+    cursor: pointer;
+    color: $itp-color--accent;
+    text-decoration: underline;
+  }
+
+  transition: color 0.2s ease;
+}
+
+.main {
+  background-color: $itp-color--dark;
+  color: $itp-color--light;
+
+  order: 1;
+}
+
+.partner {
+  order: 2;
+}
+
+.regular {
+  order: 3;
+}
+
+.main,
+.partner {
+  font-family: $itp-font-family--content--bold;
+}

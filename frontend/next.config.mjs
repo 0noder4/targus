@@ -10,6 +10,7 @@ const cspHeader = `
     base-uri 'self';
     form-action 'self';
     frame-ancestors 'none';
+    connect-src 'self' https://api.targipracy.org.pl/ http://localhost:1337/;
     upgrade-insecure-requests;
 `;
 

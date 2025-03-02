@@ -1,5 +1,5 @@
 import React from "react";
-import "./TextInput.scss";
+import styles from "./TextInput.module.scss";
 
 interface Props {
   className?: string;
@@ -7,6 +7,7 @@ interface Props {
   placeholder?: string;
   value: string;
   type?: "email" | "tel" | "text";
+  variant?: "dark" | "light";
   id?: string;
   name?: string;
   onChange: (value: string) => void;
@@ -18,15 +19,18 @@ const TextInput = ({
   value,
   placeholder,
   type = "text",
+  variant = "light",
   id,
   name,
   onChange,
 }: Props) => {
   return (
-    <div className={`itp-c-input--text ${className}`.trim()}>
-      <label className="itp-c-input--text__label">{label}</label>
+    <div
+      className={`${styles.container} ${styles[variant]} ${className}`.trim()}
+    >
+      <label className={styles.label}>{label}</label>
       <input
-        className="itp-c-input--text__input"
+        className={styles.input}
         type={type}
         placeholder={placeholder}
         value={value}
