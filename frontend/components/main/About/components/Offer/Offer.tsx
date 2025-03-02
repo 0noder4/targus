@@ -22,7 +22,7 @@ const Offer = () => {
           <b>11–12 marca 2025</b> – mamy nadzieję, że do zobaczenia na targach!
         </CardContent>
         <CardFooter>
-          <LinkButton href="/catalouge" target="_self">
+          <LinkButton href="/catalogue" target="_self">
             zobacz katalog
           </LinkButton>
         </CardFooter>
