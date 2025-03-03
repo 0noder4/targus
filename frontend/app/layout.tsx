@@ -26,7 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pl">
-      <Suspense>
+      <Suspense fallback={null}>
         <GoogleAnalytics GA_MEASUREMENT_ID={`${process.env.GA_ID}`} />
       </Suspense>
       <body>

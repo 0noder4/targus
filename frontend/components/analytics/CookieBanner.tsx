@@ -1,34 +1,45 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import {
-  getLocalStorage,
-  setLocalStorage,
-} from "../../lib/storage/storageHelper";
+import { getLocalStorage, setLocalStorage } from "/lib/storage/storageHelper";
 
 import styles from "./CookieBanner.module.scss";
 import { Card, CardContent, CardFooter } from "../global/Card/Card";
 import Button from "../global/Button/Button";
 
-export default function CookieBanner() {
-  const [cookieConsent, setCookieConsent] = useState(
-    getLocalStorage("cookie_consent", null)
-  );
+type cookieConsent = null | boolean;
 
+export default function CookieBanner() {
+  const [cookieConsent, setCookieConsent] = useState<cookieConsent>(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  // Retrieve cookie consent status from local storage on component mount
   useEffect(() => {
     const storedCookieConsent = getLocalStorage("cookie_consent", null);
     setCookieConsent(storedCookieConsent);
-  }, [setCookieConsent]);
+    setIsLoading(false);
+  }, []);
 
+  // Update local storage and Google Analytics consent status when cookieConsent changes
   useEffect(() => {
+    if (cookieConsent !== null) {
+      setLocalStorage("cookie_consent", cookieConsent);
+    }
+
     const newValue = cookieConsent ? "granted" : "denied";
 
-    window.gtag("consent", "update", {
-      analytics_storage: newValue,
-    });
-
-    setLocalStorage("cookie_consent", cookieConsent);
+    if (typeof window !== "undefined" && window.gtag) {
+      window.gtag("consent", "update", {
+        analytics_storage: newValue,
+      });
+    }
   }, [cookieConsent]);
+
+  // Do not render the banner if loading or consent is already given
+  if (isLoading || cookieConsent !== null) {
+    return null;
+  }
+
   return (
     <div
       className={`${styles.container} ${

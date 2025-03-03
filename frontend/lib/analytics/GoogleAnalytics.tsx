@@ -5,6 +5,12 @@ import { useEffect } from "react";
 import Script from "next/script";
 import { pageview } from "./gtagHelper";
 
+declare global {
+  interface Window {
+    gtag: any;
+  }
+}
+
 export default function GoogleAnalytics({
   GA_MEASUREMENT_ID,
 }: {
@@ -16,7 +22,9 @@ export default function GoogleAnalytics({
   useEffect(() => {
     const url = pathname + searchParams.toString();
 
-    pageview(GA_MEASUREMENT_ID, url);
+    if (typeof window !== "undefined" && window.gtag) {
+      pageview(GA_MEASUREMENT_ID, url);
+    }
   }, [pathname, searchParams, GA_MEASUREMENT_ID]);
   return (
     <>
