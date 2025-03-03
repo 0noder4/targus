@@ -32,7 +32,7 @@ function PartnersDescription({
           <Card
             key={company.internalName}
             className={styles[company.partnershipType]}
-            type="light"
+            variant="light"
           >
             <CardTitle>{company.externalName}</CardTitle>
             <CardContent>
