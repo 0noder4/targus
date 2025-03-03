@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { GoogleTagManager } from "@next/third-parties/google";
+import Script from "next/script";
 
 import "/styles/scss/index.scss";
 import "/styles/css/index.css";
@@ -24,9 +25,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pl">
+      <head>
+        <Script
+          id={`CookieDeclaration`}
+          async={true}
+          src={`https://consent.cookiebot.com/${process.env.COOKIEBOT_ID}/cd.js`}
+          strategy={`beforeInteractive`}
+          data-cbid={`${process.env.COOKIEBOT_ID}`}
+          data-blockingmode={`auto`}
+          type={`text/javascript`}
+        />
+      </head>
       <body>{children}</body>
       {/* <GoogleAnalytics gaId={process.env.GA_ID ? process.env.GA_ID : ""} /> */}
-      <GoogleTagManager gtmId={process.env.GTM_ID ? process.env.GTM_ID : ""} />
+      <GoogleTagManager gtmId={`${process.env.GTM_ID}`} />
     </html>
   );
 }
