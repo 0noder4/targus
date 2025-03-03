@@ -2,7 +2,7 @@
 
 const cspHeader = `
     default-src 'self';
-    script-src 'self' 'unsafe-eval' 'unsafe-inline' *.googletagmanager.com *.google-analytics.com;
+    script-src 'self' 'unsafe-eval' 'unsafe-inline' *.googletagmanager.com *.google-analytics.com *.usercentrics.eu;
     style-src 'self' 'unsafe-inline';
     img-src 'self' data:;
     font-src 'self';
@@ -10,8 +10,9 @@ const cspHeader = `
     base-uri 'self';
     form-action 'self';
     frame-ancestors 'none';
-    connect-src 'self' https://api.targipracy.org.pl/ http://localhost:1337/;
+    connect-src 'self' https://api.targipracy.org.pl/ http://localhost:1337/ *.google-analytics.com;
     upgrade-insecure-requests;
+    script-src-elem *.usercentrics.eu;
 `;
 
 const nextConfig = {

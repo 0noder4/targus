@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
+import { GoogleTagManager } from "@next/third-parties/google";
 
 import "/styles/scss/index.scss";
 import "/styles/css/index.css";
