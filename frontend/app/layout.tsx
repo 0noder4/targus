@@ -25,7 +25,7 @@ export default function RootLayout({
   return (
     <html lang="pl">
       <body>{children}</body>
-      <GoogleAnalytics gaId="G-LGLZ20MWGE" />
+      {/* <GoogleAnalytics gaId={process.env.GA_ID ? process.env.GA_ID : ""} /> */}
     </html>
   );
 }

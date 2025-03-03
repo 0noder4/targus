@@ -14,9 +14,6 @@ const cspHeader = `
     upgrade-insecure-requests;
 `;
 
-console.log(process.env.NEXT_PUBLIC_BACKEND_PROTOCOL);
-console.log(process.env.NEXT_PUBLIC_BACKEND_HOST);
-console.log(process.env.NEXT_PUBLIC_BACKEND_PORT);
 const nextConfig = {
   reactStrictMode: true,
   images: {
