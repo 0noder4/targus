@@ -25,18 +25,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pl">
-      <head>
-        <Script
-          id={`CookieDeclaration`}
-          async={true}
-          src={`https://consent.cookiebot.com/${process.env.COOKIEBOT_ID}/cd.js`}
-          strategy={`beforeInteractive`}
-          data-cbid={`${process.env.COOKIEBOT_ID}`}
-          data-blockingmode={`auto`}
-          type={`text/javascript`}
-        />
-      </head>
       <body>{children}</body>
+      <Script
+        id={`CookieDeclaration`}
+        async={true}
+        src={`https://consent.cookiebot.com/${process.env.COOKIEBOT_ID}/cd.js`}
+        strategy={`beforeInteractive`}
+        data-cbid={`${process.env.COOKIEBOT_ID}`}
+        data-blockingmode={`auto`}
+        type={`text/javascript`}
+      />
       {/* <GoogleAnalytics gaId={process.env.GA_ID ? process.env.GA_ID : ""} /> */}
       <GoogleTagManager gtmId={`${process.env.GTM_ID}`} />
     </html>
