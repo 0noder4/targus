@@ -26,7 +26,7 @@ export default function RootLayout({
     <html lang="pl">
       <body>{children}</body>
       {/* <GoogleAnalytics gaId={process.env.GA_ID ? process.env.GA_ID : ""} /> */}
-      <GoogleTagManager gtmId=""/>
+      <GoogleTagManager gtmId={process.env.GTM_ID ? process.env.GTM_ID : ""} />
     </html>
   );
 }
