@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 
 import "/styles/scss/index.scss";
 import "/styles/css/index.css";
-import GoogleAnalytics from "../lib/analytics/GoogleAnalytics";
+import GoogleAnalytics from "/lib/analytics/GoogleAnalytics";
 import CookieBanner from "/components/analytics/CookieBanner";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://targipracy.org.pl"),
@@ -25,7 +26,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pl">
-      <GoogleAnalytics GA_MEASUREMENT_ID={`${process.env.GA_ID}`} />
+      <Suspense>
+        <GoogleAnalytics GA_MEASUREMENT_ID={`${process.env.GA_ID}`} />
+      </Suspense>
       <body>
         {children}
         <CookieBanner />
