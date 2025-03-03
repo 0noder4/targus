@@ -12,7 +12,7 @@ const cspHeader = `
     frame-ancestors 'none';
     connect-src 'self' https://api.targipracy.org.pl/ http://localhost:1337/ *.google-analytics.com;
     upgrade-insecure-requests;
-    script-src-elem 'self' 'unsafe-eval' 'unsafe-inline' *.usercentrics.eu *.google-analytics.com;
+    script-src-elem 'self' 'unsafe-eval' 'unsafe-inline' *.usercentrics.eu *.google-analytics.com *.googletagmanager.com;
 `;
 
 const nextConfig = {
