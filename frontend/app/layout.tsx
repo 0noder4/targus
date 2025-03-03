@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { GoogleTagManager } from "@next/third-parties/google";
-import Script from "next/script";
 
 import "/styles/scss/index.scss";
 import "/styles/css/index.css";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://targipracy.org.pl"),
@@ -25,17 +25,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pl">
-      <body>{children}</body>
-      <Script
-        id={`CookieDeclaration`}
-        async={true}
-        src={`https://consent.cookiebot.com/${process.env.COOKIEBOT_ID}/cd.js`}
-        strategy={`beforeInteractive`}
-        data-cbid={`${process.env.COOKIEBOT_ID}`}
-        data-blockingmode={`auto`}
-        type={`text/javascript`}
-      />
-      {/* <GoogleAnalytics gaId={process.env.GA_ID ? process.env.GA_ID : ""} /> */}
+      <body>
+        {children}
+        <Script
+          id="CookieDeclaration"
+          src={`https://consent.cookiebot.com/${process.env.COOKIEBOT_ID}/cd.js`}
+          type="text/javascript"
+          async={true}
+          strategy="afterInteractive"
+        />
+      </body>
       <GoogleTagManager gtmId={`${process.env.GTM_ID}`} />
     </html>
   );
