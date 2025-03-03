@@ -25,6 +25,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pl">
+      <head>
+        <Script
+          id="usercentrics-cmp"
+          data-settings-id={`${process.env.COOKIEBOT_ID}`}
+          src="https://web.cmp.usercentrics.eu/ui/loader.js"
+          async={true}
+          strategy="afterInteractive"
+        />
+      </head>
       <body>
         {children}
         <Script
