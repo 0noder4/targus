@@ -5,11 +5,10 @@
   flex-direction: column;
 
   flex-grow: 1;
+  @include itp-text--content;
 }
 
 .label {
-  @include itp-text--content;
-
   display: flex;
   justify-content: space-between;
 }
