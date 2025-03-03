@@ -34,16 +34,7 @@ export default function RootLayout({
           strategy="afterInteractive"
         />
       </head>
-      <body>
-        {children}
-        <Script
-          id="CookieDeclaration"
-          src={`https://consent.cookiebot.com/${process.env.COOKIEBOT_ID}/cd.js`}
-          type="text/javascript"
-          async={true}
-          strategy="afterInteractive"
-        />
-      </body>
+      <body>{children}</body>
       <GoogleTagManager gtmId={`${process.env.GTM_ID}`} />
     </html>
   );
