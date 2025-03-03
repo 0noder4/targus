@@ -5,7 +5,7 @@ import QR from "/components/global/QR/QR";
 import Link from "next/link";
 
 import type { Footer } from "/interfaces/sections/Footer";
-import navigateBackend from "/lib/navigateBackend";
+import navigateBackend from "../../../lib/api/navigateBackend";
 
 const Footer = ({ navigation, contact, socials }: Footer) => {
   return (

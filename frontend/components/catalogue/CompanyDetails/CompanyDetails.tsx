@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import navigateBackend from "/lib/navigateBackend";
+import navigateBackend from "../../../lib/api/navigateBackend";
 
 import { Company } from "/interfaces/Company";
 
@@ -48,7 +48,9 @@ const CompanyDetails = ({
     <>
       {showMobile ? <Overlay /> : ""}
       <div
-        className={`${styles.container} ${showMobile ? styles.mobileShow : styles.mobileHide}`}
+        className={`${styles.container} ${
+          showMobile ? styles.mobileShow : styles.mobileHide
+        }`}
         id={internalName}
         ref={ref}
       >

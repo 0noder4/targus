@@ -3,18 +3,18 @@ import styles from "./Card.module.scss";
 
 type CardProps = {
   className?: string;
-  type?: "light" | "dark";
+  variant?: "light" | "dark" | "orange";
   children?: React.ReactNode;
 };
 
 const Card = React.forwardRef<HTMLDivElement, CardProps>(
-  ({ className = "", type = "dark", ...props }, ref) => (
+  ({ className = "", variant = "dark", ...props }, ref) => (
     <div
       ref={ref}
-      className={`${styles.card_container} ${styles[type]} ${className}`.trim()}
+      className={`${styles.card_container} ${styles[variant]} ${className}`.trim()}
       {...props}
     />
-  ),
+  )
 );
 Card.displayName = "Card";
 

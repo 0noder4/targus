@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import navigateBackend from "/lib/navigateBackend";
+import navigateBackend from "../../../../../lib/api/navigateBackend";
 
 import type { Patron } from "/interfaces/Patrons";
 

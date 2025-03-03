@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import { GoogleTagManager } from "@next/third-parties/google";
 
 import "/styles/scss/index.scss";
 import "/styles/css/index.css";
-import Script from "next/script";
+import GoogleAnalytics from "../lib/analytics/GoogleAnalytics";
+import CookieBanner from "/components/analytics/CookieBanner";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://targipracy.org.pl"),
@@ -25,17 +25,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pl">
-      <head>
-        <Script
-          id="usercentrics-cmp"
-          data-settings-id={`${process.env.COOKIEBOT_ID}`}
-          src="https://web.cmp.usercentrics.eu/ui/loader.js"
-          async={true}
-          strategy="afterInteractive"
-        />
-      </head>
-      <body>{children}</body>
-      <GoogleTagManager gtmId={`${process.env.GTM_ID}`} />
+      <GoogleAnalytics GA_MEASUREMENT_ID={`${process.env.GA_ID}`} />
+      <body>
+        {children}
+        <CookieBanner />
+      </body>
     </html>
   );
 }

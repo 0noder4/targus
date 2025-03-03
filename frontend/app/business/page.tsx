@@ -1,7 +1,7 @@
 import React from "react";
 import { Metadata } from "next";
-import { getClient } from "/lib/ApolloClient";
-import navigateBackend from "/lib/navigateBackend";
+import { getClient } from "../../lib/api/ApolloClient";
+import navigateBackend from "../../lib/api/navigateBackend";
 
 // Core sections
 import Header from "/components/global/Header/Header";
@@ -62,7 +62,7 @@ const Index = async () => {
 
   const businessHeaderSection = sections.find(
     (section: { internalName: string }) =>
-      section.internalName === "businessHeader",
+      section.internalName === "businessHeader"
   );
 
   return (

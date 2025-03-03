@@ -2,9 +2,9 @@ import "/styles/scss/index.scss";
 import "/styles/css/index.css";
 
 import React from "react";
-import { ApolloProvider } from "/lib/ApolloProvider";
-import { getClient } from "/lib/ApolloClient";
-import navigateBackend from "/lib/navigateBackend";
+import { ApolloProvider } from "../../lib/api/ApolloProvider";
+import { getClient } from "../../lib/api/ApolloClient";
+import navigateBackend from "../../lib/api/navigateBackend";
 
 // Querise
 import { GET_CATALOUGE_METADATA } from "/graphql/queries/metadata";

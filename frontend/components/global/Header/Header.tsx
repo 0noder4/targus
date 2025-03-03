@@ -10,7 +10,7 @@ import "./Header.scss";
 import MENU from "/public/icons/itp-icon--menu.svg";
 import MENU_LIGHT from "/public/icons/itp-icon--menu--light.svg";
 import type { Header } from "../../../interfaces/sections/Header";
-import navigateBackend from "/lib/navigateBackend";
+import navigateBackend from "../../../lib/api/navigateBackend";
 
 const Header = ({ internalName, logo, navigation }: Header) => {
   const [collapsed, setCollapsed] = useState(true);
@@ -38,12 +38,16 @@ const Header = ({ internalName, logo, navigation }: Header) => {
           className="itp-header__navigation__mobile_dropdown"
         />
         <ul
-          className={`itp-header__navigation ${collapsed ? "collapsed" : ""}`.trim()}
+          className={`itp-header__navigation ${
+            collapsed ? "collapsed" : ""
+          }`.trim()}
         >
           {navigation.navigationItems.map((item) => (
             <li
               key={item.link.url}
-              className={`itp-c-link ${item.important ? "itp-c-link--main" : ""}`.trim()}
+              className={`itp-c-link ${
+                item.important ? "itp-c-link--main" : ""
+              }`.trim()}
             >
               <Link href={item.link.url} target={`_${item.link.target}`}>
                 {item.link.label}

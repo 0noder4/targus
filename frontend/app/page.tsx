@@ -1,6 +1,6 @@
 import React from "react";
 import { Metadata } from "next";
-import { getClient } from "/lib/ApolloClient";
+import { getClient } from "../lib/api/ApolloClient";
 import { GET_HOME_METADATA } from "/graphql/queries/metadata";
 
 // Core sections
@@ -10,7 +10,7 @@ import Hero from "/components/main/Hero/Hero";
 import About from "/components/main/About/About";
 import Survey from "/components/main/Survey/Survey";
 import Organization from "/components/main/Organization/Organization";
-import navigateBackend from "/lib/navigateBackend";
+import navigateBackend from "../lib/api/navigateBackend";
 import PartnerDisplay from "../components/partners/PartnersDisplay/PartnersDisplay";
 
 // Queries
@@ -67,13 +67,12 @@ const Index = async () => {
   });
 
   const homeHeaderProps = sections.find(
-    (section: { internalName: string }) =>
-      section.internalName === "homeHeader",
+    (section: { internalName: string }) => section.internalName === "homeHeader"
   );
 
   const partnersDisplayProps = sections.find(
     (section: { internalName: string }) =>
-      section.internalName === "partnersDisplay",
+      section.internalName === "partnersDisplay"
   );
 
   return (

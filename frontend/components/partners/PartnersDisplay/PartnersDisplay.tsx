@@ -2,7 +2,7 @@ import React from "react";
 import Partner from "./components/Partner/Partner";
 import Image from "next/image";
 
-import navigateBackend from "/lib/navigateBackend";
+import navigateBackend from "../../../lib/api/navigateBackend";
 
 // Interfaces
 import { Company } from "/interfaces/Company";

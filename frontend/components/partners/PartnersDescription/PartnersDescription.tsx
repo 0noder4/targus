@@ -4,7 +4,7 @@ import { Company } from "/interfaces/Company";
 
 import styles from "./PartnersDescription.module.scss";
 import Image from "next/image";
-import navigateBackend from "/lib/navigateBackend";
+import navigateBackend from "../../../lib/api/navigateBackend";
 import { Card, CardContent, CardTitle } from "/components/global/Card/Card";
 import Markdown from "react-markdown";
 

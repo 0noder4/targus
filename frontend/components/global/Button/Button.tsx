@@ -2,14 +2,14 @@ import React from "react";
 import styles from "./Button.module.scss";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: "primary" | "secondary" | "orange";
+  variant?: "primary" | "secondary" | "orange" | "dark";
   type?: "submit";
   disabled?: boolean;
 }
 
 interface LinkButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: "primary" | "secondary";
+  variant?: "primary" | "secondary" | "orange" | "dark";
   type?: "submit";
   disabled?: boolean;
   href?: string;

@@ -1,7 +1,7 @@
 import React from "react";
 import { Metadata } from "next";
-import { getClient } from "/lib/ApolloClient";
-import navigateBackend from "/lib/navigateBackend";
+import { getClient } from "../../lib/api/ApolloClient";
+import navigateBackend from "../../lib/api/navigateBackend";
 
 // Core sections
 import Header from "/components/global/Header/Header";
@@ -75,32 +75,32 @@ const Index = async () => {
 
   const partnerHeaderProps = sections.find(
     (section: { internalName: string }) =>
-      section.internalName === "partnersHeader",
+      section.internalName === "partnersHeader"
   );
 
   const partnerHeroProps = sections.find(
     (section: { internalName: string }) =>
-      section.internalName === "partnersHero",
+      section.internalName === "partnersHero"
   );
 
   const partnersDisplayProps = sections.find(
     (section: { internalName: string }) =>
-      section.internalName === "partnersDisplay",
+      section.internalName === "partnersDisplay"
   );
 
   const partnersDescriptionProps = sections.find(
     (section: { internalName: string }) =>
-      section.internalName === "partnersDescription",
+      section.internalName === "partnersDescription"
   );
 
   const patronsDisplayProps = sections.find(
     (section: { internalName: string }) =>
-      section.internalName === "patronsDisplay",
+      section.internalName === "patronsDisplay"
   );
 
   const partnersFooterProps = sections.find(
     (section: { internalName: string }) =>
-      section.internalName === "partnersFooter",
+      section.internalName === "partnersFooter"
   );
 
   return (

@@ -59,6 +59,16 @@
   }
 }
 
+.dark {
+  background-color: $itp-color--dark;
+  color: $itp-color--light;
+
+  &:hover {
+    background-color: $itp-color--light;
+    color: $itp-color--dark;
+  }
+}
+
 .link_button_container {
   display: flex;
   width: 100%;
