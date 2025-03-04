@@ -24,7 +24,7 @@ const Index = () => {
 
   const [selectedCompany, setSelectedCompany] = useState(
     companies.filter((company) => company.partnershipType == "main")[0]
-      .documentId,
+      .documentId
   );
 
   const [showMobile, setShowMobile] = useState(false);
@@ -40,6 +40,7 @@ const Index = () => {
       </Suspense>
       <CompaniesList
         companies={companies}
+        selectedCompany={selectedCompany}
         setSelectedCompany={setSelectedCompany}
         setShowMobile={setShowMobile}
       />

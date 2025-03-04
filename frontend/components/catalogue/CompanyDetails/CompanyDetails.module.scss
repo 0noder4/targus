@@ -68,7 +68,26 @@
 }
 
 .companyDescription {
-  @include itp-text--paragraph;
+  @include itp-text--content;
+
+  ul {
+    margin-top: 1em;
+    margin-left: 2em;
+    list-style: circle;
+  }
+
+  p {
+    margin-top: 1em;
+    text-align: justify;
+  }
+
+  p:first-child {
+    text-indent: 2em;
+  }
+
+  a {
+    text-decoration: underline;
+  }
 }
 
 .maps {

@@ -14,15 +14,17 @@ const Company = ({
   externalName,
   partnershipType,
   documentId,
+  className,
   setSelectedCompany,
   setShowMobile,
 }: CompanyBrief & {
+  className: string;
   setSelectedCompany: (id: string) => void;
   setShowMobile: (bool: boolean) => void;
 }) => {
   return (
     <div
-      className={`${styles.container} ${styles[partnershipType]}`}
+      className={`${styles.container} ${styles[partnershipType]} ${className}`}
       onClick={() => {
         setSelectedCompany(documentId);
         setShowMobile(true);

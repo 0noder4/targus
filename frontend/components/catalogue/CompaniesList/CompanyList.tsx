@@ -9,12 +9,14 @@ import Company from "./components/Company/Company";
 
 interface Props {
   companies: CompanyBrief[];
+  selectedCompany: string;
   setSelectedCompany: (id: string) => void;
   setShowMobile: (bool: boolean) => void;
 }
 
 const CompanyList = ({
   companies,
+  selectedCompany,
   setSelectedCompany,
   setShowMobile,
 }: Props) => {
@@ -24,8 +26,8 @@ const CompanyList = ({
   useEffect(() => {
     setList(
       companies.filter((company) =>
-        company.externalName.toLowerCase().includes(searchInput.toLowerCase()),
-      ),
+        company.externalName.toLowerCase().includes(searchInput.toLowerCase())
+      )
     );
   }, [searchInput, companies]);
 
@@ -45,6 +47,9 @@ const CompanyList = ({
         {list.map((company) => (
           <Company
             key={company.documentId}
+            className={`${
+              company.documentId == selectedCompany ? styles.active : ""
+            }`}
             {...company}
             setSelectedCompany={setSelectedCompany}
             setShowMobile={setShowMobile}
