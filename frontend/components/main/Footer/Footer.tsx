@@ -8,9 +8,9 @@ import QR_LINKEDIN from "/public/images/qr_codes/itp-qr_code--in.svg";
 import QR_FACEBOOK from "/public/images/qr_codes/itp-qr_code--fb.svg";
 import QR_INSTAGRAM from "/public/images/qr_codes/itp-qr_code--ig.svg";
 
-const Footer = () => {
+const Footer = ({ className }: { className: string }) => {
   return (
-    <footer className="itp-main-footer" id="contact">
+    <footer className={`itp-main-footer ${className}`} id="contact">
       <div className="itp-c-footer__section itp-c-footer__section--nav">
         <h3 className="itp-c-footer__section__header">MENU</h3>
         <nav className="itp-c-footer__section__body">

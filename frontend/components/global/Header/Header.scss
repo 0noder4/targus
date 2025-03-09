@@ -91,6 +91,9 @@
 
       list-style: square;
 
+      background-color: $itp-color--dark;
+      color: $itp-color--light;
+
       .itp-c-link {
         display: list-item !important;
       }
@@ -99,13 +102,6 @@
         border: none;
         padding: 0 0;
       }
-    }
-  }
-
-  .itp-header--homeHeader {
-    .itp-header__navigation {
-      background-color: $itp-color--dark;
-      color: $itp-color--light;
     }
   }
 

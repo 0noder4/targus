@@ -1,0 +1,38 @@
+@use "/styles/scss" as *;
+
+.container {
+  @include itp-section-padding;
+  padding-top: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: $itp-spacing--m;
+
+  max-width: fit-content;
+}
+
+.title {
+  @include itp-text--title--l;
+  color: $itp-color--accent;
+}
+
+.subtitle {
+  @include itp-text--title--m;
+}
+
+.apply {
+  margin-top: $itp-spacing--m;
+  @include itp-border--dark;
+
+  padding: $itp-spacing--s;
+
+  display: flex;
+  flex-direction: column;
+
+  label {
+    @include itp-text--content;
+
+    font-size: $itp-font-size--s;
+  }
+}

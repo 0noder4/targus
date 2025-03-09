@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "employment_types",
+  "info": {
+    "singularName": "employment-type",
+    "pluralName": "employment-types",
+    "displayName": "Employment Type (-time)",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "internalName": {
+      "type": "string"
+    },
+    "externalName": {
+      "type": "string"
+    }
+  }
+}

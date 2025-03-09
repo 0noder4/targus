@@ -12,8 +12,8 @@ import ContactForm from "/components/business/ContactForm/ContactForm";
 import OurTeam from "/components/business/OurTeam/OurTeam";
 
 // Queries
-import { GET_BUSINESS_SECTIONS } from "/graphql/queries/sections";
-import { GET_BUSINESS_METADATA } from "/graphql/queries/metadata";
+import { GET_BUSINESS_SECTIONS } from "../../graphql/sections";
+import { GET_BUSINESS_METADATA } from "../../graphql/metadata";
 
 // Styles
 import styles from "./page.module.scss";

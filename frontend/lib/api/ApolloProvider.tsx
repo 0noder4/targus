@@ -12,7 +12,7 @@ import {
 
 function makeClient() {
   const httpLink = new HttpLink({
-    uri: `https://api.targipracy.org.pl/graphql`,
+    uri: `http://127.0.0.1:1337/graphql`,
   });
 
   return new ApolloClient({

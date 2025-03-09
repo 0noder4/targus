@@ -54,6 +54,7 @@
   color: $itp-color--light;
 
   &:hover {
+    @include itp-border--dark;
     background-color: $itp-color--light;
     color: $itp-color--dark;
   }

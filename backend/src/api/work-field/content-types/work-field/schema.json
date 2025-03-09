@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "work_fields",
+  "info": {
+    "singularName": "work-field",
+    "pluralName": "work-fields",
+    "displayName": "Work Field"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "internalName": {
+      "type": "string"
+    },
+    "externalName": {
+      "type": "string"
+    },
+    "job": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::job.job",
+      "inversedBy": "work_fields"
+    }
+  }
+}

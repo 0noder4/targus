@@ -4,15 +4,16 @@ import React, { Suspense, useState } from "react";
 import { useSuspenseQuery } from "@apollo/client";
 
 // Queries
-import { GET_COMPANIES_BRIEF } from "/graphql/queries/companies";
+import { GET_COMPANIES_BRIEF } from "../../graphql/companies";
 
 // Types
 import { CompanyBrief } from "/interfaces/Company";
 
 // Components
-import CompaniesList from "../../components/catalogue/CompaniesList/CompanyList";
+import CompaniesList from "/components/catalogue/CompaniesList/CompanyList";
+import CompanyDetails from "/components/catalogue/CompanyDetails/CompanyDetails";
 import Loading from "/components/global/Loading/Loading";
-import CompanyDetails from "../../components/catalogue/CompanyDetails/CompanyDetails";
+import ClientOnly from "/lib/ClientOnly";
 
 //Styles
 import styles from "./page.module.scss";
@@ -32,11 +33,13 @@ const Index = () => {
   return (
     <>
       <Suspense fallback={<Loading className={styles.loading} />}>
-        <CompanyDetails
-          selectedCompany={selectedCompany}
-          showMobile={showMobile}
-          setShowMobile={setShowMobile}
-        />
+        <ClientOnly>
+          <CompanyDetails
+            selectedCompany={selectedCompany}
+            showMobile={showMobile}
+            setShowMobile={setShowMobile}
+          />
+        </ClientOnly>
       </Suspense>
       <CompaniesList
         companies={companies}

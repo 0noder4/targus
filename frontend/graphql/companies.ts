@@ -42,7 +42,6 @@ export const GET_COMPANY = gql`
       }
       description
       jobs {
-        internalName
         documentId
         title
       }

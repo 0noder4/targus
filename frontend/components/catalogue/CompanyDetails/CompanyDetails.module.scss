@@ -11,6 +11,8 @@
 
   background-color: $itp-color--light;
 
+  height: 100%;
+
   @include for-size(1200px) {
     @include itp-section-margin;
     position: absolute;
@@ -68,25 +70,21 @@
 }
 
 .companyDescription {
-  @include itp-text--content;
-
-  ul {
-    margin-top: 1em;
-    margin-left: 2em;
-    list-style: circle;
-  }
-
-  p {
-    margin-top: 1em;
-    text-align: justify;
-  }
+  @include itp-text--paragraph;
 
   p:first-child {
-    text-indent: 2em;
+    text-indent: 0;
   }
+}
 
-  a {
-    text-decoration: underline;
+.companyJobs {
+  display: flex;
+  flex-direction: column;
+  gap: $itp-spacing--s;
+
+  h3 {
+    @include itp-text--title--m;
+    color: $itp-color--black;
   }
 }
 

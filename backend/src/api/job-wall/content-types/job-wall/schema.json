@@ -1,0 +1,32 @@
+{
+  "kind": "singleType",
+  "collectionName": "job_walls",
+  "info": {
+    "singularName": "job-wall",
+    "pluralName": "job-walls",
+    "displayName": "Job Wall"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "internalName": {
+      "type": "string"
+    },
+    "metadata": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::metadata.metadata"
+    },
+    "header": {
+      "type": "component",
+      "repeatable": false,
+      "component": "sections.header"
+    },
+    "footer": {
+      "type": "component",
+      "repeatable": false,
+      "component": "sections.footer"
+    }
+  }
+}

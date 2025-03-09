@@ -1,0 +1,64 @@
+@use "/styles/scss" as *;
+
+.container {
+  padding: $itp-spacing--s;
+  background-color: $itp-color--dark;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.title {
+  @include itp-text--title--s;
+  color: $itp-color--light;
+}
+
+.bottom {
+  margin-top: 1rem;
+
+  gap: 2rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.company {
+  @include itp-text--title--s;
+  color: $itp-color--accent;
+  overflow: hidden;
+  white-space: nowrap;
+  text-wrap: nowrap;
+  text-overflow: ellipsis;
+}
+
+.location {
+  @include itp-text--content;
+  color: $itp-color--light;
+
+  overflow: hidden;
+  white-space: nowrap;
+  text-wrap: nowrap;
+  text-overflow: ellipsis;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+}
+
+.button {
+  width: auto !important;
+}
+
+.special {
+  background-color: $itp-color--accent;
+
+  h3 {
+    color: $itp-color--light;
+  }
+
+  .title {
+    font-family: $itp-font-family--content--bold;
+  }
+}

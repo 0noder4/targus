@@ -1,0 +1,12 @@
+@use "/styles/scss" as *;
+
+.container {
+  @include itp-section-padding;
+  padding-top: 0;
+  display: flex;
+  gap: 1rem;
+
+  @include for-size(phone) {
+    flex-direction: column;
+  }
+}

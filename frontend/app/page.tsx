@@ -1,7 +1,7 @@
 import React from "react";
 import { Metadata } from "next";
 import { getClient } from "../lib/api/ApolloClient";
-import { GET_HOME_METADATA } from "/graphql/queries/metadata";
+import { GET_HOME_METADATA } from "../graphql/metadata";
 
 // Core sections
 import Header from "/components/global/Header/Header";
@@ -14,8 +14,8 @@ import navigateBackend from "../lib/api/navigateBackend";
 import PartnerDisplay from "../components/partners/PartnersDisplay/PartnersDisplay";
 
 // Queries
-import { GET_HOME_SECTIONS } from "/graphql/queries/sections";
-import { GET_PARTNERS } from "/graphql/queries/companies";
+import { GET_HOME_SECTIONS } from "../graphql/sections";
+import { GET_PARTNERS } from "../graphql/companies";
 
 // Metadata fetch from backend
 export async function generateMetadata(): Promise<Metadata> {

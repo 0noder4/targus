@@ -1,0 +1,22 @@
+@use "/styles/scss" as *;
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  @include itp-text--title--s;
+}
+
+.content {
+  @include itp-text--paragraph;
+
+  margin-top: 0.5em;
+  gap: $itp-spacing--s;
+  display: flex;
+
+  p:first-child {
+    text-indent: 0 !important;
+  }
+}

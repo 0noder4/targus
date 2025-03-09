@@ -1,18 +1,25 @@
 import React from "react";
 import Image from "next/image";
-import navigateBackend from "../../../lib/api/navigateBackend";
-
-import { Company } from "/interfaces/Company";
-
-import styles from "./CompanyDetails.module.scss";
 import Markdown from "react-markdown";
 import { useSuspenseQuery } from "@apollo/client";
-import { GET_COMPANY } from "/graphql/queries/companies";
+import { useOutsideClick } from "/hooks/useOutsideClick";
+import navigateBackend from "../../../lib/api/navigateBackend";
+
+// Queries
+import { GET_COMPANY } from "../../../graphql/companies";
+
+// Types
+import CompanyDetailed from "/interfaces/companies/CompanyDetailed";
+
+// Comonents
+import Overlay from "./components/Overlay/Overlay";
 import Map from "./components/Maps/Map";
+
+// Maps
 import MapDay1 from "./maps/map_day_1";
 import MapDay2 from "./maps/map_day_2";
-import { useOutsideClick } from "/hooks/useOutsideClick";
-import Overlay from "./components/Overlay/Overlay";
+import styles from "./CompanyDetails.module.scss";
+import Job from "./components/Job/Job";
 
 interface Props {
   selectedCompany: string;
@@ -27,7 +34,7 @@ const CompanyDetails = ({
 }: Props) => {
   const {
     data: { company },
-  } = useSuspenseQuery<{ company: Company }>(GET_COMPANY, {
+  } = useSuspenseQuery<{ company: CompanyDetailed }>(GET_COMPANY, {
     variables: { documentId: selectedCompany },
   });
 
@@ -38,6 +45,7 @@ const CompanyDetails = ({
     description,
     logo,
     stand,
+    jobs,
   } = company;
 
   const ref = useOutsideClick(() => {
@@ -75,6 +83,16 @@ const CompanyDetails = ({
         <div className={styles.companyDescription}>
           <Markdown>{description}</Markdown>
         </div>
+        {jobs.length > 0 ? (
+          <div className={styles.companyJobs}>
+            <h3>Oferty pracy</h3>
+            {jobs.map((job) => (
+              <Job {...job} key={job.documentId} />
+            ))}
+          </div>
+        ) : (
+          ""
+        )}
         <div className={styles.maps}>
           <Map stand={stand.firstDay} day={1} map={<MapDay1 />} />
           <Map stand={stand.secondDay} day={2} map={<MapDay2 />} />

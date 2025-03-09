@@ -119,3 +119,33 @@ export const GET_CATALOUGE_METADATA = gql`
     }
   }
 `;
+
+export const GET_JOB_WALL_METADATA = gql`
+  query GET_PARTNERS_METADATA {
+    catalouge {
+      metadata {
+        canonicalUrl
+        keywords
+        openGraph {
+          OG_description
+          OG_image {
+            url
+          }
+          OG_title
+          OG_type
+          OG_url
+        }
+        pageDescription
+        pageTitle
+        twitterCard {
+          T_cardType
+          T_description
+          T_title
+          T_image {
+            url
+          }
+        }
+      }
+    }
+  }
+`;

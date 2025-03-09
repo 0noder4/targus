@@ -1,0 +1,20 @@
+{
+  "kind": "collectionType",
+  "collectionName": "work_models",
+  "info": {
+    "singularName": "work-model",
+    "pluralName": "work-models",
+    "displayName": "Work Model"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "internalName": {
+      "type": "string"
+    },
+    "externalName": {
+      "type": "string"
+    }
+  }
+}

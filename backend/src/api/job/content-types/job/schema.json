@@ -11,39 +11,7 @@
     "draftAndPublish": true
   },
   "attributes": {
-    "internalName": {
-      "type": "string"
-    },
     "title": {
-      "type": "string"
-    },
-    "employmentType": {
-      "type": "enumeration",
-      "enum": [
-        "full-time",
-        "part-time"
-      ]
-    },
-    "contractType": {
-      "type": "enumeration",
-      "enum": [
-        "UoP",
-        "UoZ",
-        "UoD",
-        "BB",
-        "internship",
-        "traineeship"
-      ]
-    },
-    "workModel": {
-      "type": "enumeration",
-      "enum": [
-        "on-site",
-        "hybrid",
-        "remote"
-      ]
-    },
-    "location": {
       "type": "string"
     },
     "contact": {
@@ -60,6 +28,33 @@
       "relation": "manyToOne",
       "target": "api::company.company",
       "inversedBy": "jobs"
+    },
+    "cities": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::city.city",
+      "mappedBy": "jobs"
+    },
+    "contracts": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::contract.contract"
+    },
+    "employmentTypes": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::employment-type.employment-type"
+    },
+    "workModels": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::work-model.work-model"
+    },
+    "work_fields": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::work-field.work-field",
+      "mappedBy": "job"
     }
   }
 }

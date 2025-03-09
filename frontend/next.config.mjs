@@ -7,7 +7,7 @@ const nextConfig = {
       {
         protocol: process.env.NEXT_PUBLIC_BACKEND_PROTOCOL,
         hostname: process.env.NEXT_PUBLIC_BACKEND_HOST,
-        port: "",
+        port: process.env.NEXT_PUBLIC_BACKEND_PORT,
         pathname: "/uploads/**",
         search: "",
       },

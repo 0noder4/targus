@@ -1,14 +1,11 @@
-import "/styles/scss/index.scss";
-import "/styles/css/index.css";
-
 import React from "react";
 import { ApolloProvider } from "../../lib/api/ApolloProvider";
 import { getClient } from "../../lib/api/ApolloClient";
 import navigateBackend from "../../lib/api/navigateBackend";
 
 // Querise
-import { GET_CATALOUGE_METADATA } from "/graphql/queries/metadata";
-import { GET_CATALOUGE_HEADER } from "/graphql/queries/sections";
+import { GET_CATALOUGE_METADATA } from "../../graphql/metadata";
+import { GET_CATALOUGE_HEADER } from "../../graphql/sections";
 
 // Types
 import { Metadata } from "next";

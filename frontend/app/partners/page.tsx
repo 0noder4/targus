@@ -12,10 +12,10 @@ import PartnersDescription from "/components/partners/PartnersDescription/Partne
 import PatronsDisplay from "/components/partners/PatronsDisplay/PatronsDisplay";
 
 // Queries
-import { GET_PARTNERS_SECTIONS } from "/graphql/queries/sections";
-import { GET_PARTNERS_METADATA } from "/graphql/queries/metadata";
-import { GET_PARTNERS } from "/graphql/queries/companies";
-import { GET_PATRONS } from "/graphql/queries/patrons";
+import { GET_PARTNERS_SECTIONS } from "../../graphql/sections";
+import { GET_PARTNERS_METADATA } from "../../graphql/metadata";
+import { GET_PARTNERS } from "../../graphql/companies";
+import { GET_PATRONS } from "../../graphql/patrons";
 
 // Metadata fetch from backend
 export async function generateMetadata(): Promise<Metadata> {

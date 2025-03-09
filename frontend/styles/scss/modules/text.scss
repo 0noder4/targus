@@ -6,6 +6,11 @@
   font-size: $itp-font-size--m;
 }
 
+@mixin itp-text--content--bold {
+  font-family: $itp-font-family--content--bold;
+  font-size: $itp-font-size--m;
+}
+
 @mixin itp-text--title--l {
   font-family: $itp-font-family--title;
   font-size: $itp-font-size--display--m;
@@ -30,20 +35,36 @@
   }
 }
 
+@mixin itp-text--title--s {
+  font-family: $itp-font-family--title;
+  font-size: $itp-font-size--l;
+  text-transform: uppercase;
+
+  @include for-size(tablet-lg) {
+    font-size: $itp-font-size--m;
+  }
+}
+
 @mixin itp-text--paragraph {
   @include itp-text--content;
 
-  text-align: justify;
-  line-height: 1.5em;
-
-  text-indent: 2em;
+  ul {
+    margin-top: 1em;
+    margin-left: 2em;
+    list-style: circle;
+  }
 
   p {
     margin-top: 1em;
+    text-align: justify;
   }
 
   p:first-child {
-    margin-top: 0;
+    text-indent: 2em;
+  }
+
+  a {
+    text-decoration: underline;
   }
 }
 

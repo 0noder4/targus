@@ -2,32 +2,30 @@ import React from "react";
 import styles from "./TextInput.module.scss";
 
 interface Props {
+  onChange: (value: string) => void;
+  value: string;
   className?: string;
   label?: string;
   placeholder?: string;
-  value: string;
   type?: "email" | "tel" | "text";
   variant?: "dark" | "light";
   id?: string;
   name?: string;
-  onChange: (value: string) => void;
 }
 
 const TextInput = ({
-  className = "",
-  label,
   value,
-  placeholder,
+  onChange,
   type = "text",
   variant = "light",
+  className,
+  label,
+  placeholder,
   id,
   name,
-  onChange,
 }: Props) => {
   return (
-    <div
-      className={`${styles.container} ${styles[variant]} ${className}`.trim()}
-    >
+    <div className={`${styles.container} ${styles[variant]} ${className}`}>
       <label className={styles.label}>{label}</label>
       <input
         className={styles.input}
