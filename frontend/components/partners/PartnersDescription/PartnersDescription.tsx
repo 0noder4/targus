@@ -1,12 +1,17 @@
 import React from "react";
-import type { PartnersDescription } from "../../../interfaces/sections/ParterSections";
-import { Company } from "/interfaces/Company";
-
-import styles from "./PartnersDescription.module.scss";
-import Image from "next/image";
-import navigateBackend from "../../../lib/api/navigateBackend";
-import { Card, CardContent, CardTitle } from "/components/global/Card/Card";
+import navigateBackend from "/lib/api/navigateBackend";
 import Markdown from "react-markdown";
+import Image from "next/image";
+
+// Components
+import { Card, CardContent, CardTitle } from "/components/global/Card/Card";
+
+// Types
+import type { PartnersDescription } from "/interfaces/sections/ParterSections";
+import CompanyDetailed from "/interfaces/companies/CompanyDetailed";
+
+// Styles
+import styles from "./PartnersDescription.module.scss";
 
 function PartnersDescription({
   mainPartnerLabel,
@@ -14,7 +19,7 @@ function PartnersDescription({
   image,
   companies,
   internalName,
-}: PartnersDescription & { companies: Company[] }) {
+}: PartnersDescription & { companies: CompanyDetailed[] }) {
   return (
     <div className={styles.section} id={internalName}>
       <div className={styles.grid_container}>

@@ -32,9 +32,9 @@ type JobParams = {
 };
 
 const Index = () => {
-  const { data: jobParams } = useSuspenseQuery<{ jobParams: JobParams }>(
-    GET_JOB_PARAMS
-  );
+  const {
+    data: { workModels, employmentTypes },
+  } = useSuspenseQuery<JobParams>(GET_JOB_PARAMS);
 
   const [filters, setFilters] = useState<FilterOptions>({
     search: "",
@@ -45,7 +45,12 @@ const Index = () => {
 
   return (
     <div className={styles.container}>
-      <Filters filters={filters} setFilters={setFilters} {...jobParams} />
+      <Filters
+        filters={filters}
+        setFilters={setFilters}
+        workModels={workModels}
+        employmentTypes={employmentTypes}
+      />
       <Suspense fallback={<Loading className={styles.loading} />}>
         <ClientOnly>
           <JobWall filters={filters} />

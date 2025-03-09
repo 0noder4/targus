@@ -1,14 +1,15 @@
 import React from "react";
 
+// Components & Assets
+import Icon from "/components/global/Icon/Icon";
 import PARTNER_ICON from "/public/icons/itp-icon--partner.svg";
 import MAIN_PARTNER_ICON from "/public/icons/itp-icon--main_partner.svg";
 
 // Types
-import { CompanyBrief } from "/interfaces/Company";
+import CompanyBrief from "/interfaces/companies/CompanyBrief";
 
 // Styles
 import styles from "./Company.module.scss";
-import Icon from "/components/global/Icon/Icon";
 
 const Company = ({
   externalName,

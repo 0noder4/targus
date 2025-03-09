@@ -1,11 +1,15 @@
 "use client";
 import React, { useEffect, useState } from "react";
 
+// Types
+import CompanyBrief from "/interfaces/companies/CompanyBrief";
+
+// Components
+import TextInput from "/components/global/TextInput/TextInput";
+import Company from "./components/Company/Company";
+
 // Styles
 import styles from "./CompanyList.module.scss";
-import TextInput from "/components/global/TextInput/TextInput";
-import { CompanyBrief } from "/interfaces/Company";
-import Company from "./components/Company/Company";
 
 interface Props {
   companies: CompanyBrief[];

@@ -2,7 +2,7 @@ import React from "react";
 import PatronComponent from "./components/Partner/Patron";
 
 // Interfaces
-import type { Patron } from "../../../interfaces/Patrons";
+import type { Patron } from "/interfaces/Patrons";
 import type { PatronsDisplay } from "/interfaces/sections/ParterSections";
 
 // Styles & Assets

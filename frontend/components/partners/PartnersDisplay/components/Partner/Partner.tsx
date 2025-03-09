@@ -1,8 +1,9 @@
 import React from "react";
 import Image from "next/image";
 
-import { Company } from "/interfaces/Company";
-import navigateBackend from "../../../../../lib/api/navigateBackend";
+import navigateBackend from "/lib/api/navigateBackend";
+
+import CompanyDetailed from "/interfaces/companies/CompanyDetailed";
 
 import styles from "./Partner.module.scss";
 
@@ -11,7 +12,7 @@ const Partner = ({
   externalName,
   partnershipType,
   className,
-}: Company & { className: string }) => {
+}: CompanyDetailed & { className: string }) => {
   return (
     <div
       className={`${styles.container} ${styles[partnershipType]} ${className}`}

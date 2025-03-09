@@ -7,7 +7,7 @@ import { useSuspenseQuery } from "@apollo/client";
 import { GET_COMPANIES_BRIEF } from "../../graphql/companies";
 
 // Types
-import { CompanyBrief } from "/interfaces/Company";
+import CompanyBrief from "/interfaces/companies/CompanyBrief";
 
 // Components
 import CompaniesList from "/components/catalogue/CompaniesList/CompanyList";

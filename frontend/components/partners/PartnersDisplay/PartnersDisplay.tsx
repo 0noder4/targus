@@ -2,10 +2,10 @@ import React from "react";
 import Partner from "./components/Partner/Partner";
 import Image from "next/image";
 
-import navigateBackend from "../../../lib/api/navigateBackend";
+import navigateBackend from "/lib/api/navigateBackend";
 
 // Interfaces
-import { Company } from "/interfaces/Company";
+import CompanyDetailed from "/interfaces/companies/CompanyDetailed";
 import type { PartnersDisplay } from "/interfaces/sections/ParterSections";
 
 // Styles & Assets
@@ -16,7 +16,7 @@ const PartnerDisplay = async ({
   partnersLabel,
   image,
   companies,
-}: PartnersDisplay & { companies: Company[] }) => {
+}: PartnersDisplay & { companies: CompanyDetailed[] }) => {
   return (
     <section className={styles.section}>
       <div className={styles.image}>
@@ -29,7 +29,7 @@ const PartnerDisplay = async ({
       </div>
       <h2 className={styles.label}>{mainPartnerLabel}</h2>
       <h2 className={styles.label}>{partnersLabel}</h2>
-      {companies.map((partner: Company) => (
+      {companies.map((partner: CompanyDetailed) => (
         <Partner
           key={partner.internalName}
           {...partner}
