@@ -28,7 +28,9 @@ const JobWallEntry = ({
         <div className={styles.details}>
           <h3 className={styles.company}>{company.externalName}</h3>
           <h4 className={styles.location}>
-            {cities.map((city: { externalName: string }) => city.externalName)}
+            {cities.map(
+              (city: { externalName: string }) => `${city.externalName} `
+            )}
           </h4>
         </div>
         <LinkButton
