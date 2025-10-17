@@ -14,9 +14,9 @@ const Hero = () => {
       <div className="itp-c-hero__focus">
         <label className="itp-c-hero__focus__tl">
           <span>
-            11/13/
+            10-11/03
             <br />
-            2025
+            2026
           </span>
           <Image src={BARCODE} alt="Barcode" />
         </label>

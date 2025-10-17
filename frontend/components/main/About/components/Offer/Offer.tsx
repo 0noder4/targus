@@ -19,7 +19,7 @@ const Offer = () => {
           Politechniki Warszawskiej – podczas Inżynierskich Targów Pracy, aby
           zaoferować miejsca pracy ambitnym studentom. Więc jeśli szukasz pracy
           albo Twoja firma potrzebuje młodych talentów, to zapisz datę{" "}
-          <b>11–12 marca 2025</b> – mamy nadzieję, że do zobaczenia na targach!
+          <b>10–11 marca 2026</b> – mamy nadzieję, że do zobaczenia na targach!
         </CardContent>
         <CardFooter>
           <LinkButton href="/catalogue" target="_self">
@@ -33,7 +33,7 @@ const Offer = () => {
           Chcecie, aby Wasze CV przyciągało uwagę lub nie wiecie, co w nim
           umieścić? Skorzystajcie z darmowych konsultacji, które oferujemy we
           współpracy z Biurem Karier Politechniki Warszawskiej. Szykujcie swoje
-          CV i widzimy się 11–12 marca na Inżynierskich Targach Pracy!
+          CV i <b>widzimy się 10–11 marca na Inżynierskich Targach Pracy!</b>
         </CardContent>
       </Card>
       <Card className="itp-l-offer_card">
@@ -58,11 +58,14 @@ const Offer = () => {
         <CardContent>
           Już dziś podziel się swoją opinią na temat oczekiwań na rynku pracy,
           wypełniając ankietę <b>„Pracodawca dla Inżyniera”</b>. Wyniki zostaną
-          ogłoszone <b>11 marca 2025</b> podczas Inżynierskich Targów Pracy.
+          ogłoszone <b>10 marca 2026</b> podczas Inżynierskich Targów Pracy.
         </CardContent>
         <CardFooter>
-          <LinkButton href="https://ankieta.pw.edu.pl/index.php/511362?lang=pl">
-            Wypełnij ankietę
+          <LinkButton
+            href="https://ankieta.pw.edu.pl/index.php/511362?lang=pl"
+            disabled={true}
+          >
+            Ankieta wkrótce
           </LinkButton>
         </CardFooter>
       </Card>

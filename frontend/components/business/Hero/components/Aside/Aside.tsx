@@ -6,7 +6,7 @@ function Aside() {
   return (
     <aside className="itp-business_section__aside">
       <div className="itp-business_section__aside__letter">3</div>
-      <div className="itp-business_section__aside__letter">1</div>
+      <div className="itp-business_section__aside__letter">2</div>
       <div className="itp-business_section__aside__letter">.</div>
       <div className="itp-business_section__aside__letter">i</div>
       <div className="itp-business_section__aside__letter">n</div>

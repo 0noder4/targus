@@ -16,7 +16,7 @@ function ForBusiness() {
             <label>wypełnień ankiety pdi</label>
           </li>
           <li>
-            <h4>300+</h4>
+            <h4>10000+</h4>
             <label>uczestników wydarzenia</label>
           </li>
         </ul>

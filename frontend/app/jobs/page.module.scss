@@ -1,3 +1,5 @@
+@use "./styles/scss/" as *;
+
 .page {
   min-height: 100vh;
   display: flex;
@@ -6,4 +8,11 @@
 
 .footer {
   margin-top: auto;
+}
+
+.header {
+  @include itp-text--title--l;
+  @include itp-section_margin;
+  margin-top: 0;
+  margin-bottom: 1rem;
 }

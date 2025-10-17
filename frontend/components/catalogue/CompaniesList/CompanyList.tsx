@@ -12,6 +12,7 @@ import Company from "./components/Company/Company";
 import styles from "./CompanyList.module.scss";
 
 interface Props {
+  title: string;
   companies: CompanyBrief[];
   selectedCompany: string;
   setSelectedCompany: (id: string) => void;
@@ -19,6 +20,7 @@ interface Props {
 }
 
 const CompanyList = ({
+  title,
   companies,
   selectedCompany,
   setSelectedCompany,
@@ -37,7 +39,7 @@ const CompanyList = ({
 
   return (
     <aside className={styles.container}>
-      <h1 className={styles.header}>Katalog</h1>
+      <h1 className={styles.header}>{title}</h1>
       <div>
         <TextInput
           value={searchInput}

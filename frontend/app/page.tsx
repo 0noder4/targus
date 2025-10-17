@@ -8,7 +8,6 @@ import Header from "/components/global/Header/Header";
 import Footer from "/components/main/Footer/Footer";
 import Hero from "/components/main/Hero/Hero";
 import About from "/components/main/About/About";
-import Survey from "/components/main/Survey/Survey";
 import Organization from "/components/main/Organization/Organization";
 import navigateBackend from "../lib/api/navigateBackend";
 import PartnerDisplay from "../components/partners/PartnersDisplay/PartnersDisplay";
@@ -82,7 +81,6 @@ const Index = async () => {
         <Hero />
         <About />
         <PartnerDisplay {...partnersDisplayProps} {...partnersData} />
-        <Survey />
         <Organization />
       </main>
       <Footer />

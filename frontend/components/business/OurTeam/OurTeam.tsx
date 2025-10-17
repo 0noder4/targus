@@ -3,10 +3,10 @@ import PersonCard from "./components/PersonCard/PersonCard";
 
 import "./OurTeam.scss";
 
-import SANDRA from "/public/images/fr/Sandra_Jarczewska.jpg";
-import ASIA from "/public/images/fr/Joanna_Kruk.jpg";
-import KRZYSIEK from "/public/images/fr/Krzysztof_Folek.jpg";
-import KASIA from "/public/images/fr/Katarzyna_Gajos.jpg";
+import JULIA from "/public/images/fr/Julia_Dabrowska.jpeg";
+import JAGODA from "/public/images/fr/Jagoda_Jaszczura.jpeg";
+import LIZA from "/public/images/fr/Liza_Guta.jpg";
+import MICHAL from "/public/images/fr/Michal_Lesny.jpeg";
 
 const OurTeam = () => {
   return (
@@ -16,32 +16,32 @@ const OurTeam = () => {
       </h2>
       <div className="itp-c-team_container">
         <PersonCard
-          name="Sandra"
-          surname="Jarczewska"
-          tel="668-937-983"
-          email="sandra.jarczewska@best.pw.edu.pl"
-          avatar={SANDRA}
+          name="Julia"
+          surname="Dąbrowska"
+          tel="536-866-700"
+          email="julia.dabrowska@best.pw.edu.pl"
+          avatar={JULIA}
         />
         <PersonCard
-          name="Joanna"
-          surname="Kruk"
-          tel="799-191-177"
-          email="joanna.kruk@best.pw.edu.pl"
-          avatar={ASIA}
+          name="Jagoda"
+          surname="Jaszczura"
+          tel="665-585-909"
+          email="jagoda.jaszczura@best.pw.edu.pl"
+          avatar={JAGODA}
         />
         <PersonCard
-          name="Krzysztof"
-          surname="Folek"
-          tel="731-075-470"
-          email="krzysztof.folek@best.pw.edu.pl"
-          avatar={KRZYSIEK}
+          name="Yelizaveta"
+          surname="Guta"
+          tel="501-394-112"
+          email="yelizaveta.guta@best.pw.edu.pl"
+          avatar={LIZA}
         />
         <PersonCard
-          name="Katarzyna"
-          surname="Gajos"
-          tel="790-647-206"
-          email="katarzyna.gajos@best.pw.edu.pl"
-          avatar={KASIA}
+          name="Michał"
+          surname="Leśny"
+          tel="512-961-742"
+          email="michal.lesny@best.pw.edu.pl"
+          avatar={MICHAL}
         />
       </div>
     </section>

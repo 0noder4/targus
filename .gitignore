@@ -6,7 +6,7 @@ data
 .env.prod
 .env.dev
 
-backend/public/uploads
+backend/public/uploads/*
 backend_export_*
 
 

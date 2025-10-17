@@ -9,7 +9,7 @@ services:
       POSTGRES_USER: ${DATABASE_USERNAME}
       POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
     volumes:
-      - ./data:/var/lib/postgresql/data
+      - postgres_data:/var/lib/postgresql/data
     networks:
       - internal
 
@@ -57,7 +57,6 @@ services:
         BACKEND_API_TOKEN: ${BACKEND_API_TOKEN}
         GA_ID: ${GA_ID}
         GTM_ID: ${GTM_ID}
-        COOKIEBOT_ID: ${COOKIEBOT_ID}
     environment:
       NODE_ENV: ${NODE_ENV}
       NODE_TLS_REJECT_UNAUTHORIZED: 0
@@ -69,7 +68,6 @@ services:
       NEXT_PUBLIC_BACKEND_PORT: ${NEXT_PUBLIC_BACKEND_PORT}
       GA_ID: ${GA_ID}
       GTM_ID: ${GTM_ID}
-      COOKIEBOT_ID: ${COOKIEBOT_ID}
     ports:
       - 3080:3000
     volumes:
@@ -80,6 +78,6 @@ services:
       - internal
 
 volumes:
-  data:
+  postgres_data:
 networks:
   internal:

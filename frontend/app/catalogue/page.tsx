@@ -4,7 +4,11 @@ import React, { Suspense, useState } from "react";
 import { useSuspenseQuery } from "@apollo/client";
 
 // Queries
-import { GET_COMPANIES_BRIEF } from "../../graphql/companies";
+import {
+  GET_CATALOUGE_COMPANIES,
+  GET_CATALOUGE_SIDEBAR,
+  GET_CATALOUGE_VERSION,
+} from "../../graphql/sections/catalogue";
 
 // Types
 import CompanyBrief from "/interfaces/companies/CompanyBrief";
@@ -17,11 +21,30 @@ import ClientOnly from "/lib/ClientOnly";
 
 //Styles
 import styles from "./page.module.scss";
+import { CatalogueSidebar } from "../../interfaces/sections/CatalogueSections";
 
 const Index = () => {
   const {
     data: { companies },
-  } = useSuspenseQuery<{ companies: CompanyBrief[] }>(GET_COMPANIES_BRIEF);
+  } = useSuspenseQuery<{
+    companies: CompanyBrief[];
+  }>(GET_CATALOUGE_COMPANIES);
+
+  const {
+    data: {
+      catalouge: { isObsolete },
+    },
+  } = useSuspenseQuery<{
+    catalouge: { isObsolete: string };
+  }>(GET_CATALOUGE_VERSION);
+
+  const {
+    data: {
+      catalouge: { sidebar },
+    },
+  } = useSuspenseQuery<{ catalouge: { sidebar: CatalogueSidebar } }>(
+    GET_CATALOUGE_SIDEBAR
+  );
 
   const [selectedCompany, setSelectedCompany] = useState(
     companies.filter((company) => company.partnershipType == "main")[0]
@@ -42,6 +65,7 @@ const Index = () => {
         </ClientOnly>
       </Suspense>
       <CompaniesList
+        title={sidebar.title}
         companies={companies}
         selectedCompany={selectedCompany}
         setSelectedCompany={setSelectedCompany}

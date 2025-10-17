@@ -1,5 +1,4 @@
 // ./apollo-wrapper.tsx
-
 "use client";
 
 import { ApolloLink, HttpLink } from "@apollo/client";
@@ -9,10 +8,11 @@ import {
   InMemoryCache,
   SSRMultipartLink,
 } from "@apollo/experimental-nextjs-app-support";
+import navigateBackend from "./navigateBackend";
 
 function makeClient() {
   const httpLink = new HttpLink({
-    uri: `https://api.targipracy.org.pl/graphql`,
+    uri: navigateBackend("/graphql"),
   });
 
   return new ApolloClient({

@@ -174,32 +174,3 @@ export const GET_PARTNERS_SECTIONS = gql`
     }
   }
 `;
-
-export const GET_CATALOUGE_HEADER = gql`
-  query GET_CATALOUGE_HEADER {
-    catalouge {
-      header {
-        internalName
-        logo {
-          url
-          alternativeText
-          height
-          width
-        }
-        navigation {
-          internalName
-          navigationItems {
-            important
-            link {
-              url
-              label
-              target
-              type
-              internalName
-            }
-          }
-        }
-      }
-    }
-  }
-`;

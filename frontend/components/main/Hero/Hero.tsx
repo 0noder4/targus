@@ -22,7 +22,7 @@ const Hero = () => {
   const LBRef = useRef<HTMLInputElement>(null);
 
   // Countdown logic
-  const eventDate: Date = new Date("2025-03-11T08:00:00");
+  const eventDate: Date = new Date("2026-03-10T08:00:00");
   const timeLeft = useCountdown(eventDate);
 
   return (

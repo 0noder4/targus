@@ -4,7 +4,8 @@
   "info": {
     "singularName": "catalouge",
     "pluralName": "catalouges",
-    "displayName": "Catalouge"
+    "displayName": "Catalogue",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -22,6 +23,14 @@
       "type": "component",
       "repeatable": false,
       "component": "sections.header"
+    },
+    "sidebar": {
+      "type": "component",
+      "repeatable": false,
+      "component": "sections.catalogue-sidebar"
+    },
+    "isObsolete": {
+      "type": "boolean"
     }
   }
 }

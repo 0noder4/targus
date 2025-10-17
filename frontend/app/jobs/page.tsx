@@ -45,6 +45,7 @@ const Index = () => {
 
   return (
     <div className={styles.container}>
+      <h1 className={styles.header}>Oferty 2025</h1>
       <Filters
         filters={filters}
         setFilters={setFilters}

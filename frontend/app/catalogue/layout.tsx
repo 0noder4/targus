@@ -5,7 +5,7 @@ import navigateBackend from "../../lib/api/navigateBackend";
 
 // Querise
 import { GET_CATALOUGE_METADATA } from "../../graphql/metadata";
-import { GET_CATALOUGE_HEADER } from "../../graphql/sections";
+import { GET_CATALOUGE_HEADER } from "../../graphql/sections/catalogue";
 
 // Types
 import { Metadata } from "next";

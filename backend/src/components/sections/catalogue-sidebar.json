@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_sections_catalogue_sidebars",
+  "info": {
+    "displayName": "Catalogue Sidebar",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "internalName": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    }
+  }
+}

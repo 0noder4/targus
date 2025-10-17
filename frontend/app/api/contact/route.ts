@@ -6,7 +6,7 @@ export async function POST(formData: Request) {
   console.log(process.env.MJ_APIKEY_PRIVATE);
   const mailjet = Mailjet.apiConnect(
     process.env.MJ_APIKEY_PUBLIC || "",
-    process.env.MJ_APIKEY_PRIVATE || "",
+    process.env.MJ_APIKEY_PRIVATE || ""
   );
 
   const request = mailjet.post("send", { version: "v3.1" }).request({
@@ -22,24 +22,28 @@ export async function POST(formData: Request) {
             Name: "Bartosz Kuklewski",
           },
           {
-            Email: "sandra.jarczewska@best.pw.edu.pl",
-            Name: "Sandra Jarczewska",
+            Email: "patrycja.lubowiecka@best.pw.edu.pl",
+            Name: "Patrycja Lubowiecka",
           },
           {
-            Email: "krzysztof.folek@best.pw.edu.pl",
-            Name: "Krzysztof Folek",
+            Email: "mateusz.szot@best.pw.edu.pl",
+            Name: "Mateusz Szot",
           },
           {
-            Email: "katarzyna.gajos@best.pw.edu.pl",
-            Name: "Katarzyna Gajos",
+            Email: "julia.dabrawska@best.pw.edu.pl",
+            Name: "Julia Dąbrowska",
           },
           {
-            Email: "joanna.kruk@best.pw.edu.pl",
-            Name: "Joanna Kruk",
+            Email: "jagoda.jaszczura@best.pw.edu.pl",
+            Name: "Jagoda Jaszczura",
           },
           {
-            Email: "antoni.maczenski@best.pw.edu.pl",
-            Name: "Antoni Mączeński",
+            Email: "yelizaveta.guta@best.pw.edu.pl",
+            Name: "Liza Guta",
+          },
+          {
+            Email: "michal.lesny@best.pw.edu.pl",
+            Name: "Michał Leśny",
           },
         ],
         Subject: `⚠️ Nowa firemka [${companyName}] w twojej okolicy ⚠️`,

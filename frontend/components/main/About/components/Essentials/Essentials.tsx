@@ -19,7 +19,7 @@ const Essentials = () => {
             alt="callendar"
             className="itp-c-essential_info__icon"
           />
-          <h4 className="itp-c-essential_info__label">11-12 marca 2025</h4>
+          <h4 className="itp-c-essential_info__label">10-11 marca 2026</h4>
         </li>
         <li className="itp-c-essential_info itp-c-essential_info--date">
           <Icon
@@ -42,7 +42,7 @@ const Essentials = () => {
       </ul>
       <p className="itp-c-description">
         Już od ponad 30 lat Inżynierskie Targi Pracy dają studentkom i studentom
-        szansę na znalezienie wymarzonej pracy. W dniach 11 i 12 marca 2025 roku
+        szansę na znalezienie wymarzonej pracy. W dniach 10 i 11 marca 2026 roku
         w Gmachu Głównym Politechniki Warszawskiej tysiące przyszłych inżynierów
         będą miały okazję poznać oferty firm, skonsultować swoje CV oraz
         uczestniczyć w warsztatach przygotowanych przez naszych Partnerów. 
