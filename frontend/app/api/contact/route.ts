@@ -30,7 +30,7 @@ export async function POST(formData: Request) {
             Name: "Mateusz Szot",
           },
           {
-            Email: "julia.dabrawska@best.pw.edu.pl",
+            Email: "julia.dabrowska@best.pw.edu.pl",
             Name: "Julia Dąbrowska",
           },
           {
