@@ -3,10 +3,10 @@ import PersonCard from "./components/PersonCard/PersonCard";
 
 import "./OurTeam.scss";
 
-import JULIA from "/public/images/fr/Julia_Dabrowska.jpeg";
-import JAGODA from "/public/images/fr/Jagoda_Jaszczura.jpeg";
+import JULIA from "/public/images/fr/Julia_Dabrowska.jpg";
+import JAGODA from "/public/images/fr/Jagoda_Jaszczura.jpg";
 import LIZA from "/public/images/fr/Liza_Guta.jpg";
-import MICHAL from "/public/images/fr/Michal_Lesny.jpeg";
+import MICHAL from "/public/images/fr/Michal_Lesny.jpg";
 
 const OurTeam = () => {
   return (
