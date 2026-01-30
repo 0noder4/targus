@@ -16,7 +16,7 @@ const Organization = () => {
             Board of European Students of Technology (BEST) jest międzynarodową
             organizacją studencką skupiającą 84 grup lokalnych w 30 krajach
             Europy. W Polsce istnieje 6 takich grup – jedna z nich działa na
-            Politechnice Warszawskiej od ponad 34 lat. To właśnie my!
+            Politechnice Warszawskiej od ponad 36 lat. To właśnie my!
           </p>
           <p>
             W ciągu długoletniej działalności mieliśmy okazję realizować wiele

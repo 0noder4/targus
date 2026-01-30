@@ -50,7 +50,9 @@ const Offer = () => {
           celu ustalenia szczegółów.
         </CardContent>
         <CardFooter>
-          <LinkButton disabled={true}>Zapisy wkrótce...</LinkButton>
+          <LinkButton href="https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=nCJQO3jNiEWbz5e3Yp4vD4gwrj5j-d9Oq9l48tsRaCVUMUtWNTlMQUNWMEFEM1JETExQR1pNRUMyNC4u">
+          Zapisy na warsztaty
+          </LinkButton>
         </CardFooter>
       </Card>
       <Card className="itp-l-offer_card">
@@ -62,10 +64,9 @@ const Offer = () => {
         </CardContent>
         <CardFooter>
           <LinkButton
-            href="https://ankieta.pw.edu.pl/index.php/511362?lang=pl"
-            disabled={true}
+            href="https://ankieta.pw.edu.pl/index.php/229556?lang=pl"
           >
-            Ankieta wkrótce
+            Ankieta PDI
           </LinkButton>
         </CardFooter>
       </Card>
