@@ -55,7 +55,7 @@ const Offer = () => {
           </LinkButton>
         </CardFooter>
       </Card>
-      <Card className="itp-l-offer_card">
+      <Card className="itp-l-offer_card" id="pdi">
         <CardTitle>PDI</CardTitle>
         <CardContent>
           Już dziś podziel się swoją opinią na temat oczekiwań na rynku pracy,
