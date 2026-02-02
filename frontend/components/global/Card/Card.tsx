@@ -5,12 +5,14 @@ type CardProps = {
   className?: string;
   variant?: "light" | "dark" | "orange";
   children?: React.ReactNode;
+  id?: string;
 };
 
 const Card = React.forwardRef<HTMLDivElement, CardProps>(
-  ({ className = "", variant = "dark", ...props }, ref) => (
+  ({ className = "", id = "", variant = "dark", ...props }, ref) => (
     <div
       ref={ref}
+      id={id}
       className={`${styles.card_container} ${styles[variant]} ${className}`.trim()}
       {...props}
     />
