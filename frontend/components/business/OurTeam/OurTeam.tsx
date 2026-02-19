@@ -3,10 +3,10 @@ import PersonCard from "./components/PersonCard/PersonCard";
 
 import "./OurTeam.scss";
 
-import JULIA from "/public/images/fr/Julia_Dabrowska.jpg";
-import JAGODA from "/public/images/fr/Jagoda_Jaszczura.jpg";
-import LIZA from "/public/images/fr/Liza_Guta.jpg";
-import MICHAL from "/public/images/fr/Michal_Lesny.jpg";
+import JULIA from "/public/images/fr/Julia_Dabrowska.jpeg";
+import JAGODA from "/public/images/fr/Jagoda_Jaszczura.jpeg";
+import LIZA from "/public/images/fr/Liza_Guta.jpeg";
+import MICHAL from "/public/images/fr/Michal_Lesny.jpeg";
 import type { OurTeam as OurTeamSection } from "/interfaces/sections/BusinessSections";
 import { getBackendImageUrl } from "/lib/api/navigateBackend";
 
