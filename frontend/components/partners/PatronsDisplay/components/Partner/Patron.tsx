@@ -6,25 +6,28 @@ import type { Patron } from "/interfaces/Patrons";
 
 import styles from "./Patron.module.scss";
 
-const Patron = ({ logo, externalName, link, patronType }: Patron) => {
+const Patron = ({ logo, externalName, link }: Patron) => {
+  const image = (
+    <Image
+      src={getBackendImageUrl(logo.url)}
+      alt={`Logo ${externalName}`}
+      width={logo.width}
+      height={logo.height}
+      className={styles.logo}
+    />
+  );
+
   return (
-    <div className={styles.card}>
-      {patronType && (
-        <div className={styles.typeLabel}>{patronType}</div>
-      )}
-      <div className={styles.container}>
-        <figure>
+    <div className={styles.container}>
+      <figure>
+        {link ? (
           <a href={link.url} target={`_${link.target}`}>
-            <Image
-              src={getBackendImageUrl(logo.url)}
-              alt={`Logo ${externalName}`}
-              width={logo.width}
-              height={logo.height}
-              className={styles.logo}
-            />
+            {image}
           </a>
-        </figure>
-      </div>
+        ) : (
+          image
+        )}
+      </figure>
     </div>
   );
 };

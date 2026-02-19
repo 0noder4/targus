@@ -3,18 +3,19 @@ import PatronComponent from "./components/Partner/Patron";
 
 // Interfaces
 import type { Patron } from "/interfaces/Patrons";
-import type { PatronsDisplay } from "/interfaces/sections/ParterSections";
 
 // Styles & Assets
 import styles from "./PatronsDisplay.module.scss";
 
-const PatronsDisplay = ({
-  patronsLabel,
-  patrons,
-}: PatronsDisplay & { patrons: Patron[] }) => {
+interface PatronsDisplayProps {
+  label: string;
+  patrons: Patron[];
+}
+
+const PatronsDisplay = ({ label, patrons }: PatronsDisplayProps) => {
   return (
     <section className={styles.section}>
-      <h2 className={styles.label}>{patronsLabel}</h2>
+      <h2 className={styles.label}>{label}</h2>
       {patrons.map((patron: Patron) => (
         <PatronComponent key={patron.internalName} {...patron} />
       ))}

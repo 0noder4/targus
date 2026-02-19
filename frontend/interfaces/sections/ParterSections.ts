@@ -17,7 +17,9 @@ export interface PartnersDisplay {
 
 export interface PatronsDisplay {
   internalName: string;
-  patronsLabel: string;
+  mediaPatronsLabel: string;
+  contentPatronsLabel: string;
+  honorablePatronsLabel: string;
 }
 
 export interface PartnersDescription {

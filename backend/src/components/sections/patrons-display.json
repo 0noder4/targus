@@ -11,6 +11,12 @@
     },
     "patronsLabel": {
       "type": "string"
+    },
+    "contentPatronsLabel": {
+      "type": "string"
+    },
+    "honorablePatronsLabel": {
+      "type": "string"
     }
   }
 }

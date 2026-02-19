@@ -324,7 +324,9 @@ export const GET_PARTNERS_SECTIONS = gql`
         }
         ... on ComponentSectionsPatronsDisplay {
           internalName
-          patronsLabel
+          mediaPatronsLabel
+          contentPatronsLabel
+          honorablePatronsLabel
         }
         ... on ComponentSectionsFooter {
           internalName

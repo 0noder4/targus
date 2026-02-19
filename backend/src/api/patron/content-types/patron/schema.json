@@ -1,1 +1,43 @@
-{"kind":"collectionType","collectionName":"patrons","info":{"singularName":"patron","pluralName":"patrons","displayName":"Patron","description":""},"options":{"draftAndPublish":true},"attributes":{"internalName":{"type":"string"},"type":{"type":"enumeration","enum":["honorable","media"]},"patronType":{"type":"string"},"link":{"type":"relation","relation":"oneToOne","target":"api::link.link"},"logo":{"type":"media","multiple":false,"required":true,"allowedTypes":["images","files"]},"externalName":{"type":"string"}}}
+{
+  "kind": "collectionType",
+  "collectionName": "patrons",
+  "info": {
+    "singularName": "patron",
+    "pluralName": "patrons",
+    "displayName": "Patron",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "internalName": {
+      "type": "string"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "honorable",
+        "media",
+        "content"
+      ]
+    },
+    "link": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::link.link"
+    },
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "externalName": {
+      "type": "string"
+    }
+  }
+}

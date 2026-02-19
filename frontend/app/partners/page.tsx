@@ -62,14 +62,14 @@ const Index = async () => {
   const { data: partnersData } = await client.query({
     query: GET_PARTNERS,
     variables: {
-      filters: { partnershipType: { in: ["main", "partner"] } }, // Filter by partnershipType
+      filters: { partnershipType: { in: ["main", "partner"] } },
     },
   });
 
   const { data: patronsData } = await client.query({
     query: GET_PATRONS,
     variables: {
-      filters: { type: { in: ["honorable", "media"] } },
+      filters: { type: { in: ["media", "content", "honorable"] } },
     },
   });
 
@@ -110,7 +110,18 @@ const Index = async () => {
         <Hero {...partnerHeroProps} />
         <PartnerDisplay {...partnersDisplayProps} {...partnersData} />
         <PartnersDescription {...partnersDescriptionProps} {...partnersData} />
-        <PatronsDisplay {...patronsDisplayProps} {...patronsData} />
+        <PatronsDisplay
+          label={patronsDisplayProps?.mediaPatronsLabel ?? "Patroni medialni"}
+          patrons={patronsData.patrons.filter((p: { type: string }) => p.type === "media")}
+        />
+        <PatronsDisplay
+          label={patronsDisplayProps?.contentPatronsLabel ?? "Patroni merytoryczni"}
+          patrons={patronsData.patrons.filter((p: { type: string }) => p.type === "content")}
+        />
+        <PatronsDisplay
+          label={patronsDisplayProps?.honorablePatronsLabel ?? "Patroni honorowi"}
+          patrons={patronsData.patrons.filter((p: { type: string }) => p.type === "honorable")}
+        />
       </main>
       <Footer {...partnersFooterProps} />
     </div>
