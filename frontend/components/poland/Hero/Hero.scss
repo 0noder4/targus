@@ -1,0 +1,35 @@
+@use "/styles/scss/base/typography" as *;
+@use "/styles/scss/base/colors" as *;
+
+.poland-hero {
+  background-color: $itp-color--light;
+  padding: 80px 20px;
+  text-align: center;
+
+  &__container {
+    max-width: 1383px;
+    margin: 0 auto;
+  }
+
+  &__title {
+    color: $itp-color--accent;
+    font-family: $itp-font-family--title;
+    font-size: 86px;
+    line-height: 100px;
+    letter-spacing: 8.6px;
+    text-transform: uppercase;
+    margin: 0;
+
+    @media (max-width: 1024px) {
+      font-size: 56px;
+      line-height: 66px;
+      letter-spacing: 5.6px;
+    }
+
+    @media (max-width: 768px) {
+      font-size: 36px;
+      line-height: 44px;
+      letter-spacing: 3.6px;
+    }
+  }
+}

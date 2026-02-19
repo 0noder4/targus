@@ -35,6 +35,12 @@
   src: url(/fonts/Roboto_Mono/Roboto_Mono-Light.ttf);
 }
 
+@font-face {
+  font-family: "Alumni_Sans-Medium";
+  src: url(/fonts/Alumni_Sans/AlumniSans-Medium.ttf);
+  font-weight: 500;
+}
+
 // Allocation
 
 $itp-font-family--display: "Major_Mono_Display-Regular";
@@ -44,6 +50,7 @@ $itp-font-family--title--thin: "Montserrat-Regular";
 $itp-font-family--content: "Roboto_Mono-Regular";
 $itp-font-family--content--bold: "Roboto_Mono-Bold";
 $itp-font-family--content--light: "Roboto_Mono-Light";
+$itp-font-family--map-label: "Alumni_Sans-Medium";
 
 $itp-font-size--display--l: 96px;
 $itp-font-size--display--m: 48px;

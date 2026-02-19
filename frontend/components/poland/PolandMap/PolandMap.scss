@@ -1,0 +1,62 @@
+@use "/styles/scss/base/typography" as *;
+@use "/styles/scss/base/colors" as *;
+
+.poland-map {
+  position: relative;
+  width: 100%;
+  max-width: 564px;
+  overflow: visible;
+
+  &__image {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  &__pin {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    transform: translate(-50%, -32px);
+    transition: transform 0.2s ease;
+
+    &:hover {
+      transform: translate(-50%, -32px) scale(1.3);
+    }
+  }
+
+  &__pin-icon {
+    width: 24px;
+    height: 32px;
+    object-fit: contain;
+  }
+
+  &__pin-label {
+    font-family: $itp-font-family--map-label;
+    font-size: $itp-font-size--m;
+    font-weight: 500;
+    line-height: 27px;
+    color: $itp-color--dark;
+    white-space: nowrap;
+    margin-top: 4px;
+
+    @media (max-width: 768px) {
+      font-size: 13px;
+    }
+  }
+
+  &__pin--active {
+    transform: translate(-50%, -80px);
+
+    .poland-map__pin-icon {
+      width: 60px;
+      height: 80px;
+    }
+
+    &:hover {
+      transform: translate(-50%, -80px) scale(1.3);
+    }
+  }
+}

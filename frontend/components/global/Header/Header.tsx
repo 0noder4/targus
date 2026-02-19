@@ -55,6 +55,9 @@ const Header = ({ internalName, logo, navigation }: Header) => {
               </Link>
             </li>
           ))}
+          <li className="itp-c-link">
+            <Link href="/poland/warszawa">ITP Polska</Link>
+          </li>
         </ul>
       </nav>
     </header>
