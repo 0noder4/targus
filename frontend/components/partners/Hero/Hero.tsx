@@ -30,6 +30,7 @@ const Hero = ({
               variant={cta.type}
               href={cta.link.url}
               target={`_${cta.link.target}`}
+              disabled={cta.disabled}
             >
               {cta.link.label}
             </LinkButton>

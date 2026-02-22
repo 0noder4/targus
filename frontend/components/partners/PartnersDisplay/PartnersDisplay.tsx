@@ -2,7 +2,7 @@ import React from "react";
 import Partner from "./components/Partner/Partner";
 import Image from "next/image";
 
-import navigateBackend from "/lib/api/navigateBackend";
+import { getBackendImageUrl } from "/lib/api/navigateBackend";
 
 // Interfaces
 import CompanyDetailed from "/interfaces/companies/CompanyDetailed";
@@ -21,7 +21,7 @@ const PartnerDisplay = async ({
     <section className={styles.section}>
       <div className={styles.image}>
         <Image
-          src={navigateBackend(image.url)}
+          src={getBackendImageUrl(image.url)}
           alt={image.alternativeText}
           width={image.width}
           height={image.height}

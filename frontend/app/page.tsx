@@ -65,25 +65,34 @@ const Index = async () => {
     },
   });
 
-  const homeHeaderProps = sections.find(
-    (section: { internalName: string }) => section.internalName === "homeHeader"
-  );
+  const findByInternalName = (name: string) =>
+    sections.find(
+      (section: { internalName: string }) => section.internalName === name
+    );
 
-  const partnersDisplayProps = sections.find(
-    (section: { internalName: string }) =>
-      section.internalName === "partnersDisplay"
-  );
+  const homeHeaderProps = findByInternalName("homeHeader");
+  const homeHeroProps = findByInternalName("homeHero");
+  const homeBannerProps = findByInternalName("homeBanner");
+  const homeEssentialsProps = findByInternalName("homeEssentials");
+  const homeOfferProps = findByInternalName("homeOffer");
+  const homePartnersDisplayProps = findByInternalName("homePartnersDisplay");
+  const homeOrganizationProps = findByInternalName("homeOrganization");
+  const homeFooterProps = findByInternalName("homeFooter");
 
   return (
     <div className="itp-main">
       <Header {...homeHeaderProps} />
       <main>
-        <Hero />
-        <About />
-        <PartnerDisplay {...partnersDisplayProps} {...partnersData} />
-        <Organization />
+        <Hero {...homeHeroProps} />
+        <About
+          bannerProps={homeBannerProps}
+          essentialsProps={homeEssentialsProps}
+          offerProps={homeOfferProps}
+        />
+        <PartnerDisplay {...homePartnersDisplayProps} {...partnersData} />
+        <Organization {...homeOrganizationProps} />
       </main>
-      <Footer />
+      <Footer {...homeFooterProps} />
     </div>
   );
 };

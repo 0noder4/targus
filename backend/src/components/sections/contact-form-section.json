@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_sections_contact_form_sections",
+  "info": {
+    "displayName": "Contact Form Section",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "internalName": {
+      "type": "string"
+    },
+    "testimonials": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.testimonial"
+    },
+    "successTitle": {
+      "type": "string"
+    },
+    "successMessage": {
+      "type": "string"
+    }
+  }
+}

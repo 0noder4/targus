@@ -10,13 +10,14 @@ import { GET_JOB_PARAMS } from "/graphql/jobs/getJobParams";
 import Filters from "/components/jobs/Filters/Filters";
 import Loading from "/components/global/Loading/Loading";
 import JobWall from "/components/jobs/JobWall/JobWall";
+import { useJobWallTitle } from "./JobWallTitleContext";
 
 // Interfaces
 import EmploymentType from "/interfaces/jobs/EmploymentType";
-
-//Styles
-import styles from "./page.module.scss";
 import WorkModel from "/interfaces/jobs/WorkModel";
+
+// Styles
+import styles from "./page.module.scss";
 import ClientOnly from "/lib/ClientOnly";
 
 type FilterOptions = {
@@ -36,6 +37,8 @@ const Index = () => {
     data: { workModels, employmentTypes },
   } = useSuspenseQuery<JobParams>(GET_JOB_PARAMS);
 
+  const pageTitle = useJobWallTitle();
+
   const [filters, setFilters] = useState<FilterOptions>({
     search: "",
     field: "",
@@ -45,7 +48,7 @@ const Index = () => {
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.header}>Oferty 2025</h1>
+      <h1 className={styles.header}>{pageTitle}</h1>
       <Filters
         filters={filters}
         setFilters={setFilters}

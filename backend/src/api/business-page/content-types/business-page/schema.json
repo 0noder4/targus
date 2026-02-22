@@ -22,7 +22,12 @@
     "sections": {
       "type": "dynamiczone",
       "components": [
-        "sections.header"
+        "sections.header",
+        "sections.business-hero",
+        "sections.for-business",
+        "sections.contact-form-section",
+        "sections.our-team",
+        "sections.footer"
       ]
     }
   }

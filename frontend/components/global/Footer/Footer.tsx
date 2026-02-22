@@ -5,7 +5,7 @@ import QR from "/components/global/QR/QR";
 import Link from "next/link";
 
 import type { Footer } from "/interfaces/sections/Footer";
-import navigateBackend from "../../../lib/api/navigateBackend";
+import { getBackendImageUrl } from "../../../lib/api/navigateBackend";
 
 const Footer = ({ navigation, contact, socials }: Footer) => {
   return (
@@ -43,7 +43,7 @@ const Footer = ({ navigation, contact, socials }: Footer) => {
             {socials.map((social) => (
               <li key={social.link.internalName}>
                 <QR
-                  src={navigateBackend(social.image.url)}
+                  src={getBackendImageUrl(social.image.url)}
                   href={social.link.url}
                   alt={social.image.alternativeText}
                   className="itp-c-qr_code"

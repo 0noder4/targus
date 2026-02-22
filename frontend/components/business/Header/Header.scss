@@ -36,11 +36,32 @@
     .itp-c-link {
       display: flex;
       align-items: center;
+
+      a {
+        transition: color 0.2s ease, opacity 0.2s ease;
+        text-decoration: none;
+
+        &:hover {
+          color: $itp-color--accent;
+        }
+      }
     }
 
     .itp-c-link--main {
       text-decoration: underline;
       color: $itp-color--accent;
+
+      a {
+        transition: background-color 0.2s ease, color 0.2s ease;
+        padding: 0.25rem 0.5rem;
+        margin: -0.25rem -0.5rem;
+        border-radius: 0.25rem;
+
+        &:hover {
+          background-color: $itp-color--accent;
+          color: $itp-color--light;
+        }
+      }
     }
   }
 

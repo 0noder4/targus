@@ -8,27 +8,44 @@ import {
 import navigateBackend from "./navigateBackend";
 
 const errorLink = onError(({ graphQLErrors, networkError }) => {
-  if (graphQLErrors)
-    graphQLErrors.forEach(({ message, locations, path }) =>
-      console.log(
-        `[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`
-      )
-    );
   if (networkError) {
     console.error(`[Network error]: ${networkError}`);
   }
 });
 
+const token = process.env.BACKEND_API_TOKEN;
 const httpLink = new HttpLink({
   uri: navigateBackend("/graphql"),
   headers: {
-    Authorization: `Bearer ${process.env.BACKEND_API_TOKEN}`,
+    ...(token ? { Authorization: `Bearer ${token}` } : {}),
   },
 });
 
 export const { getClient, query, PreloadQuery } = registerApolloClient(() => {
   return new ApolloClient({
-    cache: new InMemoryCache(),
+    cache: new InMemoryCache({
+      typePolicies: {
+        Query: {
+          fields: {
+            homePage: { keyArgs: false },
+            businessPage: { keyArgs: false },
+            partnersPage: { keyArgs: false },
+            jobWall: { keyArgs: false },
+            catalouge: {
+              keyArgs: false,
+              merge(existing = {}, incoming) {
+                return { ...existing, ...incoming };
+              },
+            },
+          },
+        },
+        HomePage: { keyFields: [] },
+        BusinessPage: { keyFields: [] },
+        PartnersPage: { keyFields: [] },
+        JobWall: { keyFields: [] },
+        Catalouge: { keyFields: [] },
+      },
+    }),
     link: from([errorLink, httpLink]),
     defaultOptions: {
       watchQuery: {

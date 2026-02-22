@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_sections_about_offers",
+  "info": {
+    "displayName": "About Offer",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "internalName": {
+      "type": "string"
+    },
+    "cards": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.offer-card"
+    }
+  }
+}

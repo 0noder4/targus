@@ -3,7 +3,7 @@ import { ApolloProvider } from "../../lib/api/ApolloProvider";
 import { getClient } from "../../lib/api/ApolloClient";
 import navigateBackend from "../../lib/api/navigateBackend";
 
-// Querise
+// Queries
 import { GET_JOB_WALL_METADATA } from "../../graphql/metadata";
 import {
   GET_JOB_WALL_FOOTER,
@@ -16,8 +16,9 @@ import { Metadata } from "next";
 // Components
 import Header from "/components/global/Header/Header";
 import Footer from "/components/main/Footer/Footer";
+import { JobWallTitleProvider } from "./JobWallTitleContext";
 
-//Styles
+// Styles
 import styles from "./page.module.scss";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -59,7 +60,7 @@ export default async function JobsLayout({
   const client = getClient();
   const {
     data: {
-      jobWall: { header },
+      jobWall: { header, pageTitle },
     },
   } = await client.query({
     query: GET_JOB_WALL_HEADER,
@@ -74,12 +75,14 @@ export default async function JobsLayout({
   });
 
   return (
-    <div className={styles.page}>
-      <Header {...header} />
-      <main className={styles.container}>
-        <ApolloProvider>{children}</ApolloProvider>
-      </main>
-      <Footer {...footer} className={styles.footer} />
-    </div>
+    <JobWallTitleProvider pageTitle={pageTitle}>
+      <div className={styles.page}>
+        <Header {...header} />
+        <main className={styles.container}>
+          <ApolloProvider>{children}</ApolloProvider>
+        </main>
+        <Footer {...footer} className={styles.footer} />
+      </div>
+    </JobWallTitleProvider>
   );
 }

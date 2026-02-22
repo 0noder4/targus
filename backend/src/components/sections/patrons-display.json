@@ -9,7 +9,7 @@
     "internalName": {
       "type": "string"
     },
-    "mediaPatronsLabel": {
+    "patronsLabel": {
       "type": "string"
     }
   }

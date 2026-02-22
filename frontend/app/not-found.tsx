@@ -5,7 +5,6 @@ import "/styles/scss/error.scss";
 import Link from "next/link";
 
 export default function Error({ error }: { error: Error & { code?: string } }) {
-  console.log(error);
   return (
     <div className="itp-error">
       <div className="itp-logo">

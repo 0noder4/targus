@@ -17,6 +17,12 @@
 
     .itp-c-form__submit_button {
       margin-top: 1rem;
+
+      .itp-c-form__submit_button-content {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
     }
   }
 

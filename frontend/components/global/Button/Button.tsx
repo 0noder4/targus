@@ -47,6 +47,25 @@ export const LinkButton: React.FC<LinkButtonProps> = ({
   target = "_blank",
   ...props
 }) => {
+  const button = (
+    <Button variant={variant} type={type} disabled={disabled} {...props}>
+      {children}
+    </Button>
+  );
+
+  if (disabled) {
+    return (
+      <span
+        className={
+          `${styles.link_button_container}` + " " + ` ${className}`.trim()
+        }
+        aria-disabled="true"
+      >
+        {button}
+      </span>
+    );
+  }
+
   return (
     <a
       href={href}
@@ -56,9 +75,7 @@ export const LinkButton: React.FC<LinkButtonProps> = ({
         `${styles.link_button_container}` + " " + ` ${className}`.trim()
       }
     >
-      <Button variant={variant} type={type} disabled={disabled} {...props}>
-        {children}
-      </Button>
+      {button}
     </a>
   );
 };

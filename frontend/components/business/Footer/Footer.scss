@@ -26,6 +26,15 @@
         flex-direction: column;
         gap: 1rem;
       }
+
+      a {
+        transition: color 0.2s ease;
+        text-decoration: none;
+
+        &:hover {
+          color: $itp-color--accent;
+        }
+      }
     }
   }
 
@@ -41,6 +50,22 @@
       ul {
         display: flex;
         flex-direction: row;
+      }
+
+      a {
+        transition: opacity 0.2s ease;
+        display: inline-block;
+
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+
+      .itp-c-qr__image {
+        max-width: 6rem;
+        max-height: 6rem;
+        width: auto;
+        height: auto;
       }
     }
   }

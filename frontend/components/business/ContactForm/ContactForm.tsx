@@ -1,6 +1,7 @@
 "use client";
 
 import React, { FormEvent, useState } from "react";
+import { ClipLoader } from "react-spinners";
 import TextInput from "/components/global/TextInput/TextInput";
 import Checkbox from "/components/global/Checkbox/Checkbox";
 
@@ -13,8 +14,37 @@ import {
   MemorialContent,
 } from "./components/Memorial/Memorial";
 import MasonryLayout from "react-masonry-layout";
+import Markdown from "react-markdown";
+import type { ContactFormSection } from "/interfaces/sections/BusinessSections";
+import { formatRichText } from "/lib/formatRichText";
 
-const ContactForm = () => {
+const DEFAULT_TESTIMONIALS = [
+  {
+    content:
+      "Jako Orange Polska już od kilku lat bierzemy udział w Inżynierskich Targach Pracy w poszukiwaniu najlepszych talentów na rynku.",
+    authorName: "Orange Polska",
+  },
+  {
+    content:
+      "Z przyjemnością rokrocznie wracamy na Inżynierskie Targi Pracy. Przede wszystkim frekwencja nigdy nie zawodzi, co jest pewnie zasługą intensywnej promocji i prowadzi do dużej liczby interesujących kandydatów...",
+    authorName: "Schneider Electric",
+  },
+  {
+    content:
+      "Podczas współpracy przy Targach zawsze cenimy sobie profesjonalne podejście, komunikację i zaangażowanie organizatorów.",
+    authorName: "Orange Polska",
+  },
+];
+
+const DEFAULT_SUCCESS_TITLE = "Formularz został wysłany";
+const DEFAULT_SUCCESS_MESSAGE = "odezwiemy się jak najszybciej...";
+
+const ContactForm = (props?: ContactFormSection) => {
+  const testimonials =
+    props?.testimonials?.length ? props.testimonials : DEFAULT_TESTIMONIALS;
+  const successTitle = props?.successTitle ?? DEFAULT_SUCCESS_TITLE;
+  const successMessage = props?.successMessage ?? DEFAULT_SUCCESS_MESSAGE;
+
   const [name, setName] = useState("");
   const [surname, setSurname] = useState("");
   const [companyName, setCompanyName] = useState("");
@@ -22,9 +52,11 @@ const ContactForm = () => {
   const [tel, setTel] = useState("");
 
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const onSubmit = async (e: FormEvent) => {
     e.preventDefault();
+    setIsLoading(true);
 
     try {
       const req = await fetch("/api/contact", {
@@ -40,6 +72,8 @@ const ContactForm = () => {
       }
     } catch (err: unknown) {
       console.error(err);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -47,37 +81,23 @@ const ContactForm = () => {
     <section className="itp-business_section--contact_form" id="contact">
       {isSubmitted ? (
         <Notification
-          title="Formularz został wysłany"
-          message="odezwiemy się jak najszybciej..."
+          title={successTitle}
+          message={successMessage}
           onClose={() => setIsSubmitted(false)}
         />
       ) : null}
       <aside className="itp-c-memorials_container">
         <MasonryLayout id="masonry" sizes={[{ columns: 2, gutter: 16 }]}>
-          <Memorial>
-            <MemorialContent>
-              Jako Orange Polska już od kilku lat bierzemy udział w
-              Inżynierskich Targach Pracy w poszukiwaniu najlepszych talentów na
-              rynku.
-            </MemorialContent>
-            <MemorialAuthor>Orange Polska</MemorialAuthor>
-          </Memorial>
-          <Memorial>
-            <MemorialContent>
-              Z przyjemnością rokrocznie wracamy na Inżynierskie Targi Pracy.
-              Przede wszystkim frekwencja nigdy nie zawodzi, co jest pewnie
-              zasługą intensywnej promocji i prowadzi do dużej liczby
-              interesujących kandydatów...
-            </MemorialContent>
-            <MemorialAuthor>Schneider Electric</MemorialAuthor>
-          </Memorial>
-          <Memorial>
-            <MemorialContent>
-              Podczas współpracy przy Targach zawsze cenimy sobie profesjonalne
-              podejście, komunikację i zaangażowanie organizatorów.
-            </MemorialContent>
-            <MemorialAuthor>Orange Polska</MemorialAuthor>
-          </Memorial>
+          {testimonials.map((t, i) => (
+            <Memorial key={i}>
+              <MemorialContent>
+                <Markdown components={{ p: "span" }}>
+                  {formatRichText(t.content)}
+                </Markdown>
+              </MemorialContent>
+              <MemorialAuthor>{t.authorName}</MemorialAuthor>
+            </Memorial>
+          ))}
         </MasonryLayout>
       </aside>
       <div className="itp-c-contact_form_container">
@@ -130,8 +150,16 @@ const ContactForm = () => {
             type="submit"
             variant="secondary"
             className="itp-c-form__submit_button"
+            disabled={isLoading}
           >
-            Wyślij
+            {isLoading ? (
+              <span className="itp-c-form__submit_button-content">
+                <ClipLoader size={18} color="currentColor" />
+                Wysyłanie...
+              </span>
+            ) : (
+              "Wyślij"
+            )}
           </Button>
         </form>
       </div>

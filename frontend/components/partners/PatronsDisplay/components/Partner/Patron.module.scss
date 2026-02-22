@@ -1,5 +1,18 @@
 @use "/styles/scss" as *;
 
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: $itp-spacing--xs;
+}
+
+.typeLabel {
+  font-family: $itp-font-family--content;
+  font-size: $itp-font-size--s;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
 .container {
   padding: $itp-spacing--m;
   @include itp-border--dark;

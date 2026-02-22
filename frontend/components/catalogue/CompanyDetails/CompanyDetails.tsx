@@ -3,7 +3,7 @@ import Image from "next/image";
 import Markdown from "react-markdown";
 import { useSuspenseQuery } from "@apollo/client";
 import { useOutsideClick } from "/hooks/useOutsideClick";
-import navigateBackend from "../../../lib/api/navigateBackend";
+import { getBackendImageUrl } from "../../../lib/api/navigateBackend";
 
 // Queries
 import { GET_COMPANY } from "../../../graphql/companies";
@@ -73,7 +73,7 @@ const CompanyDetails = ({
           </span>
           <div className={styles.image}>
             <Image
-              src={navigateBackend(logo.url)}
+              src={getBackendImageUrl(logo.url)}
               alt={`Logo ${externalName}`}
               height={logo.height}
               width={logo.width}

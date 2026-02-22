@@ -23,7 +23,13 @@
       "type": "dynamiczone",
       "components": [
         "sections.header",
-        "sections.partners-display"
+        "sections.home-hero",
+        "sections.about-banner",
+        "sections.about-essentials",
+        "sections.about-offer",
+        "sections.partners-display",
+        "sections.organization",
+        "sections.footer"
       ]
     }
   }

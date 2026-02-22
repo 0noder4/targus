@@ -10,7 +10,7 @@ import "./Header.scss";
 import MENU from "/public/icons/itp-icon--menu.svg";
 import MENU_LIGHT from "/public/icons/itp-icon--menu--light.svg";
 import type { Header } from "../../../interfaces/sections/Header";
-import navigateBackend from "../../../lib/api/navigateBackend";
+import { getBackendImageUrl } from "../../../lib/api/navigateBackend";
 
 const Header = ({ internalName, logo, navigation }: Header) => {
   const [collapsed, setCollapsed] = useState(true);
@@ -20,11 +20,12 @@ const Header = ({ internalName, logo, navigation }: Header) => {
       <figure>
         <Link href="/">
           <Image
-            src={navigateBackend(logo.url)}
+            src={getBackendImageUrl(logo.url)}
             alt={logo.alternativeText}
             width={logo.width}
             height={logo.height}
             className="itp-header__logo"
+            priority
           />
         </Link>
       </figure>

@@ -1,0 +1,40 @@
+{
+  "collectionName": "components_sections_home_heroes",
+  "info": {
+    "displayName": "Home Hero",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "internalName": {
+      "type": "string"
+    },
+    "upperTop": {
+      "type": "string"
+    },
+    "upperBottom": {
+      "type": "string"
+    },
+    "lowerTop": {
+      "type": "string"
+    },
+    "lowerBottom": {
+      "type": "string"
+    },
+    "eventDate": {
+      "type": "datetime"
+    },
+    "icon": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images", "files"]
+    },
+    "backgroundImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images", "files"]
+    }
+  }
+}

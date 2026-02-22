@@ -53,3 +53,22 @@
   grid-row: 2;
   grid-column: 1;
 }
+
+.cardTitle {
+  display: flex;
+  align-items: center;
+  gap: 0.25em;
+}
+
+.iconWrapper {
+  display: inline-flex;
+  align-items: center;
+  height: 1em;
+  flex-shrink: 0;
+
+  img {
+    height: 1em !important;
+    width: auto !important;
+    object-fit: contain;
+  }
+}

@@ -1,0 +1,158 @@
+# Production Docker Compose - Targus
+# Ensure NODE_ENV=production and .env.prod (or .env) is configured.
+#
+# Build order (required for static prerender - backend must be reachable during frontend build):
+#   1. docker compose -f docker-compose.prod.yml up -d postgres backend
+#   2. DOCKER_BUILDKIT=0 docker compose -f docker-compose.prod.yml build frontend
+#   3. docker compose -f docker-compose.prod.yml up -d
+#
+# Or use: ./scripts/build-prod.sh
+
+services:
+  postgres:
+    image: postgres:17
+    container_name: ${PROJECT_NAME}_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${DATABASE_NAME}
+      POSTGRES_USER: ${DATABASE_USERNAME}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
+      PGDATA: /var/lib/postgresql/data/pgdata
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - internal
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DATABASE_USERNAME} -d ${DATABASE_NAME}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+    # Expose only if you need direct DB access (e.g. backups). Omit for security.
+    # ports:
+    #   - "127.0.0.1:${DATABASE_PORT}:5432"
+    # Uncomment for resource limits:
+    # deploy:
+    #   resources:
+    #     limits:
+    #       memory: 1G
+    #     reservations:
+    #       memory: 256M
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  backend:
+    image: 0noder4/targus:backend_2.0
+    container_name: ${PROJECT_NAME}_backend
+    build:
+      context: backend
+      args:
+        NODE_ENV: production
+    command: ["npm", "run", "start"]
+    restart: unless-stopped
+    environment:
+      DATABASE_CLIENT: ${DATABASE_CLIENT}
+      DATABASE_HOST: postgres
+      DATABASE_PORT: 5432
+      DATABASE_NAME: ${DATABASE_NAME}
+      DATABASE_USERNAME: ${DATABASE_USERNAME}
+      DATABASE_PASSWORD: ${DATABASE_PASSWORD}
+      JWT_SECRET: ${JWT_SECRET}
+      ADMIN_JWT_SECRET: ${ADMIN_JWT_SECRET}
+      API_TOKEN_SALT: ${API_TOKEN_SALT}
+      TRANSFER_TOKEN_SALT: ${TRANSFER_TOKEN_SALT}
+      APP_KEYS: ${APP_KEYS}
+      NODE_ENV: production
+    depends_on:
+      postgres:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "node", "-e", "require('http').get('http://127.0.0.1:1337/', r => process.exit(r.statusCode && r.statusCode < 500 ? 0 : 1)).on('error', () => process.exit(1))"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    ports:
+      - "127.0.0.1:1337:1337"
+    networks:
+      - internal
+    volumes:
+      - backend_uploads:/opt/app/public/uploads
+    # deploy:
+    #   resources:
+    #     limits:
+    #       memory: 1G
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  frontend:
+    image: 0noder4/targus:frontend_5.0
+    container_name: ${PROJECT_NAME}_frontend
+    build:
+      context: frontend
+      target: production
+      network: ${COMPOSE_PROJECT_NAME:-targus}_internal
+      args:
+        NODE_ENV: production
+        NEXT_PUBLIC_BACKEND_PROTOCOL: ${NEXT_PUBLIC_BACKEND_PROTOCOL}
+        NEXT_PUBLIC_BACKEND_HOST: ${NEXT_PUBLIC_BACKEND_HOST}
+        NEXT_PUBLIC_BACKEND_HOST_BROWSER: ${NEXT_PUBLIC_BACKEND_HOST_BROWSER:-}
+        NEXT_PUBLIC_BACKEND_PORT: ${NEXT_PUBLIC_BACKEND_PORT}
+        BACKEND_API_TOKEN: ${BACKEND_API_TOKEN}
+        GA_ID: ${GA_ID}
+        GTM_ID: ${GTM_ID}
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+      SMTP_HOST: ${SMTP_HOST}
+      SMTP_PORT: ${SMTP_PORT}
+      SMTP_SECURE: ${SMTP_SECURE}
+      SMTP_USER: ${SMTP_USER}
+      SMTP_PASS: ${SMTP_PASS}
+      SMTP_FROM_EMAIL: ${SMTP_FROM_EMAIL}
+      SMTP_FROM_NAME: ${SMTP_FROM_NAME}
+      SMTP_LOGO_URL: ${SMTP_LOGO_URL:-}
+      BACKEND_API_TOKEN: ${BACKEND_API_TOKEN}
+      NEXT_PUBLIC_BACKEND_PROTOCOL: ${NEXT_PUBLIC_BACKEND_PROTOCOL}
+      NEXT_PUBLIC_BACKEND_HOST: ${NEXT_PUBLIC_BACKEND_HOST}
+      NEXT_PUBLIC_BACKEND_HOST_BROWSER: ${NEXT_PUBLIC_BACKEND_HOST_BROWSER:-}
+      NEXT_PUBLIC_BACKEND_PORT: ${NEXT_PUBLIC_BACKEND_PORT}
+      GA_ID: ${GA_ID}
+      GTM_ID: ${GTM_ID}
+    depends_on:
+      backend:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "node", "-e", "require('http').get('http://127.0.0.1:3000/', r => process.exit(r.statusCode && r.statusCode < 500 ? 0 : 1)).on('error', () => process.exit(1))"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+    ports:
+      - "127.0.0.1:${FRONTEND_PORT:-3000}:3000"
+    networks:
+      - internal
+    # No volume mounts - use built image for reproducibility
+    # deploy:
+    #   resources:
+    #     limits:
+    #       memory: 512M
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+volumes:
+  postgres_data:
+  backend_uploads:
+
+networks:
+  internal:
+    driver: bridge

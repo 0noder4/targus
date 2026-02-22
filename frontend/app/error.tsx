@@ -6,7 +6,6 @@ import LOGO from "/public/images/brand/itp-logo--horizontal--light.svg";
 import "/styles/scss/error.scss";
 
 export default function Error({ error }: { error: Error & { code?: string } }) {
-  console.log(error);
   return (
     <div className="itp-error">
       <div className="itp-logo">

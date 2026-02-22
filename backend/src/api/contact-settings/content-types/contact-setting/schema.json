@@ -1,0 +1,21 @@
+{
+  "kind": "singleType",
+  "collectionName": "contact_settings",
+  "info": {
+    "singularName": "contact-setting",
+    "pluralName": "contact-settings",
+    "displayName": "Contact Settings",
+    "description": "Contact form configuration including email recipients"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "recipients": {
+      "type": "component",
+      "repeatable": true,
+      "component": "contact.email-recipient",
+      "displayName": "Email Recipients"
+    }
+  }
+}

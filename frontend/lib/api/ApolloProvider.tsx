@@ -16,13 +16,30 @@ function makeClient() {
   });
 
   return new ApolloClient({
-    cache: new InMemoryCache(),
+    cache: new InMemoryCache({
+      typePolicies: {
+        Query: {
+          fields: {
+            homePage: { keyArgs: false },
+            businessPage: { keyArgs: false },
+            partnersPage: { keyArgs: false },
+            catalouge: {
+              keyArgs: false,
+              merge(existing = {}, incoming) {
+                return { ...existing, ...incoming };
+              },
+            },
+          },
+        },
+        HomePage: { keyFields: [] },
+        BusinessPage: { keyFields: [] },
+        PartnersPage: { keyFields: [] },
+        Catalouge: { keyFields: [] },
+      },
+    }),
     link:
       typeof window === "undefined"
         ? ApolloLink.from([
-            // in a SSR environment, if you use multipart features like
-            // @defer, you need to decide how to handle these.
-            // This strips all interfaces with a `@defer` directive from your queries.
             new SSRMultipartLink({
               stripDefer: true,
             }),

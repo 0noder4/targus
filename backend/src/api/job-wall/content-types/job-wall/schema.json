@@ -13,6 +13,9 @@
     "internalName": {
       "type": "string"
     },
+    "pageTitle": {
+      "type": "string"
+    },
     "metadata": {
       "type": "relation",
       "relation": "oneToOne",

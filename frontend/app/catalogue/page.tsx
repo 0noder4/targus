@@ -21,7 +21,7 @@ import ClientOnly from "/lib/ClientOnly";
 
 //Styles
 import styles from "./page.module.scss";
-import { CatalogueSidebar } from "../../interfaces/sections/CatalogueSections";
+import { CatalogueSidebar } from "/interfaces/sections/CatalogueSections";
 
 const Index = () => {
   const {

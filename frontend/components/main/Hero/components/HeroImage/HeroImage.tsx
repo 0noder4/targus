@@ -11,6 +11,7 @@ interface Props {
   UBRef: RefObject<HTMLElement>;
   LTRef: RefObject<HTMLElement>;
   LBRef: RefObject<HTMLElement>;
+  backgroundImageUrl?: string;
 }
 
 const HeroImage: React.FC<Props> = ({
@@ -19,6 +20,7 @@ const HeroImage: React.FC<Props> = ({
   UBRef,
   LTRef,
   LBRef,
+  backgroundImageUrl = "/images/image_front-cover.jpg",
 }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const parent = useDimensions(ParentRef);
@@ -113,7 +115,7 @@ const HeroImage: React.FC<Props> = ({
           />
         </mask>
         <image
-          href="/images/image_front-cover.jpg"
+          href={backgroundImageUrl}
           width={dimensions.w}
           height={dimensions.h}
           preserveAspectRatio="xMidYMid slice"

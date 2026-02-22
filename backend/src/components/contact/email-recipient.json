@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_contact_email_recipients",
+  "info": {
+    "displayName": "Email Recipient",
+    "description": "Contact form email recipient"
+  },
+  "options": {},
+  "attributes": {
+    "email": {
+      "type": "email",
+      "required": true
+    },
+    "name": {
+      "type": "string"
+    }
+  }
+}

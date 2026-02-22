@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_sections_for_businesses",
+  "info": {
+    "displayName": "For Business",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "internalName": {
+      "type": "string"
+    },
+    "stats": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.stat-item"
+    },
+    "cardTitle": {
+      "type": "string"
+    },
+    "cardContent": {
+      "type": "richtext"
+    },
+    "benefits": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.benefit-item"
+    }
+  }
+}

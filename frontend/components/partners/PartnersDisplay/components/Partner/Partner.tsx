@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 
-import navigateBackend from "/lib/api/navigateBackend";
+import { getBackendImageUrl } from "/lib/api/navigateBackend";
 
 import CompanyDetailed from "/interfaces/companies/CompanyDetailed";
 
@@ -19,7 +19,7 @@ const Partner = ({
     >
       <figure>
         <Image
-          src={navigateBackend(logo.url)}
+          src={getBackendImageUrl(logo.url)}
           alt={`Logo ${externalName}`}
           width={logo.width}
           height={logo.height}

@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_sections_our_teams",
+  "info": {
+    "displayName": "Our Team",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "internalName": {
+      "type": "string"
+    },
+    "sectionTitle": {
+      "type": "string"
+    },
+    "members": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.team-member"
+    }
+  }
+}

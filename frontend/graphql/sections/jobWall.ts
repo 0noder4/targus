@@ -1,8 +1,9 @@
 import { gql } from "@apollo/client";
 
 export const GET_JOB_WALL_HEADER = gql`
-  query GET_CATALOUGE_HEADER {
+  query GET_JOB_WALL_HEADER {
     jobWall {
+      pageTitle
       header {
         internalName
         logo {

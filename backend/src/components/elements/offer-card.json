@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_elements_offer_cards",
+  "info": {
+    "displayName": "Offer Card",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "content": {
+      "type": "richtext"
+    },
+    "cta": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.button",
+      "required": false
+    }
+  }
+}

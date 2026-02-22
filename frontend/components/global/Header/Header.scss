@@ -30,6 +30,15 @@
     .itp-c-link {
       display: flex;
       align-items: center;
+
+      a {
+        transition: color 0.2s ease, opacity 0.2s ease;
+        text-decoration: none;
+
+        &:hover {
+          color: $itp-color--accent;
+        }
+      }
     }
 
     .itp-c-link--main {
@@ -37,6 +46,18 @@
       padding: 0.5rem 1.5rem;
       color: $itp-color--accent;
       order: 1;
+
+      a {
+        transition: background-color 0.2s ease, color 0.2s ease;
+        margin: -0.5rem -1.5rem;
+        padding: 0.5rem 1.5rem;
+        border-radius: 0.25rem;
+
+        &:hover {
+          background-color: $itp-color--accent;
+          color: $itp-color--light;
+        }
+      }
     }
   }
 
@@ -60,6 +81,15 @@
   .itp-c-link--main {
     border: none !important;
     text-decoration: underline;
+
+    a {
+      transition: background-color 0.2s ease, color 0.2s ease;
+
+      &:hover {
+        background-color: $itp-color--accent;
+        color: $itp-color--light;
+      }
+    }
   }
 }
 

@@ -1,10 +1,13 @@
 import React from "react";
-import navigateBackend from "/lib/api/navigateBackend";
+import { getBackendImageUrl } from "/lib/api/navigateBackend";
 import Markdown from "react-markdown";
 import Image from "next/image";
 
 // Components
 import { Card, CardContent, CardTitle } from "/components/global/Card/Card";
+import Icon from "/components/global/Icon/Icon";
+import PARTNER_ICON from "/public/icons/itp-icon--partner.svg";
+import MAIN_PARTNER_ICON from "/public/icons/itp-icon--main_partner.svg";
 
 // Types
 import type { PartnersDescription } from "/interfaces/sections/ParterSections";
@@ -27,7 +30,7 @@ function PartnersDescription({
         <h2 className={styles.label}>{partnersLabel}</h2>
         <div className={styles.image}>
           <Image
-            src={navigateBackend(image.url)}
+            src={getBackendImageUrl(image.url)}
             alt={image.alternativeText}
             width={image.width}
             height={image.height}
@@ -39,7 +42,18 @@ function PartnersDescription({
             className={styles[company.partnershipType]}
             variant="light"
           >
-            <CardTitle>{company.externalName}</CardTitle>
+            <CardTitle className={styles.cardTitle}>
+              {company.externalName}
+              {(company.partnershipType === "main" || company.partnershipType === "partner") && (
+                <span className={styles.iconWrapper}>
+                  <Icon
+                    src={company.partnershipType === "main" ? MAIN_PARTNER_ICON : PARTNER_ICON}
+                    alt=""
+                    size={24}
+                  />
+                </span>
+              )}
+            </CardTitle>
             <CardContent>
               <Markdown>{company.description}</Markdown>
             </CardContent>

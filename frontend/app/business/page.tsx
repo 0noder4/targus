@@ -60,21 +60,28 @@ const Index = async () => {
     query: GET_BUSINESS_SECTIONS,
   });
 
-  const businessHeaderSection = sections.find(
-    (section: { internalName: string }) =>
-      section.internalName === "businessHeader"
-  );
+  const findByInternalName = (name: string) =>
+    sections.find(
+      (section: { internalName: string }) => section.internalName === name
+    );
+
+  const businessHeaderProps = findByInternalName("businessHeader");
+  const businessHeroProps = findByInternalName("businessHero");
+  const businessForBusinessProps = findByInternalName("businessForBusiness");
+  const businessContactFormProps = findByInternalName("businessContactForm");
+  const businessFRProps = findByInternalName("businessFR");
+  const businessFooterProps = findByInternalName("businessFooter");
 
   return (
     <div className={styles.page}>
-      <Header {...businessHeaderSection} />
+      <Header {...businessHeaderProps} />
       <main>
-        <Hero />
-        <ForBusiness />
-        <ContactForm />
-        <OurTeam />
+        <Hero {...businessHeroProps} />
+        <ForBusiness {...businessForBusinessProps} />
+        <ContactForm {...businessContactFormProps} />
+        <OurTeam {...businessFRProps} />
       </main>
-      <Footer />
+      <Footer {...businessFooterProps} />
     </div>
   );
 };

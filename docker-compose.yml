@@ -1,9 +1,9 @@
 services:
   postgres:
-    image: postgres
+    image: postgres:17
     container_name: ${PROJECT_NAME}_postgres
     ports:
-      - 5432:5432
+      - ${DATABASE_PORT}:5432
     environment:
       POSTGRES_DB: ${DATABASE_NAME}
       POSTGRES_USER: ${DATABASE_USERNAME}
@@ -14,7 +14,7 @@ services:
       - internal
 
   backend:
-    image: 0noder4/targus:backend_1.1
+    image: 0noder4/targus:backend
     container_name: ${PROJECT_NAME}_backend
     build:
       context: backend
@@ -30,6 +30,7 @@ services:
       JWT_SECRET: ${JWT_SECRET}
       ADMIN_JWT_SECRET: ${ADMIN_JWT_SECRET}
       API_TOKEN_SALT: ${API_TOKEN_SALT}
+      TRANSFER_TOKEN_SALT: ${TRANSFER_TOKEN_SALT}
       APP_KEYS: ${APP_KEYS}
       NODE_ENV: ${NODE_ENV}
     volumes:
@@ -43,7 +44,7 @@ services:
       - internal
 
   frontend:
-    image: 0noder4/targus:frontend_alfa_4.0
+    image: 0noder4/targus:frontend
     container_name: ${PROJECT_NAME}_frontend
     restart: on-failure
     build:
@@ -53,23 +54,30 @@ services:
         NODE_ENV: ${NODE_ENV}
         NEXT_PUBLIC_BACKEND_PROTOCOL: ${NEXT_PUBLIC_BACKEND_PROTOCOL}
         NEXT_PUBLIC_BACKEND_HOST: ${NEXT_PUBLIC_BACKEND_HOST}
+        NEXT_PUBLIC_BACKEND_HOST_BROWSER: ${NEXT_PUBLIC_BACKEND_HOST_BROWSER:-}
         NEXT_PUBLIC_BACKEND_PORT: ${NEXT_PUBLIC_BACKEND_PORT}
         BACKEND_API_TOKEN: ${BACKEND_API_TOKEN}
         GA_ID: ${GA_ID}
         GTM_ID: ${GTM_ID}
     environment:
       NODE_ENV: ${NODE_ENV}
-      NODE_TLS_REJECT_UNAUTHORIZED: 0
-      MJ_APIKEY_PUBLIC: ${MJ_APIKEY_PUBLIC}
-      MJ_APIKEY_PRIVATE: ${MJ_APIKEY_PRIVATE}
+      SMTP_HOST: ${SMTP_HOST}
+      SMTP_PORT: ${SMTP_PORT}
+      SMTP_SECURE: ${SMTP_SECURE}
+      SMTP_USER: ${SMTP_USER}
+      SMTP_PASS: ${SMTP_PASS}
+      SMTP_FROM_EMAIL: ${SMTP_FROM_EMAIL}
+      SMTP_FROM_NAME: ${SMTP_FROM_NAME}
+      SMTP_LOGO_URL: ${SMTP_LOGO_URL:-}
       BACKEND_API_TOKEN: ${BACKEND_API_TOKEN}
       NEXT_PUBLIC_BACKEND_PROTOCOL: ${NEXT_PUBLIC_BACKEND_PROTOCOL}
       NEXT_PUBLIC_BACKEND_HOST: ${NEXT_PUBLIC_BACKEND_HOST}
+      NEXT_PUBLIC_BACKEND_HOST_BROWSER: ${NEXT_PUBLIC_BACKEND_HOST_BROWSER:-}
       NEXT_PUBLIC_BACKEND_PORT: ${NEXT_PUBLIC_BACKEND_PORT}
       GA_ID: ${GA_ID}
       GTM_ID: ${GTM_ID}
     ports:
-      - 3080:3000
+      - ${FRONTEND_PORT}:3000
     volumes:
       - ./frontend:/app
       - /app/node_modules

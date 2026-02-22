@@ -39,19 +39,6 @@
     height: 100%;
   }
 
-  .itp-c-image_container {
-    max-width: 500px;
-    height: 100%;
-    overflow: hidden;
-    border-radius: $itp-border-radius--m;
-
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-  }
-
   @include for-size(tablet-lg) {
     grid-template-columns: 1fr;
 

@@ -8,6 +8,7 @@ data
 
 backend/public/uploads/*
 backend_export_*
+exports/
 
 
 ### React ###
