@@ -92,7 +92,7 @@ services:
         max-file: "3"
 
   frontend:
-    image: 0noder4/targus:frontend_${FRONTEND_TAG
+    image: 0noder4/targus:frontend_${FRONTEND_TAG}
     container_name: ${PROJECT_NAME}_frontend
     build:
       context: frontend
