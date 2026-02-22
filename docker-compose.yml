@@ -14,7 +14,7 @@ services:
       - internal
 
   backend:
-    image: 0noder4/targus:backend
+    image: ${REGISTRY_IMAGE}:backend_${BACKEND_TAG}
     container_name: ${PROJECT_NAME}_backend
     build:
       context: backend
@@ -44,7 +44,7 @@ services:
       - internal
 
   frontend:
-    image: 0noder4/targus:frontend
+    image: ${REGISTRY_IMAGE}:frontend_${FRONTEND_TAG}
     container_name: ${PROJECT_NAME}_frontend
     restart: on-failure
     build:
