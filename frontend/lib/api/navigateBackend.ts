@@ -2,18 +2,18 @@ const isBrowser = typeof window !== "undefined";
 const useBrowserHost =
   isBrowser && process.env.NEXT_PUBLIC_BACKEND_HOST_BROWSER;
 
-/** Protocol for browser URLs (behind proxy). Defaults to https when HOST_BROWSER is set. */
+/** Protocol for browser URLs. Defaults to http when HOST_BROWSER is set so GraphQL/images work without Caddy. */
 const browserProtocol =
   process.env.NEXT_PUBLIC_BACKEND_PROTOCOL_BROWSER ??
   (process.env.NEXT_PUBLIC_BACKEND_HOST_BROWSER
-    ? "https"
+    ? "http"
     : process.env.NEXT_PUBLIC_BACKEND_PROTOCOL);
 
-/** Port for browser URLs. Empty = default (443 for https). */
+/** Port for browser URLs. Defaults to 1337 for local dev when HOST_BROWSER is set. */
 const browserPort =
   process.env.NEXT_PUBLIC_BACKEND_PORT_BROWSER ??
   (process.env.NEXT_PUBLIC_BACKEND_HOST_BROWSER
-    ? ""
+    ? process.env.NEXT_PUBLIC_BACKEND_PORT || "1337"
     : process.env.NEXT_PUBLIC_BACKEND_PORT);
 
 /**
@@ -31,12 +31,16 @@ const navigateBackend = (path: string) => {
 };
 
 /**
- * Backend URL for images. Same on server and client (avoids hydration mismatch).
+ * Backend URL for images. Uses relative path when path starts with / so requests
+ * go through the Next.js app (rewrite to backend), same on server and client (no hydration mismatch).
  * @param path - Image path (e.g. /uploads/foo.png)
- * @param forBrowser - If true, use host reachable from browser (proxy on 443).
- *   Use for images loaded directly (SVG image href, raw img src). Default: false (Next.js Image).
+ * @param forBrowser - If true and path is not relative, use host reachable from browser.
  */
 export const getBackendImageUrl = (path: string, forBrowser = false) => {
+  const normalizedPath = path.startsWith("http") ? new URL(path).pathname : path;
+  if (normalizedPath.startsWith("/")) {
+    return normalizedPath;
+  }
   const protocol = forBrowser
     ? browserProtocol
     : process.env.NEXT_PUBLIC_BACKEND_PROTOCOL;
@@ -46,7 +50,7 @@ export const getBackendImageUrl = (path: string, forBrowser = false) => {
       process.env.NEXT_PUBLIC_BACKEND_HOST
     : process.env.NEXT_PUBLIC_BACKEND_HOST;
   const portPart = port ? `:${port}` : "";
-  return `${protocol}://${host}${portPart}${path}`;
+  return `${protocol}://${host}${portPart}/${normalizedPath}`;
 };
 
 export default navigateBackend;

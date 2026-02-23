@@ -1,7 +1,14 @@
-targipracy.org.pl {
-    reverse_proxy frontend:3000
+# Production Caddyfile for Targus
+# Two domains: API (Strapi) and frontend (Next.js).
+
+{
+	# email admin@example.com
 }
 
 api.targipracy.org.pl {
-    reverse_proxy backend:1337
+	reverse_proxy backend:1337
+}
+
+targipracy.org.pl {
+	reverse_proxy frontend:3000
 }
