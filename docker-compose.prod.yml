@@ -149,9 +149,27 @@ services:
         max-size: "10m"
         max-file: "3"
 
+  caddy:
+    image: caddy:2-alpine
+    container_name: ${PROJECT_NAME}_caddy
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    volumes:
+      - ./caddy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+    networks:
+      - internal
+    depends_on:
+      - frontend
+      - backend
+
 volumes:
   postgres_data:
   backend_uploads:
+  caddy_data:
 
 networks:
   internal:
