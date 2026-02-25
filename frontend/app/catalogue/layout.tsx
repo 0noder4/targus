@@ -10,6 +10,25 @@ import { GET_CATALOUGE_HEADER } from "../../graphql/sections/catalogue";
 // Types
 import { Metadata } from "next";
 
+type CatalougeMetadataData = {
+  catalouge: {
+    metadata: {
+      pageTitle: string;
+      pageDescription: string;
+      keywords: string;
+      canonicalUrl: string;
+      openGraph: { OG_title: string; OG_description: string; OG_type: string };
+      twitterCard: { T_title: string; T_description: string; T_image: { url: string } };
+    };
+  };
+};
+
+type CatalougeHeaderData = {
+  catalouge: {
+    header: Record<string, unknown>;
+  };
+};
+
 // Components
 import Header from "/components/global/Header/Header";
 
@@ -18,9 +37,13 @@ import styles from "./page.module.scss";
 
 export async function generateMetadata(): Promise<Metadata> {
   const client = getClient();
-  const { data } = await client.query({
+  const { data } = await client.query<CatalougeMetadataData>({
     query: GET_CATALOUGE_METADATA,
   });
+
+  if (!data?.catalouge?.metadata) {
+    return { title: "Katalog", description: "" };
+  }
 
   const {
     catalouge: { metadata },
@@ -35,7 +58,7 @@ export async function generateMetadata(): Promise<Metadata> {
       title: metadata.openGraph.OG_title,
       description: metadata.openGraph.OG_description,
       siteName: metadata.canonicalUrl,
-      type: metadata.openGraph.OG_type,
+      type: metadata.openGraph.OG_type as "website" | "article",
     },
     twitter: {
       description: metadata.twitterCard.T_description,
@@ -53,17 +76,21 @@ export default async function CatalougeLayout({
   children: React.ReactNode;
 }>) {
   const client = getClient();
-  const {
-    data: {
-      catalouge: { header },
-    },
-  } = await client.query({
+  const { data } = await client.query<CatalougeHeaderData>({
     query: GET_CATALOUGE_HEADER,
   });
 
+  if (!data?.catalouge?.header) {
+    throw new Error("Catalogue header data not available");
+  }
+
+  const {
+    catalouge: { header },
+  } = data;
+
   return (
     <div className={styles.page}>
-      <Header {...header} />
+      <Header {...(header as unknown as React.ComponentProps<typeof Header>)} />
       <main className={styles.container}>
         <ApolloProvider>{children}</ApolloProvider>
       </main>

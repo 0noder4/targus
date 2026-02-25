@@ -1,4 +1,4 @@
-@use "/styles/scss" as *;
+@use "styles/scss" as *;
 .container {
   @include itp-padding--s;
   @include itp-border--dark;

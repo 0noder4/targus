@@ -31,11 +31,11 @@ const Hero = (props?: HomeHero) => {
   const iconAlt = props?.icon?.alternativeText ?? "cog";
 
   // Refs definitions used for hero image scaling
-  const ParentRef = useRef<HTMLInputElement>(null); // Ref of HERO section
-  const UTRef = useRef<HTMLInputElement>(null);
-  const UBRef = useRef<HTMLInputElement>(null);
-  const LTRef = useRef<HTMLInputElement>(null);
-  const LBRef = useRef<HTMLInputElement>(null);
+  const ParentRef = useRef<HTMLElement>(null); // Ref of HERO section
+  const UTRef = useRef<HTMLElement>(null);
+  const UBRef = useRef<HTMLElement>(null);
+  const LTRef = useRef<HTMLElement>(null);
+  const LBRef = useRef<HTMLElement>(null);
 
   const timeLeft = useCountdown(eventDate);
 

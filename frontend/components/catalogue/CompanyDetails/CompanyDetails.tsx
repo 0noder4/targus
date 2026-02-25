@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Markdown from "react-markdown";
-import { useSuspenseQuery } from "@apollo/client";
+import { useSuspenseQuery } from "@apollo/client/react";
 import { useOutsideClick } from "/hooks/useOutsideClick";
 import { getBackendImageUrl } from "../../../lib/api/navigateBackend";
 

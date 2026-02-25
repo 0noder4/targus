@@ -13,6 +13,9 @@ const backendBase =
 
 const nextConfig = {
   reactStrictMode: true,
+  sassOptions: {
+    includePaths: [process.cwd()],
+  },
   async rewrites() {
     return [
       {

@@ -6,13 +6,21 @@ const FALLBACK_RECIPIENTS = [
   "bartosz.kuklewski@best.pw.edu.pl",
 ];
 
+type ContactSettingsData = {
+  contactSetting?: {
+    recipients?: Array<{ email?: string; name?: string }>;
+  };
+};
+
 async function getRecipients(): Promise<string[]> {
   const token = process.env.BACKEND_API_TOKEN;
   if (!token) return FALLBACK_RECIPIENTS;
 
   try {
     const client = getClient();
-    const { data } = await client.query({ query: GET_CONTACT_SETTINGS });
+    const { data } = await client.query<ContactSettingsData>({
+      query: GET_CONTACT_SETTINGS,
+    });
     const recipients = data?.contactSetting?.recipients;
     if (!Array.isArray(recipients) || recipients.length === 0) {
       return FALLBACK_RECIPIENTS;

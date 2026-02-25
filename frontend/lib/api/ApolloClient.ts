@@ -1,16 +1,22 @@
 import { from, HttpLink } from "@apollo/client";
 import { onError } from "@apollo/client/link/error";
+import { CombinedGraphQLErrors } from "@apollo/client/errors";
 import {
   registerApolloClient,
   ApolloClient,
   InMemoryCache,
-} from "@apollo/experimental-nextjs-app-support";
+} from "@apollo/client-integration-nextjs";
 import navigateBackend from "./navigateBackend";
 
-const errorLink = onError(({ graphQLErrors, networkError }) => {
-  if (networkError) {
-    console.error(`[Network error]: ${networkError}`);
+const errorLink = onError(({ error, operation, forward }) => {
+  if (CombinedGraphQLErrors.is(error)) {
+    error.errors.forEach(({ message }) =>
+      console.error(`[GraphQL error]: ${message}`)
+    );
+  } else {
+    console.error(`[Network error]: ${error}`);
   }
+  return forward(operation);
 });
 
 const token = process.env.BACKEND_API_TOKEN;

@@ -1,5 +1,6 @@
-@use "/styles/scss/base/typography" as *;
-@use "/styles/scss/base/colors" as *;
+@use "styles/scss/base/typography" as *;
+@use "styles/scss/base/colors" as *;
+@use "sass:color";
 
 .city-detail {
   padding: 60px 20px;
@@ -103,7 +104,7 @@
     }
 
     &:hover {
-      background-color: darken($itp-color--accent, 10%);
+      background-color: color.adjust($itp-color--accent, $lightness: -10%);
     }
   }
 

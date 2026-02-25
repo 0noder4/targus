@@ -15,15 +15,47 @@ import OurTeam from "/components/business/OurTeam/OurTeam";
 import { GET_BUSINESS_SECTIONS } from "../../graphql/sections";
 import { GET_BUSINESS_METADATA } from "../../graphql/metadata";
 
+// Types for GraphQL results
+type BusinessMetadataData = {
+  businessPage: {
+    metadata: {
+      pageTitle: string;
+      pageDescription: string;
+      keywords: string;
+      canonicalUrl: string;
+      openGraph: {
+        OG_title: string;
+        OG_description: string;
+        OG_type: string;
+      };
+      twitterCard: {
+        T_title: string;
+        T_description: string;
+        T_image: { url: string };
+      };
+    };
+  };
+};
+
+type BusinessSectionsData = {
+  businessPage: {
+    sections: Array<Record<string, unknown> & { internalName: string }>;
+  };
+};
+
 // Styles
 import styles from "./page.module.scss";
 
 // Metadata fetch from backend
 export async function generateMetadata(): Promise<Metadata> {
   const client = getClient();
-  const { data } = await client.query({
+  const { data } = await client.query<BusinessMetadataData>({
     query: GET_BUSINESS_METADATA,
   });
+
+  if (!data?.businessPage) {
+    return { title: "Targus", description: "" };
+  }
 
   const {
     businessPage: { metadata },
@@ -38,7 +70,7 @@ export async function generateMetadata(): Promise<Metadata> {
       title: metadata.openGraph.OG_title,
       description: metadata.openGraph.OG_description,
       siteName: metadata.canonicalUrl,
-      type: metadata.openGraph.OG_type,
+      type: metadata.openGraph.OG_type as "website" | "article",
     },
     twitter: {
       description: metadata.twitterCard.T_description,
@@ -52,18 +84,22 @@ export async function generateMetadata(): Promise<Metadata> {
 
 const Index = async () => {
   const client = getClient();
-  const {
-    data: {
-      businessPage: { sections },
-    },
-  } = await client.query({
+  const { data } = await client.query<BusinessSectionsData>({
     query: GET_BUSINESS_SECTIONS,
   });
+
+  if (!data?.businessPage?.sections) {
+    throw new Error("Business page data not available");
+  }
+
+  const {
+    businessPage: { sections },
+  } = data;
 
   const findByInternalName = (name: string) =>
     sections.find(
       (section: { internalName: string }) => section.internalName === name
-    );
+    ) as Record<string, unknown> | undefined;
 
   const businessHeaderProps = findByInternalName("businessHeader");
   const businessHeroProps = findByInternalName("businessHero");
@@ -74,14 +110,14 @@ const Index = async () => {
 
   return (
     <div className={styles.page}>
-      <Header {...businessHeaderProps} />
+      <Header {...(businessHeaderProps as unknown as React.ComponentProps<typeof Header>)} />
       <main>
-        <Hero {...businessHeroProps} />
-        <ForBusiness {...businessForBusinessProps} />
-        <ContactForm {...businessContactFormProps} />
-        <OurTeam {...businessFRProps} />
+        <Hero {...(businessHeroProps as any)} />
+        <ForBusiness {...(businessForBusinessProps as any)} />
+        <ContactForm {...(businessContactFormProps as any)} />
+        <OurTeam {...(businessFRProps as any)} />
       </main>
-      <Footer {...businessFooterProps} />
+      <Footer {...(businessFooterProps as unknown as React.ComponentProps<typeof Footer>)} />
     </div>
   );
 };

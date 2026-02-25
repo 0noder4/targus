@@ -14,39 +14,47 @@ import { citiesData } from "../../../constants/poland";
 
 import { GET_HOME_SECTIONS } from "../../../graphql/sections";
 
+type HomeSectionsData = {
+  homePage: { sections: Array<Record<string, unknown> & { internalName: string }> };
+};
+
 export function generateStaticParams() {
   return Object.keys(citiesData).map((city) => ({ city }));
 }
 
-export function generateMetadata({
+export async function generateMetadata({
   params,
 }: {
-  params: { city: string };
-}): Metadata {
-  const city = citiesData[params.city];
-  if (!city) {
+  params: Promise<{ city: string }>;
+}): Promise<Metadata> {
+  const { city } = await params;
+  const data = citiesData[city];
+  if (!data) {
     return { title: "Nie znaleziono" };
   }
   return {
-    title: `${city.title} | Inżynierskie Targi Pracy`,
-    description: `${city.description} Dotarcie do inżynierów w całym kraju.`,
+    title: `${data.title} | Inżynierskie Targi Pracy`,
+    description: `${data.description} Dotarcie do inżynierów w całym kraju.`,
   };
 }
 
-const CityPage = async ({ params }: { params: { city: string } }) => {
-  const city = citiesData[params.city];
+const CityPage = async ({ params }: { params: Promise<{ city: string }> }) => {
+  const { city: citySlug } = await params;
+  const city = citiesData[citySlug];
   if (!city) {
     notFound();
   }
 
   const client = getClient();
-  const {
-    data: {
-      homePage: { sections },
-    },
-  } = await client.query({
+  const { data } = await client.query<HomeSectionsData>({
     query: GET_HOME_SECTIONS,
   });
+
+  if (!data?.homePage?.sections) {
+    throw new Error("Home sections not available");
+  }
+
+  const { homePage: { sections } } = data;
 
   const headerProps = sections.find(
     (section: { internalName: string }) =>
@@ -55,7 +63,7 @@ const CityPage = async ({ params }: { params: { city: string } }) => {
 
   return (
     <div className="itp-poland">
-      <Header {...headerProps} />
+      <Header {...(headerProps as unknown as React.ComponentProps<typeof Header>)} />
       <main>
         <Hero />
         <CityDetail city={city} />

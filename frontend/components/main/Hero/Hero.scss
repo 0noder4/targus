@@ -1,5 +1,5 @@
-@use "/styles/scss" as v;
-@use "/styles/scss/modules/spacing";
+@use "styles/scss" as v;
+@use "styles/scss/modules/spacing";
 
 .itp-main_section--hero {
   @include spacing.itp-section_margin;

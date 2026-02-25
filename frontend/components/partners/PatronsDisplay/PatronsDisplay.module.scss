@@ -1,4 +1,4 @@
-@use "/styles/scss" as *;
+@use "styles/scss" as *;
 
 .section {
   @include itp-section_padding;

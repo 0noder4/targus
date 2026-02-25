@@ -17,12 +17,36 @@ import { GET_PARTNERS_METADATA } from "../../graphql/metadata";
 import { GET_PARTNERS } from "../../graphql/companies";
 import { GET_PATRONS } from "../../graphql/patrons";
 
+type PartnersMetadataData = {
+  partnersPage: {
+    metadata: {
+      pageTitle: string;
+      pageDescription: string;
+      keywords: string;
+      canonicalUrl: string;
+      openGraph: { OG_title: string; OG_description: string; OG_type: string };
+      twitterCard: { T_title: string; T_description: string; T_image: { url: string } };
+    };
+  };
+};
+
+type PartnersSectionsData = {
+  partnersPage: { sections: Array<Record<string, unknown> & { internalName: string }> };
+};
+
+type PartnersQueryData = { partners?: unknown[]; [key: string]: unknown };
+type PatronsQueryData = { patrons?: Array<{ type: string }>; [key: string]: unknown };
+
 // Metadata fetch from backend
 export async function generateMetadata(): Promise<Metadata> {
   const client = getClient();
-  const { data } = await client.query({
+  const { data } = await client.query<PartnersMetadataData>({
     query: GET_PARTNERS_METADATA,
   });
+
+  if (!data?.partnersPage?.metadata) {
+    return { title: "Partnerzy", description: "" };
+  }
 
   const {
     partnersPage: { metadata },
@@ -37,7 +61,7 @@ export async function generateMetadata(): Promise<Metadata> {
       title: metadata.openGraph.OG_title,
       description: metadata.openGraph.OG_description,
       siteName: metadata.canonicalUrl,
-      type: metadata.openGraph.OG_type,
+      type: metadata.openGraph.OG_type as "website" | "article",
     },
     twitter: {
       description: metadata.twitterCard.T_description,
@@ -51,22 +75,26 @@ export async function generateMetadata(): Promise<Metadata> {
 
 const Index = async () => {
   const client = getClient();
-  const {
-    data: {
-      partnersPage: { sections },
-    },
-  } = await client.query({
+  const { data } = await client.query<PartnersSectionsData>({
     query: GET_PARTNERS_SECTIONS,
   });
 
-  const { data: partnersData } = await client.query({
+  if (!data?.partnersPage?.sections) {
+    throw new Error("Partners page sections not available");
+  }
+
+  const {
+    partnersPage: { sections },
+  } = data;
+
+  const { data: partnersData } = await client.query<PartnersQueryData>({
     query: GET_PARTNERS,
     variables: {
       filters: { partnershipType: { in: ["main", "partner"] } },
     },
   });
 
-  const { data: patronsData } = await client.query({
+  const { data: patronsData } = await client.query<PatronsQueryData>({
     query: GET_PATRONS,
     variables: {
       filters: { type: { in: ["media", "content", "honorable"] } },
@@ -103,27 +131,30 @@ const Index = async () => {
       section.internalName === "partnersFooter"
   );
 
+  const patrons = patronsData?.patrons ?? [];
+  const partners = partnersData?.partners ?? [];
+
   return (
     <div className="itp-partners">
-      <Header {...partnerHeaderProps} />
+      <Header {...(partnerHeaderProps as unknown as React.ComponentProps<typeof Header>)} />
       <main>
-        <Hero {...partnerHeroProps} />
-        <PartnerDisplay {...partnersDisplayProps} {...partnersData} />
-        <PartnersDescription {...partnersDescriptionProps} {...partnersData} />
+        <Hero {...(partnerHeroProps as any)} />
+        <PartnerDisplay {...(partnersDisplayProps as any)} {...(partnersData ?? {})} />
+        <PartnersDescription {...(partnersDescriptionProps as any)} {...(partnersData ?? {})} />
         <PatronsDisplay
-          label={patronsDisplayProps?.mediaPatronsLabel ?? "Patroni medialni"}
-          patrons={patronsData.patrons.filter((p: { type: string }) => p.type === "media")}
+          label={String(patronsDisplayProps?.mediaPatronsLabel ?? "Patroni medialni")}
+          patrons={(patrons.filter((p: { type: string }) => p.type === "media") as any)}
         />
         <PatronsDisplay
-          label={patronsDisplayProps?.contentPatronsLabel ?? "Patroni merytoryczni"}
-          patrons={patronsData.patrons.filter((p: { type: string }) => p.type === "content")}
+          label={String(patronsDisplayProps?.contentPatronsLabel ?? "Patroni merytoryczni")}
+          patrons={(patrons.filter((p: { type: string }) => p.type === "content") as any)}
         />
         <PatronsDisplay
-          label={patronsDisplayProps?.honorablePatronsLabel ?? "Patroni honorowi"}
-          patrons={patronsData.patrons.filter((p: { type: string }) => p.type === "honorable")}
+          label={String(patronsDisplayProps?.honorablePatronsLabel ?? "Patroni honorowi")}
+          patrons={(patrons.filter((p: { type: string }) => p.type === "honorable") as any)}
         />
       </main>
-      <Footer {...partnersFooterProps} />
+      <Footer {...(partnersFooterProps as unknown as React.ComponentProps<typeof Footer>)} />
     </div>
   );
 };

@@ -1,12 +1,7 @@
-# Production Docker Compose - Targus
+# Production Docker Compose
 # Ensure NODE_ENV=production and .env.prod (or .env) is configured.
 #
-# Build order (required for static prerender - backend must be reachable during frontend build):
-#   1. docker compose -f docker-compose.prod.yml up -d postgres backend
-#   2. DOCKER_BUILDKIT=0 docker compose -f docker-compose.prod.yml build frontend
-#   3. docker compose -f docker-compose.prod.yml up -d
-#
-# Or use: ./scripts/build-prod.sh
+# This compose has to use legacy builder. For building use: ./scripts/build-prod.sh
 
 services:
   postgres:
@@ -28,16 +23,12 @@ services:
       timeout: 5s
       retries: 5
       start_period: 30s
-    # Expose only if you need direct DB access (e.g. backups). Omit for security.
-    # ports:
-    #   - "127.0.0.1:${DATABASE_PORT}:5432"
-    # Uncomment for resource limits:
-    # deploy:
-    #   resources:
-    #     limits:
-    #       memory: 1G
-    #     reservations:
-    #       memory: 256M
+    deploy:
+      resources:
+        limits:
+          memory: 1G
+        reservations:
+          memory: 256M
     logging:
       driver: "json-file"
       options:
@@ -80,11 +71,11 @@ services:
     networks:
       - internal
     volumes:
-      - backend_uploads:/opt/app/public/uploads
-    # deploy:
-    #   resources:
-    #     limits:
-    #       memory: 1G
+      - ./backend/public:/opt/app/public
+    deploy:
+      resources:
+        limits:
+          memory: 1G
     logging:
       driver: "json-file"
       options:
@@ -100,13 +91,13 @@ services:
       network: ${COMPOSE_PROJECT_NAME:-targus}_internal
       args:
         NODE_ENV: production
+        BACKEND_API_TOKEN: ${BACKEND_API_TOKEN}
         NEXT_PUBLIC_BACKEND_PROTOCOL: ${NEXT_PUBLIC_BACKEND_PROTOCOL}
         NEXT_PUBLIC_BACKEND_HOST: ${NEXT_PUBLIC_BACKEND_HOST}
-        NEXT_PUBLIC_BACKEND_HOST_BROWSER: ${NEXT_PUBLIC_BACKEND_HOST_BROWSER:-}
-        NEXT_PUBLIC_BACKEND_PROTOCOL_BROWSER: ${NEXT_PUBLIC_BACKEND_PROTOCOL_BROWSER:-}
         NEXT_PUBLIC_BACKEND_PORT: ${NEXT_PUBLIC_BACKEND_PORT}
+        NEXT_PUBLIC_BACKEND_PROTOCOL_BROWSER: ${NEXT_PUBLIC_BACKEND_PROTOCOL_BROWSER:-}
+        NEXT_PUBLIC_BACKEND_HOST_BROWSER: ${NEXT_PUBLIC_BACKEND_HOST_BROWSER:-}
         NEXT_PUBLIC_BACKEND_PORT_BROWSER: ${NEXT_PUBLIC_BACKEND_PORT_BROWSER:-}
-        BACKEND_API_TOKEN: ${BACKEND_API_TOKEN}
         GA_ID: ${GA_ID}
         GTM_ID: ${GTM_ID}
     restart: unless-stopped
@@ -123,9 +114,9 @@ services:
       BACKEND_API_TOKEN: ${BACKEND_API_TOKEN}
       NEXT_PUBLIC_BACKEND_PROTOCOL: ${NEXT_PUBLIC_BACKEND_PROTOCOL}
       NEXT_PUBLIC_BACKEND_HOST: ${NEXT_PUBLIC_BACKEND_HOST}
-      NEXT_PUBLIC_BACKEND_HOST_BROWSER: ${NEXT_PUBLIC_BACKEND_HOST_BROWSER:-}
-      NEXT_PUBLIC_BACKEND_PROTOCOL_BROWSER: ${NEXT_PUBLIC_BACKEND_PROTOCOL_BROWSER:-}
       NEXT_PUBLIC_BACKEND_PORT: ${NEXT_PUBLIC_BACKEND_PORT}
+      NEXT_PUBLIC_BACKEND_PROTOCOL_BROWSER: ${NEXT_PUBLIC_BACKEND_PROTOCOL_BROWSER:-}
+      NEXT_PUBLIC_BACKEND_HOST_BROWSER: ${NEXT_PUBLIC_BACKEND_HOST_BROWSER:-}
       NEXT_PUBLIC_BACKEND_PORT_BROWSER: ${NEXT_PUBLIC_BACKEND_PORT_BROWSER:-}
       GA_ID: ${GA_ID}
       GTM_ID: ${GTM_ID}
@@ -142,11 +133,10 @@ services:
       - "127.0.0.1:${FRONTEND_PORT:-3000}:3000"
     networks:
       - internal
-    # No volume mounts - use built image for reproducibility
-    # deploy:
-    #   resources:
-    #     limits:
-    #       memory: 512M
+    deploy:
+      resources:
+        limits:
+          memory: 512M
     logging:
       driver: "json-file"
       options:

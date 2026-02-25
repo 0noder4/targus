@@ -6,11 +6,11 @@ import React, { RefObject, useEffect, useState } from "react";
 import "./HeroImage.scss";
 
 interface Props {
-  ParentRef: RefObject<HTMLElement>;
-  UTRef: RefObject<HTMLElement>;
-  UBRef: RefObject<HTMLElement>;
-  LTRef: RefObject<HTMLElement>;
-  LBRef: RefObject<HTMLElement>;
+  ParentRef: RefObject<HTMLElement | null>;
+  UTRef: RefObject<HTMLElement | null>;
+  UBRef: RefObject<HTMLElement | null>;
+  LTRef: RefObject<HTMLElement | null>;
+  LBRef: RefObject<HTMLElement | null>;
   backgroundImageUrl?: string;
 }
 

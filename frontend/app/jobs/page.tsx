@@ -1,7 +1,7 @@
 "use client";
 
 import React, { Suspense, useState } from "react";
-import { useSuspenseQuery } from "@apollo/client";
+import { useSuspenseQuery } from "@apollo/client/react";
 
 // Queries
 import { GET_JOB_PARAMS } from "/graphql/jobs/getJobParams";

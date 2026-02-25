@@ -1,8 +1,9 @@
+@use "sass:map";
 @use "../base/breakpoints.scss" as *;
 
 @mixin for-size($breakpoint, $direction: down) {
-  @if map-has-key($itp-breakpoints, $breakpoint) {
-    $breakpoint-value: map-get($itp-breakpoints, $breakpoint);
+  @if map.has-key($itp-breakpoints, $breakpoint) {
+    $breakpoint-value: map.get($itp-breakpoints, $breakpoint);
 
     @if $direction == up {
       @media (min-width: $breakpoint-value) {

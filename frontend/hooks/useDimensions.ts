@@ -5,7 +5,7 @@ interface Dimensions {
   height: number;
 }
 
-export function useDimensions(ref: RefObject<HTMLElement>): Dimensions {
+export function useDimensions(ref: RefObject<HTMLElement | null>): Dimensions {
   const [dimensions, setDimensions] = useState<Dimensions>({
     width: 0,
     height: 0,
@@ -27,7 +27,7 @@ export function useDimensions(ref: RefObject<HTMLElement>): Dimensions {
 
     const resizeObserver = new ResizeObserver(updateDimensions);
     if (tempRef) {
-      resizeObserver.observe(ref.current);
+      resizeObserver.observe(tempRef);
     }
 
     return () => {

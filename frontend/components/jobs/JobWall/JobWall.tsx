@@ -1,5 +1,5 @@
 import React from "react";
-import { useSuspenseQuery } from "@apollo/client";
+import { useSuspenseQuery } from "@apollo/client/react";
 
 // Queries
 import { GET_JOBS } from "../../../graphql/jobs/getJobs";

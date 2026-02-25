@@ -10,23 +10,26 @@ ENV_FILE="${2:-.env}"
 [[ -z "$2" && -f .env.prod ]] && ENV_FILE=".env.prod"
 
 source "$ENV_FILE" 2>/dev/null || true
-if [[ -z "${BACKEND_API_TOKEN:-}" ]]; then
-  echo "ERROR: BACKEND_API_TOKEN not set. Create an API token in Strapi admin and add it to $ENV_FILE"
-  exit 1
-fi
 
-echo "Starting postgres and backend..."
-docker compose --env-file "$ENV_FILE" -f "$COMPOSE_FILE" up -d postgres backend
+echo "Starting postgres"
+
+docker compose --env-file "$ENV_FILE" -f "$COMPOSE_FILE" up -d postgres
+
+echo "Building backend..."
+docker compose --env-file "$ENV_FILE" -f "$COMPOSE_FILE" build backend
+
+echo "Starting backend..."
+docker compose --env-file "$ENV_FILE" -f "$COMPOSE_FILE" up -d backend
 
 echo "Waiting for backend..."
 until docker compose --env-file "$ENV_FILE" -f "$COMPOSE_FILE" exec -T backend node -e "require('http').get('http://localhost:1337/', r => process.exit(r.statusCode && r.statusCode < 500 ? 0 : 1)).on('error', () => process.exit(1))" 2>/dev/null; do
-  sleep 3
+  sleep 5
 done
 
 echo "Building frontend..."
 DOCKER_BUILDKIT=0 docker compose --env-file "$ENV_FILE" -f "$COMPOSE_FILE" build frontend
 
-echo "Starting all services..."
+echo "Restarting all services..."
 docker compose  --env-file "$ENV_FILE" -f "$COMPOSE_FILE" up -d
 
 echo "Done."

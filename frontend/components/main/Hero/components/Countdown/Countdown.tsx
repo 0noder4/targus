@@ -10,9 +10,9 @@ type Props = {
     minutes: number;
     seconds: number;
   };
-  ParentRef: RefObject<HTMLElement>;
-  UTRef: RefObject<HTMLElement>;
-  UBRef: RefObject<HTMLElement>;
+  ParentRef: RefObject<HTMLElement | null>;
+  UTRef: RefObject<HTMLElement | null>;
+  UBRef: RefObject<HTMLElement | null>;
 };
 
 const Countdown: React.FC<Props> = ({ timeLeft, ParentRef, UTRef, UBRef }) => {
