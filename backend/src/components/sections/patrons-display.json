@@ -12,6 +12,9 @@
     "patronsLabel": {
       "type": "string"
     },
+    "mediaPatronsLabel": {
+      "type": "string"
+    },
     "contentPatronsLabel": {
       "type": "string"
     },

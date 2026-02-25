@@ -13,6 +13,8 @@ interface PatronsDisplayProps {
 }
 
 const PatronsDisplay = ({ label, patrons }: PatronsDisplayProps) => {
+  if (!patrons.length) return null;
+
   return (
     <section className={styles.section}>
       <h2 className={styles.label}>{label}</h2>

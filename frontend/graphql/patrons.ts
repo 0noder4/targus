@@ -6,7 +6,6 @@ export const GET_PATRONS = gql`
       internalName
       externalName
       type
-      patronType
       logo {
         url
         alternativeText
