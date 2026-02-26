@@ -27,7 +27,7 @@ until docker compose --env-file "$ENV_FILE" -f "$COMPOSE_FILE" exec -T backend n
 done
 
 echo "Building frontend..."
-DOCKER_BUILDKIT=0 docker compose --env-file "$ENV_FILE" -f "$COMPOSE_FILE" build frontend
+DOCKER_BUILDKIT=0 docker compose --env-file "$ENV_FILE" -f "$COMPOSE_FILE" build --no-cache frontend
 
 echo "Restarting all services..."
 docker compose  --env-file "$ENV_FILE" -f "$COMPOSE_FILE" up -d
