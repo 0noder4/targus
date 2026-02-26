@@ -58,5 +58,18 @@
     &:hover {
       transform: translate(-50%, -80px) scale(1.3);
     }
+
+    @media (max-width: 768px) {
+      transform: translate(-50%, -48px);
+
+      .poland-map__pin-icon {
+        width: 36px;
+        height: 48px;
+      }
+
+      &:hover {
+        transform: translate(-50%, -48px) scale(1.3);
+      }
+    }
   }
 }
