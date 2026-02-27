@@ -28,7 +28,7 @@ const JobWall = ({ filters }: Props) => {
   const {
     data: { jobs },
   } = useSuspenseQuery<{
-    jobs: JobBrief[];
+    jobs: JobBrief[] | null;
   }>(GET_JOBS, {
     variables: {
       filters: {
@@ -52,6 +52,8 @@ const JobWall = ({ filters }: Props) => {
       },
     },
   });
+
+  if (!jobs) return <div className={styles.container} />;
 
   return (
     <div className={styles.container}>

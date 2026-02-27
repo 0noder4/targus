@@ -9,7 +9,12 @@
   align-items: center;
 }
 
+.logoWrapper {
+  position: relative;
+  width: 12rem;
+  height: 6rem;
+}
+
 .logo {
-  height: 4rem;
-  width: auto;
+  object-fit: contain;
 }

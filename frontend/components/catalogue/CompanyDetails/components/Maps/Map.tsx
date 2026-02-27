@@ -14,6 +14,8 @@ const Map = ({
   const [activeGroup, setActiveGroup] = useState<string | null>(null);
 
   useEffect(() => {
+    if (!stand) return;
+
     const topLevelSelector = `.map_day_${day}`;
 
     if (activeGroup) {

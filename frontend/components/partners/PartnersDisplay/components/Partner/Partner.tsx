@@ -17,12 +17,12 @@ const Partner = ({
     <div
       className={`${styles.container} ${styles[partnershipType]} ${className}`}
     >
-      <figure>
+      <figure className={styles.logoWrapper}>
         <Image
           src={getBackendImageUrl(logo.url)}
           alt={`Logo ${externalName}`}
-          width={logo.width}
-          height={logo.height}
+          fill
+          unoptimized
           className={styles.logo}
         />
       </figure>

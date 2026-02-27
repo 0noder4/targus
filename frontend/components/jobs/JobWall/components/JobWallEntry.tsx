@@ -1,5 +1,3 @@
-import React from "react";
-
 // Types
 import { JobBrief } from "/interfaces/jobs/JobBrief";
 
@@ -19,6 +17,10 @@ const JobWallEntry = ({
   if (title == "Laborant betonu - płatne praktyki/staż") {
     variant = "special";
   }
+
+  const companyName = company?.externalName ?? "Nieznana firma";
+  const cityList = cities ?? [];
+
   return (
     <div className={`${styles.container} ${styles[variant]}`}>
       <div className={styles.title}>
@@ -26,9 +28,9 @@ const JobWallEntry = ({
       </div>
       <div className={styles.bottom}>
         <div className={styles.details}>
-          <h3 className={styles.company}>{company.externalName}</h3>
+          <h3 className={styles.company}>{companyName}</h3>
           <h4 className={styles.location}>
-            {cities.map(
+            {cityList.map(
               (city: { externalName: string }) => `${city.externalName} `
             )}
           </h4>

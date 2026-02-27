@@ -56,17 +56,11 @@
 }
 
 .image {
-  display: flex;
-  height: auto;
-  align-items: center;
+  position: relative;
+  flex-shrink: 0;
+  width: 14rem;
+  height: 8rem;
   padding: $itp-spacing--s;
-  padding-right: 0;
-
-  img {
-    height: 4rem;
-    object-fit: cover;
-    width: auto;
-  }
 }
 
 .companyDescription {

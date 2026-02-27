@@ -46,12 +46,20 @@ const Index = () => {
     GET_CATALOUGE_SIDEBAR
   );
 
+  const firstMain = companies.filter(
+    (company) => company.partnershipType == "main"
+  )[0];
+
   const [selectedCompany, setSelectedCompany] = useState(
-    companies.filter((company) => company.partnershipType == "main")[0]
-      .documentId
+    firstMain?.documentId ?? companies[0]?.documentId ?? ""
   );
 
   const [showMobile, setShowMobile] = useState(false);
+
+  const selectedCompanyName =
+    companies.find((c) => c.documentId === selectedCompany)?.externalName ?? "";
+
+  if (!selectedCompany) return null;
 
   return (
     <>
@@ -59,6 +67,7 @@ const Index = () => {
         <ClientOnly>
           <CompanyDetails
             selectedCompany={selectedCompany}
+            fallbackName={selectedCompanyName}
             showMobile={showMobile}
             setShowMobile={setShowMobile}
           />
