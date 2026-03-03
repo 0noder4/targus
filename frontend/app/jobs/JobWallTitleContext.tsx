@@ -2,7 +2,7 @@
 
 import React, { createContext, useContext } from "react";
 
-const DEFAULT_TITLE = "Oferty 2025";
+const DEFAULT_TITLE = "Oferty";
 
 const JobWallTitleContext = createContext<string>(DEFAULT_TITLE);
 
