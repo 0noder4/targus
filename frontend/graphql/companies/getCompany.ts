@@ -13,7 +13,7 @@ export const GET_COMPANY = gql`
         height
       }
       description
-      jobs {
+      jobs(pagination: { limit: 20 }) {
         documentId
         title
       }
